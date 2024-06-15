@@ -1,0 +1,166 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Add product details</h4>
+                <!-- <p class="card-description">
+                  Basic form layout
+                </p> -->
+                <!-- <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                  <div class="form-group">
+                    <label for="mainHeading">Category Name</label>
+                    <select name="category" id="id_category" class="form-control">
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group">
+                    <label for="mainHeading">Sub Category Name</label>
+                    <select name="category" id="id_category" class="form-control">
+                        {% for category in category %}
+                            <option value="{{ category.id }}">{{ category.product_name }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group">
+                    <label for="newsHeading">Name</label>
+                    <input type="text" class="form-control" id="newsHeading" name="name" placeholder="Name">
+                  </div>
+                  
+                  <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                      
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary me-2">Submit</button>
+                  
+                </form> -->
+                <!-- <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="mainHeading">Category Name</label>
+                      <select name="category" id="id_category" class="form-control">
+                          <option value="">Select a category</option>
+                          {% for category in categories %}
+                              <option value="{{ category.id }}">{{ category.name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+          
+                  <div class="form-group">
+                      <label for="subCategory">Sub Category Name</label>
+                      <select name="subcategory" id="id_subcategory" class="form-control">
+                          <option value="">Select a subcategory</option>
+                          {% for subcategory in subcategories %}
+                              <option value="{{ subcategory.id }}" data-category="{{ subcategory.category.id }}">{{ subcategory.product_name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+          
+                  <div class="form-group">
+                      <label for="productName">Name</label>
+                      <input type="text" class="form-control" id="productName" name="name" placeholder="Name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="imageFile">Product Image</label>
+                    <input type="file" class="form-control" id="imageFile" name="product_image" placeholder="Upload Image">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="productPrice">Product Price</label>
+                    <input type="number" class="form-control" id="productPrice" name="product_price" placeholder="Product Price">
+                  </div>
+                  
+                  <div class="form-check form-check-flat form-check-primary">
+                      <label class="form-check-label">
+                      </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary me-2">Submit</button>
+                </form> -->
+                <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  
+                  <div class="form-group">
+                      <label for="mainHeading">Category Name</label>
+                      <select name="product_category" id="id_category" class="form-control">
+                          <option value="">Select a category</option>
+                          {% for category in categories %}
+                              <option value="{{ category.id }}">{{ category.name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="subCategory">Sub Category Name</label>
+                      <select name="sub_category" id="id_subcategory" class="form-control">
+                          <option value="">Select a subcategory</option>
+                          {% for subcategory in subcategories %}
+                              <option value="{{ subcategory.id }}" data-category="{{ subcategory.category.id }}">{{ subcategory.product_name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="productName">Name</label>
+                      <input type="text" class="form-control" id="productName" name="name" placeholder="Name">
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="imageFile">Product Image</label>
+                      <input type="file" class="form-control" id="imageFile" name="product_image" placeholder="Upload Image">
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="productPrice">Product Price</label>
+                      <input type="number" class="form-control" id="productPrice" name="product_price" placeholder="Product Price">
+                  </div>
+                  
+                  <div class="form-check form-check-flat form-check-primary">
+                      <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input" name="status"> Hidden
+                      </label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary me-2">Submit</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function() {
+            $('#id_category').change(function() {
+                var selectedCategory = $(this).val();
+                $('#id_subcategory option').each(function() {
+                    var subcategoryCategory = $(this).data('category');
+                    if (subcategoryCategory == selectedCategory || !selectedCategory) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+                $('#id_subcategory').val(''); // Reset subcategory selection
+            }).trigger('change'); // Trigger change event on page load to initialize the subcategory list
+        });
+    </script>
+    
+{% endblock %}
+
+
+ 

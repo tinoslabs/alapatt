@@ -1,0 +1,106 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+ 
+            <!-- <div class="col-lg-11 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Project Category Name</h4>
+               
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Category Name</th>
+                          <th>Subcategory Name</th>
+                          <th>Product Name</th>
+                          <th>Product Image</th>
+                          <th>Price</th>
+                          <th>
+                            Update
+                          </th>
+                          <th>
+                            Delete
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for products in details %}
+                        <tr>
+                          <td style="width: 150px; ">
+                            {{ products.product_category.name }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.sub_category.product_name }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.name }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.product_image }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.product_price }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.name }}
+                          </td>
+                          <td style="width: 150px; ">
+                            {{ products.name }}
+                          </td>
+                          
+                          <td style="width: 150px; ">
+                            <a href="{% url 'update_product_details' products.id  %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i> </button></a>
+                          </td>
+                          <td style="width: 150px; ">
+                            <a href="{% url 'delete_product_details' products.id  %}"><button><i class="mdi mdi-delete" aria-hidden="true"></i> </button></a> 
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-lg-11 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Project Category Name</h4>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Category Name</th>
+                      <th>Subcategory Name</th>
+                      <th>Product Name</th>
+                      <th>Product Image</th>
+                      <th>Price</th>
+                      <th>Update</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for product in details %}
+                    <tr>
+                      <td style="width: 150px;">{{ product.product_category.name }}</td>
+                      <td style="width: 150px;">{{ product.sub_category.product_name }}</td>
+                      <td style="width: 150px;">{{ product.name }}</td>
+                      <td style="width: 150px;"><img src="{{ product.product_image.url }}" alt="{{ product.name }}" style="width:100px;height:auto;"/></td>
+                      <td style="width: 150px;">{{ product.product_price }}</td>
+                      <td style="width: 150px;"><a href="{% url 'update_product_details' product.id %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i> </button></a></td>
+                      <td style="width: 150px;"><a href="{% url 'delete_product_details' product.id %}"><button><i class="mdi mdi-delete" aria-hidden="true"></i> </button></a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+
+        

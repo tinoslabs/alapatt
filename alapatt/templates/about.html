@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- <style>
+    .new-featured-product .row {
+    display: flex;
+    align-items: center;
+}
+
+.new-featured-product .thumb {
+    flex: 1;
+    text-align: center;
+}
+
+.new-featured-product .meta-wrap {
+    flex: 1;
+    padding: 20px;
+}
+
+.new-featured-product .meta {
+    text-align: left;
+}
+
+.new-featured-product .meta h3 {
+    text-align: center;
+    color: #dfb858;
+}
+
+.new-featured-product .meta p img {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.new-featured-product .meta p.jw-button {
+    text-align: center;
+}
+
+</style> -->
+<style>
+.new-featured-product .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.new-featured-product .thumb-left,
+.new-featured-product .thumb-right {
+    flex: 0 1 auto;
+    text-align: center;
+    margin: 0 10px; /* Adjust this value to control the space between images */
+}
+
+.new-featured-product .thumb-left h2,
+.new-featured-product .thumb-right h2,
+.new-featured-product .thumb-left p,
+.new-featured-product .thumb-right p {
+    font-family: 'Playfair Display';
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .new-featured-product .thumb-left,
+    .new-featured-product .thumb-right {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 992px) {
+    .new-featured-product .thumb-left,
+    .new-featured-product .thumb-right {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .new-featured-product .thumb-left,
+    .new-featured-product .thumb-right {
+        flex: 1 1 100%;
+        margin: 0 0 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .new-featured-product .row {
+        flex-direction: column;
+    }
+}
+
+
+</style>
+<br><br><br><br>
+<section class="new-featured-product container-fluid">
+    <div class="row">
+        <div class="thumb-left">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/antony.png' %}" alt="New featured Product" style="margin-top: 100px;"><br><br>
+                <h2 style="font-family: 'Playfair Display';">Sri.P.T.ANTONY</h2>
+                <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
+            </a>
+        </div>
+        
+        <div class="thumb-right">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/mrs-antony.png' %}" alt="New featured Product" style="margin-top: 100px;"><br><br>
+                <h2 style="font-family: 'Playfair Display';">Mrs.P.T.ANTONY</h2>
+                <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="meta-wrap">
+            <div class="meta">
+                <!-- <p><img src="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}" alt="New featured"></p> -->
+                <!-- <h2>We Are P.T. Antony & Sons Alapatt Fashion Jewellery</h2> -->
+                <h2 style="font-family: 'Playfair Display', serif; text-align: center;color: #dfb858;">Our Story</h2>
+                <p style="font-family: 'Playfair Display', serif;font-size: 20px;text-align: justify;">Alapatt Fashion Jewellery is a professionaly managed organisation led by Mr. John Alapatt. P.T Antony & Sons Alapatt Fashion Jewellery, a name that spells uncompromising quality and service.<br><br>Our roots go back to 1963 when the Jewellery business was established by Late Sri.P.T.ANTONY. Alapatt Fashion Jewellery in East fort, Trivandrum brings you 100% 916 Hallmarking gold. This is one of the largest jewellery showrooms in South India. Its collection is unmatched in range, elegance of design and purity. Range of jewellery varies from the traditional to trend setting styles. Diamond Arcade is a section exclusively devoted to diamonds with an array of Nakshatra and Azmi diamonds, the leading names in diamond designs.</p>
+                <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
+            </div>
+        </div>
+        <div class="thumb">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/products/featured.jpg' %}" alt="New featured Product">
+                
+            </a>
+            
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="thumb">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/products/featured.jpg' %}" alt="New featured Product">
+            </a>
+        </div>
+        <div class="meta-wrap">
+            <div class="meta">
+                <p><img src="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}" alt="New featured"></p><br><br>
+                
+                <p style="font-family: 'Playfair Display', serif;font-size: 20px;text-align: justify;">Jewellery shopping at PT Antony and sons Alapatt Fashion Jewellery is an experience in itself . Plush, stylish inteiors and warm service create the right ambience for jewellery shopping. The women of the new millennium need jewellery that compliments her modern outlook . It is this understanding that makes us Kerala's favourite shopping stop. We offer numerous customer friendly gold saving schemes , festival schemes, special schemes for marriages etc .</p>
+                
+            </div>
+        </div>
+    </div>
+    <!-- <br><br>
+    <div class="row">
+        <div class="thumb-left">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/antony.png' %}" alt="New featured Product"><br><br>
+                <h2 style="font-family: 'Playfair Display';">Sri.P.T.ANTONY</h2>
+                <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
+            </a>
+        </div>
+        
+        <div class="thumb-right">
+            <a href="product-details.html">
+                <img src="{% static 'assets/img/mrs-antony.png' %}" alt="New featured Product"><br><br>
+                <h2 style="font-family: 'Playfair Display';">Mrs.P.T.ANTONY</h2>
+                <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
+            </a>
+        </div>
+    </div>
+    <br><br> -->
+</section>
+
+
+{% endblock %}

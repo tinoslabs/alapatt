@@ -1,0 +1,42 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Gold Rate</h4>
+            <a href="{% url 'add_gold_rate' %}">
+                <button class="btn btn-primary">Add Gold Rate</button>
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Gold Rate</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rate in gold_rate %}
+                        <tr>
+                            <td style="width: 150px;">{{ rate.gold_rate }}</td>
+                            
+                            <td style="width: 150px; ">
+                                <a href="{% url 'update_gold_rate' rate.id  %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i> </button></a>
+                            </td>
+                            <td style="width: 150px; ">
+                                <a href="{% url 'delete_gold_rate' rate.id  %}"><button><i class="mdi mdi-delete" aria-hidden="true"></i> </button></a> 
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+     
+
+  <style>
+          .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cards {
+            text-align: center;
+            font-family: 'PT Sans', sans-serif;
+            background: #fff;
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 300px;
+            margin: 0.8rem;
+            width: 310px;
+            padding-bottom: 10px;
+        }
+
+        .card-1 {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .card-1:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        .cards > img {
+            margin-top: 35px;
+            margin-bottom: 8px;
+        }
+
+        .cards > h2 {
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .cards > p {
+            font-family: 'PT Sans', sans-serif;
+            padding-left: 2.2rem;
+            padding-right: 2.2rem;
+        }
+
+        .btns {
+            background: #172d46;
+            border: 0;
+            border-radius: .375em;
+            color: #fff;
+            cursor: pointer;
+            margin: .25em;
+            padding: 0.75em 1.4em;
+            font-size: 0.8em;
+            transition: all .125s ease-in-out;
+        }
+
+        .btns:hover,
+        .btns:focus {
+            box-shadow: 0 .625em 1.25em 0 rgba(23, 45, 70, .3);
+        }
+
+        .btns:active {
+            box-shadow: 0 .125em .25em 0 rgba(23, 45, 70, .3);
+        }
+
+        .btns--large {
+            font-size: 1.25em;
+        }
+        .cards >.icon {
+          color:#c0c0c0;
+          margin-top: 35px;
+          margin-bottom: 8px;
+        }
+</style>
+
+<div class="cards-container">
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-users fa-3x"></i></div>
+    <h2>Saints</h2>
+    <p>Click here to view & view and add saint of the day.</p>
+    <button class="btns" onclick="window.location.href='/view_saints'">View & Add Saints</button>
+  </div>
+  
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-sticky-note fa-3x"></i></div>
+    <h2>Events</h2>
+    <p>Click here to view & manage your event details section.</p>
+    <button class="btns" onclick="window.location.href='admin_view_events'">View & Add Events</button>
+  </div>
+  
+  
+  
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-calendar fa-3x"></i></div>
+    
+    <h2>Calendar</h2>
+    <p>Click here to view your tasks, events, and appointments.</p>
+    <button class="btns" onclick="window.location.href='/admin_calendar'">View Your Calendar</button>
+  </div>
+  
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-cloud-upload fa-3x"></i></div>
+    <h2>View & Upload Images</h2>
+    <p>Click here to view and securely upload Images.</p>
+    <button class="btns" onclick="window.location.href='admin_gallery_view'">View & Upload images</button>
+  </div>
+
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-video-camera fa-3x"></i></div>
+    <h2>View & Upload Videos</h2>
+    <p>Click here to view and securely upload Videos.</p>
+    <button class="btns" onclick="window.location.href='view_video_gallery'">View & Upload Videos</button>
+  </div>
+  
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-heart fa-3x"></i></div>
+    <h2>Wishes</h2>
+    <p>Click here to view and make wishes to your loved ones.</p>
+    <button class="btns" onclick="window.location.href='wishes_view'">View  & Make Wishes</button>
+  </div>
+  
+  <div class="cards card-1">
+   
+    <div class="icon"> <i class="fa fa-id-card fa-3x"></i></div>
+    <h2>Notice Board</h2>
+    <p>Click here to view and add Notice.</p>
+    <button class="btns" onclick="window.location.href='view_notice'">View & Add Notice</button>
+  </div>
+  
+  
+  
+  <div class="cards card-1">
+    
+    <div class="icon"> <i class="fa fa-newspaper fa-3x"></i></div>
+    <h2>Latest News</h2>
+    <p>Click here to access important tutorials and trainings.</p>
+    <button class="btns" onclick="window.location.href='admin_view_latest_news'">View & Add Latest News</button>
+  </div>
+  
+  
+      <div class="cards card-1">
+        
+        <div class="icon"> <i class="fa fa-phone fa-3x"></i></div>
+        <h2>Enquiries</h2>
+        <p>Click here to view Enquiry Details</p>
+        <button class="btns" onclick="window.location.href='admin_view_comments'">View Enquiries</button>
+      </div>
+ 
+</div> -->
+
+  {% endblock %}
