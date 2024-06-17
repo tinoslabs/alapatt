@@ -114,7 +114,7 @@
       </a>
     </li>
 
-    <li class="nav-item nav-category">Product</li>
+    <!-- <li class="nav-item nav-category">Product</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
         aria-controls="form-elements">
@@ -144,7 +144,27 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"><a class="nav-link" href="{% url 'add_product_details' %}">Add Product Details</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'view_product_details' %}">View Product Details</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="{% url 'view_gold_rate' %}">View Gold Rate</a></li> -->
+          
+          
+
+        </ul>
+      </div>
+    </li> -->
+
+    <li class="nav-item nav-category">Add Products</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#product" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-card-text-outline"></i>
+        <span class="menu-title">Add Products</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="product">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_product_category' %}">Add Product Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_product_category' %}">View Product Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'admin_add_product_details' %}">Add Product Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'admin_view_product_details' %}">View Product Details</a></li>
           
 
         </ul>
@@ -168,11 +188,48 @@
         </ul>
       </div>
     </li>
+
+    <li class="nav-item nav-category">Add Client Review</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#client-review" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title">Add Client Review</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="client-review">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_client_reviews' %}">Add Client Review</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_client_reviews' %}">View Client Review</a></li>
+          
+
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item nav-category">View Enquiry</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#enquiry-view" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-phone-log"></i>
+        <span class="menu-title">View Enquiry</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="enquiry-view">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_enquiry' %}">View Enquiry</a></li>
+          
+          
+
+        </ul>
+      </div>
+    </li>
+
     <li class="nav-item nav-category">Chatbot Message View </li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#chat-message" aria-expanded="false"
         aria-controls="form-elements">
-        <i class="menu-icon mdi mdi-card-text-outline"></i>
+        <i class="menu-icon mdi mdi-twitch"></i> 
         <span class="menu-title">Chatbot Message View</span>
         <i class="menu-arrow"></i>
       </a>

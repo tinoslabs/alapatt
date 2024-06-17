@@ -8,13 +8,21 @@
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">Add Product</h4>
-                      <!-- <p class="card-description">
-                        Basic form layout
-                      </p> -->
+                      
                       <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                         <div class="form-group">
                           <label for="ProductName">Product Category Name</label>
-                          <input type="text" class="form-control" id="ProductName" name="name" placeholder="Product Category Name">
+                          <input type="text" class="form-control" id="ProductName" name="category_name" placeholder="Product Category Name" required>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="ProductImage">Product Image</label>
+                          <input type="file" class="form-control" id="ProductName" name="image">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="ProductDescription">Product Description</label>
+                          <input type="text" class="form-control" id="ProductName" name="description" placeholder="Product Category Name">
                         </div>
                         
                         <button type="submit" class="btn btn-primary me-2">Submit</button>

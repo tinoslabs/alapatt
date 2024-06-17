@@ -3,10 +3,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from .models import product_category, sub_category, ProductDetails, EnquiryModel, ChatMessage, ClientReview, GoldRate
+from .models import product_category, sub_category, ProductDetails, EnquiryModel, ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details
 from .models import ProductDetails
-from .forms import productForm,sub_category_Form, sub_category_Form, product_details_Form, EnquiryForm, ClientForm, GoldForm
+from .forms import productForm,sub_category_Form, sub_category_Form, product_details_Form, EnquiryForm, ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm
 from .models import ChatMessage
+from django.core.mail import send_mail
+from .forms import ContactForm
 # Create your views here.
 
 
@@ -68,17 +70,18 @@ def logout_user(request):
 def index(request):
     client_review = ClientReview.objects.all()
     rate = GoldRate.objects.all()
+    product_category = New_Category.objects.all()
+    product_details = Product_Details.objects.all()
     if request.method == 'POST':
-        form = EnquiryForm(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
-        else:
-            print(form.errors)  # Print form errors to console for debugging
-            return HttpResponse(f"Form is invalid: {form.errors}")  # Return form errors in HTTP response for debugging
+            return HttpResponse('added')
     else:
-        form = EnquiryForm()
-    return render(request, 'index.html', {'client_review': client_review, 'form': form, 'rate':rate})
+        form = ContactForm()
+    return render(request, 'index.html', {'client_review': client_review, 'form': form, 'rate':rate, 'product_details':product_details,'product_category':product_category})
+
+
 
 def test(request):
     return render(request, 'test.html') 
@@ -133,6 +136,9 @@ def category_grid(request):
 #     subcategory = get_object_or_404(sub_category, id=subcategory_id)
 #     products = ProductDetails.objects.filter(sub_category=subcategory, status=False)
 #     return render(request, 'product-details.html', {'subcategory': subcategory, 'products': products})
+
+
+
 
 def product_list(request, category_id, subcategory_id=None):
     category = get_object_or_404(product_category, id=category_id)
@@ -231,41 +237,105 @@ def category_list(request):
     return render(request, 'category-list.html')
 
 
-
 @login_required(login_url='user_login')
 def add_product_category(request):
     if request.method == 'POST':
-        form = productForm(request.POST, request.FILES)
+        form = Product_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('add_sub_category') 
+            return redirect('admin_add_product_details') 
     else:
-        form = productForm()
+        form = Product_Form()
 
     return render(request, 'admin_pages/add_product_category.html', {'form': form})
 
+
+# @login_required(login_url='user_login')
+# def add_product_category(request):
+#     if request.method == 'POST':
+#         form = productForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('add_sub_category') 
+#     else:
+#         form = productForm()
+
+#     return render(request, 'admin_pages/add_product_category.html', {'form': form})
+
 @login_required(login_url='user_login')
 def view_product_category(request):
-    product = product_category.objects.all().order_by('-id')
+    product = New_Category.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_product_category.html', {'product': product})
 
 @login_required(login_url='user_login')
 def update_product_category(request,id):
-    product = get_object_or_404(product_category, id=id)
+    product = get_object_or_404(New_Category, id=id)
     if request.method == 'POST':
-        form = productForm(request.POST, request.FILES, instance=product)
+        form = Product_Form(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect('view_product_category')
     else:
-        form = productForm(instance=product)
+        form = Product_Form(instance=product)
     return render(request, 'admin_pages/update_product_category.html', {'form': form, 'product': product})
 
 @login_required(login_url='user_login')
 def delete_product_category(request,id):
-    product = product_category.objects.get(id=id)
+    product = New_Category.objects.get(id=id)
     product.delete()
     return redirect('view_product_category')
+
+@login_required(login_url='user_login')
+def admin_add_product_details(request):
+    categories = New_Category.objects.all() 
+    if request.method == 'POST':
+        product_details = ProductDtailsForm(request.POST, request.FILES)
+        if product_details.is_valid():
+            product_details.save()
+        
+            return redirect('admin_view_product_details')  
+    else:
+        product_details = ProductDtailsForm()
+   
+    return render(request, 'admin_pages/admin_add_product_details.html', {'product_details': product_details,'categories':categories})
+
+@login_required(login_url='user_login')
+def admin_view_product_details(request):
+    products = Product_Details.objects.all().order_by('-id')
+    return render(request,'admin_pages/admin_view_product_details.html',{'products':products})
+
+@login_required(login_url='user_login')
+def admin_update_product_details(request, id):
+    products = get_object_or_404(Product_Details, id=id)
+    categories = New_Category.objects.all()  
+
+    if request.method == 'POST':
+        form = ProductDtailsForm(request.POST, request.FILES, instance=products)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_view_product_details')
+    else:
+        form = ProductDtailsForm(instance=products)
+
+    return render(request, 'admin_pages/admin_update_product_details.html', {'form': form, 'products': products, 'categories': categories})
+
+@login_required(login_url='user_login')
+def admin_delete_product_details(request,id):
+    products = Product_Details.objects.get(id=id)
+    products.delete()
+    return redirect('admin_view_product_details')
+
+
+def Product_details(request,category_name):
+    category = New_Category.objects.all()
+    if(New_Category.objects.filter(category_name=category_name, status=0)):
+        product_details = Product_Details.objects.filter(category__category_name=category_name)
+        category_name = New_Category.objects.filter(category_name=category_name).first()
+        context = {'product_details': product_details,'category_name':category_name,'category':category}
+        return render(request,"Product_details.html",context)
+    else:
+        messages.warning(request,"No such category found")
+    return render(request,'Product_details.html')
 
 @login_required(login_url='user_login')
 def add_sub_category(request):
@@ -387,17 +457,17 @@ def delete_product_details(request,id):
 
 def contact(request):
     if request.method == 'POST':
-        form = EnquiryForm(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('contact')
     else:
-        form = EnquiryForm()
+        form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
 @login_required(login_url='user_login')
 def view_enquiry(request):
-    enquiry = EnquiryModel.objects.all().order_by('-id')
+    enquiry = ContactModel.objects.all().order_by('-id')
     return render(request,'admin_pages/view_enquiry.html',{'enquiry':enquiry})
 
 @login_required(login_url='user_login')

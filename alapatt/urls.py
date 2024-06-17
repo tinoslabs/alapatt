@@ -75,6 +75,12 @@ urlpatterns = [
     path('update_product_category/<int:id>/', views.update_product_category, name='update_product_category'),
     path('delete_product_category/<int:id>/', views.delete_product_category, name='delete_product_category'),
 
+    path('admin_add_product_details', views.admin_add_product_details, name='admin_add_product_details'),
+    path('admin_view_product_details', views.admin_view_product_details, name='admin_view_product_details'),
+    path('Product_details/<str:category_name>/',views.Product_details,name='Product_details'),
+    path('admin_update_product_details/<int:id>/',views.admin_update_product_details,name='admin_update_product_details'),
+    path('admin_delete_product_details/<int:id>/',views.admin_delete_product_details,name='admin_delete_product_details'),
+
     path('add_sub_category', views.add_sub_category, name='add_sub_category'),
     path('view_sub_category', views.view_sub_category, name='view_sub_category'),
     path('update_sub_category/<int:id>/', views.update_sub_category, name='update_sub_category'),

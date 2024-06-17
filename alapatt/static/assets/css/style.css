@@ -10212,7 +10212,7 @@ img.grayscale.disabled {
 .hero-image {
   position: relative;
   min-height: 500px;
-  /* background: url(../img/parallax.jpg); */
+
   background:url(../img/9M1A4092.JPG);
   background-attachment: fixed;
   background-size: cover;
@@ -10249,6 +10249,8 @@ img.grayscale.disabled {
     @media (min-width: 1200px) {
       .hero-image h2:last-child {
         margin-left: 30px; } }
+
+          
 
 .icon-star-1 {
   font-size: 8px;

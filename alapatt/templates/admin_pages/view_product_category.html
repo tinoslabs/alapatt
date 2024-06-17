@@ -13,6 +13,13 @@
                       <thead>
                         <tr>
                           <th>Category Name</th>
+
+                          <th>
+                            Image
+                          </th>
+                          <th>
+                            description
+                          </th>
                       
                           <th>
                             Update
@@ -26,7 +33,22 @@
                       {% for products in product %}
                         <tr>
                           <td style="width: 150px; ">
-                            {{ products.name }}
+                            {{ products.category_name }}
+                          </td>
+
+                          
+                          <td style="width: 150px; ">
+                            {% if products.image %}
+                            <img src="{{ products.image.url }}" alt="Current Image" style="width: 80px; height: 80px;">
+                            <br>
+                            <!-- <input type="checkbox" name="remove_image"> Remove Current Image -->
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                          </td>
+
+                          <td style="width: 150px; ">
+                            {{ products.description }}
                           </td>
                           <!-- <td style="width: 150px; ">
                             {{ project.website_link }}

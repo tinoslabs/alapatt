@@ -1,214 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>Jewelry - Contact Page</title>
-    <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
-    <meta name="description" content="Jewelry HTML Template">
-    <meta name="author" content="Netbase">
-    <link rel="stylesheet" href="{% static 'assets/css/fontello.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
-</head>
-
-<body class="contact-page">
-    <!--Header: Begin-->
-    <header class="container-fluid clear">
-        <div class="row">
-            <!--Header Top: Begin-->
-            <div id="header-top" class="clear">
-                <!--Header Logo: Begin-->
-                <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}" alt="main logo"></a>
-                    <h1 class="hidden-heading">Jewelry</h1>
-                </div>
-                <!--Header Logo: End-->
-                <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" >
-                    <ul>
-                        <li>
-                            <span><a href="{% url 'index' %}">home</a></span>
-                        </li>
-                        
-                        <li class="has-sub">
-                            <span><a href="category-grid.html">pages</a></span>
-                            <ul class="sub-menu double-column">
-                                <li>
-                                    <h4>Gold</h4>
-                                    <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
-                                        
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Diamond</h4>
-                                    <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Precious Stone</h4>
-                                    <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- <li class="has-sub">
-                            <span><a href="blog-category.html">blog</a></span>
-                            <ul class="sub-menu single-column">
-                                <li>
-                                    <h4>lorem ipsum dolor</h4>
-                                    <ul>
-                                        <li><a href="blog-category.html">blog right sidebar</a></li>
-                                        <li><a href="blog-leftsidebar.html">blog left sidebar</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li> -->
-                        <li>
-                            <span><a href="contact.html">Purchase Plan</a></span>
-                        </li>
-                        <li>
-                            <span><a href="contact.html">About Us</a></span>
-                        </li>
-                        <li>
-                            <span><a href="contact.html">contact</a></span>
-                        </li>
-                    </ul>
-                    <span class="mbmenu-icon">
-                        <i class="icon-menu-1"></i>
-                    </span>
-                    <div id="mb-main-menu" class="main-menu">
-                        <div class="mb-menu-title">
-                            <h3>Navigation</h3>
-                            <span id="close-mb-menu">
-                                <i class="icon-cancel-circled"></i>
-                            </span>
-                        </div>
-                        <ul class="sub-cate-list">
-                            <li class="level0">
-                                <a href="index.html">
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Pages</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="category-grid.html" title="Gold Rings">Category Grid</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="category-list.html" title="White Gold Rings">Category List</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="product-details.html" title="Gemstone Rings">Product details</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="cart.html" title="Silver Rings">Cart Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="checkout.html" title="Silver Rings">Checkout Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="contact.html" title="Silver Rings">Contact Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="wishlist.html" title="Silver Rings">Wishlist Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="account.html" title="Silver Rings">Account Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="login.html" title="Silver Rings">Login Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="register.html" title="Silver Rings">Register Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="faq.html" title="Silver Rings">Faq Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="404.html" title="Silver Rings">404 Page</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Blog</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="blog-category.html" title="Gold Rings">Blog Right Sidebar</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="blog-leftsidebar.html" title="White Gold Rings">Blog Left Sidebar</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="blog-details.html" title="Gemstone Rings">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="product-details.html" title="Gemstone Rings">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <!--Main Navigation: End-->
-                <!--Search and Cart: Begin-->
-                <div class="header-right-wrap">
-                    <div class="header-right">
-                        <div class="search-input">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
-                                 </span>
-                            </div>
-                        </div>
-                        <!-- <div class="header-cart">
-                            <a href="cart.html">
-                                <i class="icon-shop"></i>
-                                <span>2</span>
-                            </a>
-                        </div> -->
-                    </div>
-                </div>
-                <!--Search and Cart: Begin-->
-            </div>
-            <!--Header Top: End-->
-        </div>
-    </header>
+{% block content %}
     <!--Header: End-->
     <!-- Main Page: Begin -->
     <main>
@@ -225,42 +17,46 @@
         <div class="container">
             <h1>Contact us</h1>
         </div>
-        <!-- Google Map: Begin -->
+        
         <div class="google-map-wrap">
-            <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&amp;language=en'></script><div style='overflow:hidden;height:440px;width:px;'><div id='gmap_canvas' style='height:440px;'></div></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(40.754386,-73.98445),mapTypeId: google.maps.MapTypeId.TERRAIN, scrollwheel: false};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.754386,-73.98445)});infowindow = new google.maps.InfoWindow({content:'Ave of the Americas New York, NY'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+            <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&language=en'></script>
+            <div style='overflow:hidden;height:440px;width:100%;'>
+                <div id='gmap_canvas' style='height:440px;'></div>
+            </div>
+            <script type='text/javascript'>
+                function init_map() {
+                    var myOptions = {
+                        zoom: 16,
+                        center: new google.maps.LatLng(8.4812459, 76.9466373),
+                        mapTypeId: google.maps.MapTypeId.TERRAIN,
+                        scrollwheel: false
+                    };
+                    var map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(8.4812459, 76.9466373)
+                    });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: 'Alapatt Fashion Jewellery'
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, marker);
+                    });
+                    infowindow.open(map, marker);
+                }
+                google.maps.event.addDomListener(window, 'load', init_map);
+            </script>
         </div>
+        <br><br><br>
         <!-- Google Map: End -->
         <div class="container">
             <div class="row">
                 <div class="contact-details-wrap">
-                    <div class="contact-info clear">
-                        <ul class="contact-details">
-                            <li>Street:15 Sweet Love Street</li>
-                            <li>Suburb: Pyanama</li>
-                            <li>State: Maryland</li>
-                            <li>Zip Code: 12345</li>
-                            <li>Country: USA</li>
-                        </ul>
-                    </div>
-                    <div class="contact-info clear">
-                        <p>Telephone: +3215441600</p>
-                    </div>
-                    <div class="contact-info clear">
-                        <p>Fax: +321 5441601</p>
-                    </div>
-                    <div class="contact-info clear">
-                        <p>Website: netbaseteam.com</p>
-                    </div>
+                    
                 </div>
                 <div class="contact-form-wrap">
                     <form method="post">{% csrf_token %}
-                        <div class="contact-left form-group msg_message">
-                            <p>
-                                <textarea name="comment" id="msg_message" cols="30" rows="12" placeholder="Message *" class="form-control"></textarea>
-                            </p>
-                            <p>Ask us a question and we will write back to you promptly! Simply fill out the form below and click Send Email.</p>
-                            <p>Thanks. Items marked with an asterisk(*) are required fields.</p>
-                        </div>
+                        
                         <div class="contact-right">
                             <div class="form-group msg_name">
                                 <input type="text" name="name" id="msg_name" placeholder="Enter Your Name *" class="form-control" required>
@@ -271,236 +67,26 @@
                             <div class="form-group msg_phone">
                                 <input type="text" name="phone" id="msg_phone" placeholder="Enter Phone Number *" class="form-control" required>
                             </div>
+                            
                             <div class="form-group">
                                 <input type="text" name="subject" id="msg_subject" placeholder="Enter Message Subject" class="form-control">
                             </div>
-                            <button type="submit" class="button-ss">Submit</button>
+                            <div class="contact-left form-group msg_message">
+                                <p>
+                                    <textarea name="comment" id="msg_message" cols="30" rows="12" placeholder="Message *" class="form-control"></textarea>
+                                </p>
+                                
+                            </div>
+                            <button type="submit" >Submit</button>
                         </div>
                     </form>
                 </div>
+                
             </div>
         </div>
+        
     </main>
+    <br><br>
     <!-- Main Page: End -->
     <!-- Footer: Begin -->
-    <footer>
-        <!-- Footer Top: Begin -->
-        <div class="footer-top">
-            <section class="container">
-                <div class="row">
-                    <!-- Footer Columns: Begin -->
-                    <div class="footer-columns clear">
-                        <!-- Footer Column 1: Begin -->
-                        <div class="footer-column" id="footer-column-1">
-                            <h4 class="footer-logo">
-                                <img src="{% static 'assets/img/Alapatt Logo@2x-8 (1).png' %}" alt="elegan shop" style="width:300px;">
-                            </h4>
-                            <div class="footer-acordion-wrap">
-                                <p class="footer-slogan">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form.</p>
-                                <div class="footer-contacts">
-                                    <div class="footer-contact clear">
-                                        <i class="icon icon-location"></i>
-                                        <p class="location-details">Attukal Shopping Complex
-                                            East Fort., Trivandrum Kerala., India</p>
-                                    </div>
-                                    <div class="footer-contact clear">
-                                        <i class="icon icon-phone"></i>
-                                        <p class="location-details">T: 9895467900, 0471 2453760, 0471 2453761</p>
-                                    </div>
-                                    <div class="footer-contact clear">
-                                        <i class="icon icon-email"></i>
-                                        <p class="location-details">afjtvm@yahoo.co.in</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <!-- Footer Column 1: End -->
-                        <!-- Footer Column 2: Begin -->
-                        <div class="footer-column" id="footer-column-2">
-                            <h4 class="column-title">lastest post</h4>
-                            <div class="footer-acordion-wrap">
-                                <div class="footer-post clear">
-                                    <div class="footer-post-thumb">
-                                        <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-1.jpg' %}" alt="Footer post"></a>
-                                    </div>
-                                    <div class="footer-post-details">
-                                        <h4 class="footer-post-title"><a href="blog-details.html">Gold</a></h4>
-                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
-                                    </div>
-                                </div>
-                                <div class="footer-post clear">
-                                    <div class="footer-post-thumb">
-                                        <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-2.jpg' %}" alt="Footer post"></a>
-                                    </div>
-                                    <div class="footer-post-details">
-                                        <h4 class="footer-post-title"><a href="blog-details.html">Diamond</a></h4>
-                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
-                                    </div>
-                                </div>
-                                <div class="footer-post clear">
-                                    <div class="footer-post-thumb">
-                                        <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-3.jpg' %}" alt="Footer post"></a>
-                                    </div>
-                                    <div class="footer-post-details">
-                                        <h4 class="footer-post-title"><a href="blog-details.html">Precious Stone</a></h4>
-                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
-                        <!-- Footer Column 2: End -->
-                        <!-- Footer Column 3: Begin -->
-                        <div class="footer-column" id="footer-column-3">
-                            <h4 class="column-title">opening times</h4>
-                            <div class="footer-acordion-wrap">
-                                <p>
-                                    <span class="date">Monday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Tuesday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Wednesday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Thursday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Friday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Saturday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                                <p>
-                                    <span class="date">Sunday</span>
-                                    <span class="time">8.00Am - 7.30Pm</span>
-                                </p>
-                            </div>
-                            
-                        </div>
-                        <!-- Footer Column 3: End -->
-                        <!-- Footer Column 4: Begin -->
-                        <div class="footer-column" id="footer-column-4">
-                            <h4 class="column-title">flickr photos</h4>
-                            <div class="footer-acordion-wrap">
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-1.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets\img\flickr\flickr-1.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-2.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-3.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-3.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-5.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-5.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-7.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-7.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-8.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-8.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-1.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-2.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-2.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-3.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-3.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                                <div class="footer-flickr">
-                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
-                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
-                                    </a>
-                                </div>
-                            </div>                            
-                        </div>
-                        <!-- Footer Column 4: End -->
-                    </div>
-                    <!-- Footer Columns: End -->
-                    <!-- Footer Social Connect: Begin -->
-                    <!-- <div class="footer-social">
-                        <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="icon-facebook"></i></a>
-                        <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="icon-youtube"></i></a>
-                        <a href="#"><i class="icon-gplus"></i></a>
-                        <a href="#"><i class="icon-linkedin-rect"></i></a>
-                        <a href="#"><i class="icon-pinterest-squared"></i></a>
-                    </div> -->
-
-                    <!-- Footer Social Connect: End -->
-                </div>
-            </section>
-        </div>
-        <!-- Footer Top: End -->
-        <!-- Footer bottom: Begin -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-copyright">
-                        <span>Central - Copyright &copy; 2016</span>
-                        <a href="http://netbaseteam.com"><span class="footer-bottom-color">tinos.co.in</span></a>
-                        <span>All Rights Reserved.</span>
-                    </div>
-                    <div class="footer-payment-method">
-                        <img src="{% static 'assets/img/footer-payment.png' %}" alt="Payment">
-                    </div>
-                </div>
-            </div>
-            <a href="#" id="back-to-top">
-                <i class="icon-up-open"></i> Top
-            </a>
-        </div>
-        <!-- Footer bottom: End -->
-    </footer>
-    <!-- Footer: End -->
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
-    <script src="{% static 'assets/js/modernizr.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/js/select2.min.js' %}"></script>
-    <script src="{% static 'assets/js/stacktable.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.themepunch.revolution.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.themepunch.plugins.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/js/scripts.min.js' %}"></script>
-</body>
-
-</html>
+    {% endblock %}

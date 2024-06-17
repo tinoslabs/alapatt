@@ -24,7 +24,7 @@
             <div id="header-top" class="clear">
                 <!--Header Logo: Begin-->
                 <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}" alt="main logo"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo" height="250px;"></a>
                     <h1 class="hidden-heading">Jewelry</h1>
                 </div>
                 <!--Header Logo: End-->
@@ -41,41 +41,41 @@
                                 <li>
                                     <h4>Gold</h4>
                                     <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
+                                        <li><a href="{% url 'gold_ring' %}">Rings</a></li>
+                                        <li><a href="{% url 'gold_pendants' %}">Pendants</a></li>
+                                        <li><a href="{% url 'gold_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'gold_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'gold_bangles' %}">Bangles</a></li>
+                                        <li><a href="{% url 'gold_earrings' %}">Earrings</a></li>
+                                        <li><a href="{% url 'gold_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'gold_necklace' %}">Necklace</a></li>
                                         
                                     </ul>
                                 </li>
                                 <li>
                                     <h4>Diamond</h4>
                                     <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
+                                        <li><a href="{% url 'diamond_ring' %}">Rings</a></li>
+                                        <li><a href="{% url 'diamond_pendants' %}">Pendants</a></li>
+                                        <li><a href="{% url 'diamond_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'diamond_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'diamond_bangles' %}">Bangles</a></li>
+                                        <li><a href="{% url 'diamond_earrings' %}">Earrings</a></li>
+                                        <li><a href="{% url 'diamond_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'diamond_necklace' %}">Necklace</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <h4>Precious Stone</h4>
                                     <ul>
-                                        <li><a href="category-grid.html">Rings</a></li>
-                                        <li><a href="category-list.html">Pendants</a></li>
-                                        <li><a href="product-details.html">Chain</a></li>
-                                        <li><a href="cart.html">Bracelet</a></li>
-                                        <li><a href="checkout.html">Bangles</a></li>
-                                        <li><a href="contact.html">Earrings</a></li>
-                                        <li><a href="contact.html">Anklet</a></li>
-                                        <li><a href="contact.html">Necklace</a></li>
+                                        <li><a href="{% url 'stone_ring' %}">Rings</a></li>
+                                        <li><a href="{% url 'stone_pendants' %}">Pendants</a></li>
+                                        <li><a href="{% url 'stone_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'stone_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'stone_bangles' %}">Bangles</a></li>
+                                        <li><a href="{% url 'stone_earrings' %}">Earrings</a></li>
+                                        <li><a href="{% url 'stone_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'stone_necklace' %}">Necklace</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -94,13 +94,13 @@
                             </ul>
                         </li> -->
                         <li>
-                            <span><a href="contact.html">Purchase Plan</a></span>
+                            <span><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Purchase Plan</a></span>
                         </li>
                         <li>
-                            <span><a href="contact.html">About Us</a></span>
+                            <span><a href="{% url 'about' %}">About Us</a></span>
                         </li>
                         <li>
-                            <span><a href="contact.html">contact</a></span>
+                            <span><a href="{% url 'contact' %}">contact</a></span>
                         </li>
                     </ul>
                     <span class="mbmenu-icon">
@@ -115,75 +115,128 @@
                         </div>
                         <ul class="sub-cate-list">
                             <li class="level0">
-                                <a href="index.html">
+                                <a href="{% url 'index' %}">
                                     <span>Home</span>
                                 </a>
                             </li>
-                            
                             <li class="level0 parent">
                                 <a href="#">
-                                    <span>Pages</span>
+                                    <span>Gold</span>
                                     <i class="icon-down-open"></i><i class="icon-right-open"></i>
                                 </a>
                                 <ul class="level0">
                                     <li class="level1">
-                                        <a href="category-grid.html" title="Gold Rings">Category Grid</a>
+                                        <a href="{% url 'gold_anklet' %}" title="Gold Rings"> Anklet</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="category-list.html" title="White Gold Rings">Category List</a>
+                                        <a href="{% url 'gold_bangles' %}" title="White Gold Rings">Bangles</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="product-details.html" title="Gemstone Rings">Product details</a>
+                                        <a href="{% url 'gold_bracelet' %}" title="Gemstone Rings">Bracelet</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="cart.html" title="Silver Rings">Cart Page</a>
+                                        <a href="{% url 'gold_chain' %}" title="Silver Rings">Chain</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="checkout.html" title="Silver Rings">Checkout Page</a>
+                                        <a href="{% url 'gold_earrings' %}" title="Silver Rings">Earrings</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="contact.html" title="Silver Rings">Contact Page</a>
+                                        <a href="{% url 'gold_necklace' %}" title="Silver Rings">Necklace</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="wishlist.html" title="Silver Rings">Wishlist Page</a>
+                                        <a href="{% url 'gold_pendants' %}" title="Silver Rings">Pendants</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="account.html" title="Silver Rings">Account Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="login.html" title="Silver Rings">Login Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="register.html" title="Silver Rings">Register Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="faq.html" title="Silver Rings">Faq Page</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="404.html" title="Silver Rings">404 Page</a>
+                                        <a href="{% url 'gold_ring' %}" title="Silver Rings">Rings</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="level0 parent">
                                 <a href="#">
-                                    <span>Blog</span>
+                                    <span>Diamond</span>
                                     <i class="icon-down-open"></i><i class="icon-right-open"></i>
                                 </a>
                                 <ul class="level0">
                                     <li class="level1">
-                                        <a href="blog-category.html" title="Gold Rings">Blog Right Sidebar</a>
+                                        <a href="{% url 'diamond_anklet' %}" title="Diamond Anklet">Anklet</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="blog-leftsidebar.html" title="White Gold Rings">Blog Left Sidebar</a>
+                                        <a href="{% url 'diamond_bangles' %}" title="Diamond Bangles">Bangles</a>
                                     </li>
                                     <li class="level1">
-                                        <a href="blog-details.html" title="Gemstone Rings">Blog Details</a>
+                                        <a href="{% url 'diamond_bracelet' %}" title="Diamond Bracelet">Bracelet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_chain' %}" title="Diamond Chain">Chain</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_earrings' %}" title="Diamond Earrings">Earrings</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_necklace' %}" title="Diamond Necklace">Necklace</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_pendants' %}" title="Diamond Pendants">Pendants</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_ring' %}" title="Diamond Rings">Rings</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="#">
+                                    <span>Precious Stone</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="{% url 'stone_anklet' %}" title="Precious Stone Anklet">Anklet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_bangles' %}" title="Precious Stone Bangles">Bangles</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_bracelet' %}" title="Precious Stone Bracelet">Bracelet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_chain' %}" title="Precious Stone Chain">Chain</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_earrings' %}" title="Precious Stone Earrings">Earrings</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_necklace' %}" title="Precious Stone Necklace">Necklace</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_pendants' %}" title="Precious Stone Pendants">Pendants</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_ring' %}" title="Precious Stone Rings">Rings</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="level0 parent">
-                                <a href="product-details.html" title="Gemstone Rings">Contact</a>
+                                <a href="#">
+                                    <span>Purchase Plan</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Anklet">Swarna Sayoojya</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Bangles">Kanaka Soubhagya</a>
+                                    </li>
+                                </ul>
                             </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
+                            </li>
+                           
                         </ul>
                     </div>
                 </nav>
@@ -263,7 +316,7 @@
                             <!-- Footer Column 1: Begin -->
                             <div class="footer-column" id="footer-column-1">
                                 <h4 class="footer-logo">
-                                    <img src="{% static 'assets/img/Alapatt Logo@2x-8 (1).png' %}" alt="elegan shop">
+                                    <img src="{% static 'assets/img/Alapatt-Logo@0811.png' %}" alt="elegan shop">
                                 </h4>
                                 <div class="footer-acordion-wrap">
                                     <p class="footer-slogan">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form.</p>
@@ -291,28 +344,28 @@
                                 <div class="footer-acordion-wrap">
                                     <div class="footer-post clear">
                                         <div class="footer-post-thumb">
-                                            <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-1.jpg' %}" alt="Footer post"></a>
+                                            <a href="blog-details.html"><img src="{% static 'assets/img/collection/gold-ring-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
-                                            <h4 class="footer-post-title"><a href="blog-details.html">Ring diamond</a></h4>
+                                            <h4 class="footer-post-title"><a href="blog-details.html">Gold</a></h4>
                                             <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
                                         </div>
                                     </div>
                                     <div class="footer-post clear">
                                         <div class="footer-post-thumb">
-                                            <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-2.jpg' %}" alt="Footer post"></a>
+                                            <a href="blog-details.html"><img src="{% static 'assets/img/collection/diamond-ring-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
-                                            <h4 class="footer-post-title"><a href="blog-details.html">Ring Gold</a></h4>
+                                            <h4 class="footer-post-title"><a href="blog-details.html">Diamond</a></h4>
                                             <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
                                         </div>
                                     </div>
                                     <div class="footer-post clear">
                                         <div class="footer-post-thumb">
-                                            <a href="blog-details.html"><img src="{% static 'assets/img/footer-post-3.jpg' %}" alt="Footer post"></a>
+                                            <a href="blog-details.html"><img src="{% static 'assets/img/collection/precious-ring-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
-                                            <h4 class="footer-post-title"><a href="blog-details.html">Earring blue</a></h4>
+                                            <h4 class="footer-post-title"><a href="blog-details.html">Precious Stone</a></h4>
                                             <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
                                         </div>
                                     </div>
@@ -426,11 +479,11 @@
                         <!-- Footer Columns: End -->
                         <!-- Footer Social Connect: Begin -->
                         <div class="footer-social">
-                            <a href="#"><i class="icon-facebook"></i></a>
-                            <a href="#"><i class="icon-twitter"></i></a>
-                            <a href="#"><i class="icon-gplus"></i></a>
-                            <a href="#"><i class="icon-linkedin-rect"></i></a>
-                            <a href="#"><i class="icon-pinterest-squared"></i></a>
+                            <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="fa fa-facebook"></i></a>
+                            <!-- <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="icon-youtube"></i></a> -->
+                            <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/alapattfashionjewellery/"><i class="fab fa-instagram"></i></a>
+                            
                         </div>
     
                         <!-- Footer Social Connect: End -->
@@ -443,8 +496,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-copyright">
-                            <span>Central - Copyright &copy; 2016</span>
-                            <a href="http://netbaseteam.com"><span class="footer-bottom-color">Netbaseteam.com.</span></a>
+                            <span>Central - Copyright &copy; 2024</span>
+                            <a href="https://tinos.co.in/"><span class="footer-bottom-color">tinos.co.in</span></a>
                             <span>All Rights Reserved.</span>
                         </div>
                         <div class="footer-payment-method">
