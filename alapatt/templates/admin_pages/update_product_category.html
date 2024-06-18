@@ -14,7 +14,7 @@
                       <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                         <div class="form-group">
                           <label for="CategoryName">Product Category Name</label>
-                          <input type="text" class="form-control" id="CategoryName" name="name" placeholder="Category Name" value="{{product.name}}">
+                          <input type="text" class="form-control" id="CategoryName" name="category_name" placeholder="Category Name" value="{{product.category_name}}">
                         </div>
 
                         <div class="form-group">
@@ -22,7 +22,6 @@
                           {% if product.image %}
                               <img src="{{ product.image.url }}" alt="Current Image" style="width: 150px; height: 150px;">
                               <br>
-                              
                           {% else %}
                               <p>No image available</p>
                           {% endif %}
@@ -47,5 +46,6 @@
               </div>
             </div>
             
+
           
 {% endblock %}
