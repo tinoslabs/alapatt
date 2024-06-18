@@ -267,8 +267,19 @@ def view_product_category(request):
     product = New_Category.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_product_category.html', {'product': product})
 
-@login_required(login_url='user_login')
-def update_product_category(request,id):
+# @login_required(login_url='user_login')
+# def update_product_category(request,id):
+#     product = get_object_or_404(New_Category, id=id)
+#     if request.method == 'POST':
+#         form = Product_Form(request.POST, request.FILES, instance=product)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('view_product_category')
+#     else:
+#         form = Product_Form(instance=product)
+#     return render(request, 'admin_pages/update_product_category.html', {'form': form, 'product': product})
+
+def update_product_category(request, id):
     product = get_object_or_404(New_Category, id=id)
     if request.method == 'POST':
         form = Product_Form(request.POST, request.FILES, instance=product)
