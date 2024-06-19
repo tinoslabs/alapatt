@@ -367,8 +367,8 @@
     }
     
     </style> -->
-   <style> 
-    .shadow-effect {
+   <style>
+   .shadow-effect {
     background: #fff;
     padding: 20px;
     border-radius: 4px;
@@ -448,6 +448,8 @@
     #customers-testimonials .item {
         padding: 30px;
         margin-bottom: 40px;
+        opacity: 1; /* Ensure full opacity for single item view */
+        transform: scale3d(1.0, 1.0, 1); /* Ensure full scale for single item view */
     }
 
     #customers-testimonials .shadow-effect p {
@@ -499,7 +501,8 @@
         max-width: 40px;
     }
 }
-    </style>
+
+   </style>
     <style>
         @media (max-width: 600px) {
         .blog-posts-home .blog-details {
@@ -1854,7 +1857,7 @@
                 
                 $('#customers-testimonials').owlCarousel({
                     loop: true,
-                    center: true,
+                    center: true, // Keep center true to maintain shadow effect on larger screens
                     items: 3,
                     margin: 0,
                     autoplay: true,
@@ -1863,13 +1866,16 @@
                     smartSpeed: 450,
                     responsive: {
                         0: {
-                            items: 1
+                            items: 1,
+                            center: false // Disable centering on small screens
                         },
                         600: {
-                            items: 2
+                            items: 1,
+                            center: false // Disable centering on medium screens
                         },
                         1170: {
-                            items: 3
+                            items: 3,
+                            center: true // Enable centering on large screens
                         }
                     }
                 });
