@@ -89,12 +89,22 @@
 
 
 </style>
+<style>
+    .thumb a img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumb a:hover img {
+    transform: scale(1.05); /* Scale image on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+</style>
 <br><br><br><br>
 <section class="new-featured-product container-fluid">
     <div class="row">
         <div class="thumb-left">
             <a href="product-details.html">
-                <img src="{% static 'assets/img/antony.png' %}" alt="New featured Product" style="margin-top: 100px;"><br><br>
+                <img src="{% static 'assets/img/antony.png' %}" alt="New featured Product" style="margin-top: 100px;border-radius: 20px;"><br><br>
                 <h2 style="font-family: 'Playfair Display';">Sri.P.T.ANTONY</h2>
                 <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
             </a>
@@ -102,7 +112,7 @@
         
         <div class="thumb-right">
             <a href="product-details.html">
-                <img src="{% static 'assets/img/mrs-antony.png' %}" alt="New featured Product" style="margin-top: 100px;"><br><br>
+                <img src="{% static 'assets/img/mrs-antony.png' %}" alt="New featured Product" style="margin-top: 100px;border-radius: 20px;"><br><br>
                 <h2 style="font-family: 'Playfair Display';">Mrs.P.T.ANTONY</h2>
                 <p style="font-family: 'Playfair Display';">Founder P.T Antony & Sons Alapatt Fashion Jewellery</p>
             </a>
@@ -119,8 +129,8 @@
             </div>
         </div>
         <div class="thumb">
-            <a href="product-details.html">
-                <img src="{% static 'assets/img/products/featured.jpg' %}" alt="New featured Product">
+            <a href="">
+                <img src="{% static 'assets/img/9M1A4083.JPG' %}" alt="New featured Product" style="height: 450px;margin-top: 150px;">
                 
             </a>
             
@@ -129,20 +139,20 @@
     </div>
     <div class="row">
         <div class="thumb">
-            <a href="product-details.html">
-                <img src="{% static 'assets/img/products/featured.jpg' %}" alt="New featured Product">
+            <a href="">
+                <img src="{% static 'assets/img/9M1A4092.JPG' %}" alt="New featured Product" style="height: 450px;margin-top: 150px;">
             </a>
         </div>
         <div class="meta-wrap">
             <div class="meta">
-                <p><img src="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}" alt="New featured"></p><br><br>
+                <p><img src="{% static 'assets/img/Alapatt Logo@2x-8 (2).png' %}" alt="New featured"></p><br><br>
                 
                 <p style="font-family: 'Playfair Display', serif;font-size: 20px;text-align: justify;">Jewellery shopping at PT Antony and sons Alapatt Fashion Jewellery is an experience in itself . Plush, stylish inteiors and warm service create the right ambience for jewellery shopping. The women of the new millennium need jewellery that compliments her modern outlook . It is this understanding that makes us Kerala's favourite shopping stop. We offer numerous customer friendly gold saving schemes , festival schemes, special schemes for marriages etc .</p>
                 
             </div>
         </div>
     </div>
-    
+    <br><br>
 </section>
 
 
