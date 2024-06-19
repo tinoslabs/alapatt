@@ -238,7 +238,7 @@
         min-width: 200px;
     }
         </style>
-    <style>
+    <!-- <style>
         .shadow-effect {
             background: #fff;
             padding: 20px;
@@ -366,8 +366,144 @@
         }
     }
     
+    </style> -->
+   <style> 
+    .shadow-effect {
+        background: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: center;
+        border: 1px solid #ECECEC; /* Existing border */
+        box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    }
+    
+    #customers-testimonials .shadow-effect p {
+        font-family: inherit;
+        font-size: 17px;
+        line-height: 1.5;
+        margin: 0 0 17px 0;
+        font-weight: 300;
+    }
+    
+    .testimonial-name {
+        margin: -17px auto 0;
+        display: table;
+        width: auto;
+        background: #cea665;
+        padding: 9px 35px;
+        border-radius: 12px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
+    }
+    
+    #customers-testimonials .item {
+        text-align: center;
+        padding: 50px;
+        margin-bottom: 80px;
+        opacity: .2;
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    #customers-testimonials .owl-item.active.center .item {
+        opacity: 1;
+        -webkit-transform: scale3d(1.0, 1.0, 1);
+        transform: scale3d(1.0, 1.0, 1);
+    }
+    
+    .owl-carousel .owl-item img {
+        transform-style: preserve-3d;
+        max-width: 90px;
+        margin: 0 auto 17px;
+    }
+    
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+        background: #cea665;
+        transform: translate3d(0px, -50%, 0px) scale(0.7);
+    }
+    
+    #customers-testimonials.owl-carousel .owl-dots {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot {
+        display: inline-block;
+    }
+    
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+        background: #cea665;
+        display: inline-block;
+        height: 20px;
+        margin: 0 2px 5px;
+        transform: translate3d(0px, -50%, 0px) scale(0.3);
+        transform-origin: 50% 50% 0;
+        transition: all 250ms ease-out 0s;
+        width: 20px;
+    }
+    
+    @media (max-width: 600px) {
+        #customers-testimonials .item {
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+    
+        #customers-testimonials .shadow-effect p {
+            font-size: 14px;
+        }
+    
+        .testimonial-name {
+            padding: 7px 20px;
+            font-size: 14px;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        #customers-testimonials .item {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    
+        #customers-testimonials .shadow-effect p {
+            font-size: 12px;
+        }
+    
+        .testimonial-name {
+            padding: 5px 15px;
+            font-size: 12px;
+        }
+    
+        .owl-carousel .owl-item img {
+            max-width: 60px;
+        }
+    }
+    
+    @media (max-width: 200px) {
+        #customers-testimonials .item {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    
+        #customers-testimonials .shadow-effect p {
+            font-size: 10px;
+        }
+    
+        .testimonial-name {
+            padding: 3px 10px;
+            font-size: 10px;
+        }
+    
+        .owl-carousel .owl-item img {
+            max-width: 40px;
+        }
+    }
     </style>
-
     <style>
         @media (max-width: 600px) {
         .blog-posts-home .blog-details {
@@ -900,7 +1036,7 @@
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'Product_details' category.category_name %}">{{category.category_name}}</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
+                                    <p class="description">The Elegan pays tribute to the tradition of fine jewellery in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
                                     <p class="jw-button"><a href="{% url 'Product_details' category.category_name %}">Show More</a></p>
                                 </div>
                             </div>
@@ -949,7 +1085,7 @@
                     <ul class="featured-categories">
                         <li class="featured-category">
                             <!-- <img src="{% static 'assets/img/category/category-1.jpg' %}" alt="Featured Category"> -->
-                            <img src="{% static 'assets/img/models/335A6386-3.jpg' %}" alt="Featured Category">
+                            <img src="{% static 'assets/img/models/335A63866.jpg' %}" alt="Featured Category">
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'gold_necklace' %}">GOLD NECKLACE</a></h3>
@@ -959,8 +1095,9 @@
                             </div>
                         </li>
                         <li class="featured-category">
-                            <!-- <img src="{% static 'assets/img/category/category-2.jpg' %}" alt="Featured Category"> -->
-                            <img src="{% static 'assets/img/models/335A6077-2.jpg' %}" alt="Featured Category">
+                           
+                            <img src="{% static 'assets/img/models/335A6553.jpg' %}" alt="Featured Category">
+                            <!-- <img src="{% static 'assets/img/models/335A6077-2.jpg' %}" alt="Featured Category"> -->
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'diamond_earrings' %}">Earrings</a></h3>
@@ -971,7 +1108,7 @@
                         </li>
                         <li class="featured-category">
                             <!-- <img src="{% static 'assets/img/category/category-3.jpg' %}" alt="Featured Category"> -->
-                            <img src="{% static 'assets/img/models/335A6249.jpg' %}" alt="Featured Category">
+                            <img src="{% static 'assets/img/models/335A624999.jpg' %}" alt="Featured Category">
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'stone_necklace' %}">PRECIOUS STONE</a></h3>
@@ -981,7 +1118,8 @@
                             </div>
                         </li>
                         <li class="featured-category">
-                            <img src="{% static 'assets/img/models/335A6137.jpg' %}" alt="Featured Category">
+                            <!-- <img src="{% static 'assets/img/models/335A6137.jpg' %}" alt="Featured Category"> -->
+                             <img src="{% static 'assets/img/models/335A60777.jpg' %}" alt="Featured Category">
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'diamond_ring' %}">Gold & Diamond Rings</a></h3>
@@ -991,7 +1129,8 @@
                             </div>
                         </li>
                         <li class="featured-category">
-                            <img src="{% static 'assets/img/models/335A6553.jpg' %}" alt="Featured Category">
+                            <!-- <img src="{% static 'assets/img/models/335A6553.jpg' %}" alt="Featured Category"> -->
+                             <img src="{% static 'assets/img/models/335A6137.jpg' %}" alt="Featured Category">
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'gold_bangles' %}">Bangles</a></h3>
@@ -1158,54 +1297,12 @@
             </div>
         </section>
         
+
+        
         
         
             
-            <!-- <section class="testimonials">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="customers-testimonials" class="owl-carousel">
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                    </div>
-                                    <div class="testimonial-name">EMILIANO AQUILANI</div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                    </div>
-                                    <div class="testimonial-name">ANNA ITURBE</div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                    </div>
-                                    <div class="testimonial-name">LARA ATKINSON</div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                    </div>
-                                    <div class="testimonial-name">IAN OWEN</div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
-                                        <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
-                                    </div>
-                                    <div class="testimonial-name">MICHAEL TEDDY</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
+            
         <!-- Team Member: End -->
         <!-- Grayscale Collection: Begin -->
         <section class="grayscale-collection-wrap">
@@ -1250,9 +1347,12 @@
                 <!-- Contact: Begin -->
                 <div class="contact">
                     <h3>Contact us</h3>
-                    <form method="POST">
+                    <form method="POST" action="{% url 'index' %}" >
                         {% csrf_token %}
-                        
+                    
+                        <!-- Success message container -->
+                        <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
+                    
                         <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Your name*">
                         </div>
@@ -1265,12 +1365,12 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="subject" placeholder="Subject">
                         </div>
-                        
                         <div class="form-group">
                             <textarea class="form-control" name="comment" placeholder="Comments*" rows="10"></textarea>
                         </div>
                         <button type="submit" class="jw-button">Send Message</button>
                     </form>
+                    
                     <!-- index.html -->
 
                 </div>
@@ -1698,10 +1798,10 @@
     <script src="{% static 'assets/js/scripts.min.js' %}"></script>
     <script src="{% static 'assets/js/messenger.js' %}"></script>
 
-            <script>
+            <!-- <script>
                 jQuery(document).ready(function($) {
         		"use strict";
-        		//  TESTIMONIALS CAROUSEL HOOK
+        		
 		        $('#customers-testimonials').owlCarousel({
 		            loop: true,
 		            center: true,
@@ -1724,6 +1824,33 @@
 		            }
 		        });
         	});
+            </script> -->
+            <script>
+                jQuery(document).ready(function($) {
+                    "use strict";
+                    
+                    $('#customers-testimonials').owlCarousel({
+                        loop: true,
+                        center: true,
+                        items: 3,
+                        margin: 0,
+                        autoplay: true,
+                        dots: true,
+                        autoplayTimeout: 3000,
+                        smartSpeed: 450,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            768: {
+                                items: 2
+                            },
+                            1170: {
+                                items: 3
+                            }
+                        }
+                    });
+                });
             </script>
 
 
@@ -1740,6 +1867,39 @@
                 paragraph.style.display = 'none';
             }
         }
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                var formData = $(this).serialize(); // Serialize the form data
+    
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "index" %}', // Ensure this matches your Django URL pattern
+                    data: formData,
+                    success: function(response) {
+                        // Show the success message above the form
+                        $('#success-message').text('Form submitted successfully...!').show();
+    
+                        // Clear the form fields
+                        $('form')[0].reset();
+    
+                        // Hide the success message after 5 seconds and refresh the page
+                        setTimeout(function() {
+                            $('#success-message').fadeOut('slow', function() {
+                                location.reload();
+                            });
+                        }, 5000);
+                    },
+                    error: function(response) {
+                        // Handle error
+                        alert('An error occurred: ' + response.responseText);
+                    }
+                });
+            });
+        });
     </script>
     
 </body>

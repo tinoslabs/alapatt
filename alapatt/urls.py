@@ -36,9 +36,9 @@ urlpatterns = [
     path('products/<int:category_id>/', views.product_list, name='product_list_by_category'),
     path('products/<int:category_id>/<int:subcategory_id>/', views.product_list, name='product_list_by_subcategory'),
 
-    path('contact', views.contact, name='contact'),
+    path('contact/', views.contact, name='contact'),
     path('view_enquiry',views.view_enquiry, name='view_enquiry'),
-    path('delete_contact/<int:id>', views.delete_contact, name='delete_contact'),
+    path('delete_enquiry/<int:id>', views.delete_enquiry, name='delete_enquiry'),
 
     path('diamond_anklet', views.diamond_anklet, name='diamond_anklet'),
     path('diamond_bangles', views.diamond_bangles, name='diamond_bangles'),

@@ -9,6 +9,7 @@ from .forms import productForm,sub_category_Form, sub_category_Form, product_det
 from .models import ChatMessage
 from django.core.mail import send_mail
 from .forms import ContactForm
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -476,14 +477,15 @@ def contact(request):
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
+
 @login_required(login_url='user_login')
 def view_enquiry(request):
     enquiry = ContactModel.objects.all().order_by('-id')
     return render(request,'admin_pages/view_enquiry.html',{'enquiry':enquiry})
 
 @login_required(login_url='user_login')
-def delete_contact(request,id):
-    enquiry = EnquiryModel.objects.get(id=id)
+def delete_enquiry(request,id):
+    enquiry = ContactModel.objects.get(id=id)
     enquiry.delete()
     return redirect('view_enquiry')
 

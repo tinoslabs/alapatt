@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Header: End-->
     <!-- Main Page: Begin -->
+    
+        <style>
+        .success-message-box {
+            display: none; /* Initially hidden */
+            color: green;
+            font-weight: bold;
+            border: 2px solid green;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #e7f9e7;
+        }
+    </style>
+    
     <main>
         <!-- Breadcrumb: Begin -->
         <div class="breadcrumb-wrap clear">
@@ -52,41 +67,65 @@
         <div class="container">
             <div class="row">
                 <div class="contact-details-wrap">
-                    
+                    <!-- Any additional content -->
                 </div>
                 <div class="contact-form-wrap">
-                    <form method="post">{% csrf_token %}
+                    <form method="POST" action="{% url 'contact' %}" id="contact-form">
+                        {% csrf_token %}
+                        <!-- Success message container -->
+                        <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
                         
-                        <div class="contact-right">
-                            <div class="form-group msg_name">
-                                <input type="text" name="name" id="msg_name" placeholder="Enter Your Name *" class="form-control" required>
-                            </div>
-                            <div class="form-group msg_email">
-                                <input type="email" name="email" id="msg_email" placeholder="Enter Email *" class="form-control" required>
-                            </div>
-                            <div class="form-group msg_phone">
-                                <input type="text" name="phone" id="msg_phone" placeholder="Enter Phone Number *" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" name="subject" id="msg_subject" placeholder="Enter Message Subject" class="form-control">
-                            </div>
-                            <div class="contact-left form-group msg_message">
-                                <p>
-                                    <textarea name="comment" id="msg_message" cols="30" rows="12" placeholder="Message *" class="form-control"></textarea>
-                                </p>
-                                
-                            </div>
-                            <button type="submit" >Submit</button>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Your name*" required>
                         </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your email*" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="phone" placeholder="Your phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment" placeholder="Comments*" rows="10" required></textarea>
+                        </div>
+                        <button type="submit" class="jw-button">Send Message</button>
                     </form>
                 </div>
-                
             </div>
         </div>
         
     </main>
     <br><br>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                var formData = $(this).serialize(); // Serialize the form data
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "contact" %}', // Ensure this matches your Django URL pattern
+                    data: formData,
+                    success: function(response) {
+                        // Show the success message above the form
+                        $('#success-message').text('Your contact details submitted successfully').fadeIn().delay(5000).fadeOut('slow');
+
+                        // Optionally, you can clear the form fields
+                        $('#contact-form')[0].reset();
+                    },
+                    error: function(response) {
+                        // Handle error
+                        alert('An error occurred: ' + response.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    
     <!-- Main Page: End -->
     <!-- Footer: Begin -->
     {% endblock %}
