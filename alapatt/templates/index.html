@@ -1851,37 +1851,7 @@
                     });
                 });
             </script> -->
-            <script>
-                jQuery(document).ready(function($) {
-                "use strict";
-                
-                $('#customers-testimonials').owlCarousel({
-                    loop: true,
-                    center: true, // Keep center true to maintain shadow effect on larger screens
-                    items: 3,
-                    margin: 0,
-                    autoplay: true,
-                    dots: true,
-                    autoplayTimeout: 3000,
-                    smartSpeed: 450,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            center: false // Disable centering on small screens
-                        },
-                        600: {
-                            items: 1,
-                            center: false // Disable centering on medium screens
-                        },
-                        1170: {
-                            items: 3,
-                            center: true // Enable centering on large screens
-                        }
-                    }
-                });
-            });
-            </script>
-
+            
 
     <script>
         function toggleParagraph(element) {
@@ -1932,5 +1902,34 @@
     </script>
     
 </body>
-
+<script>
+    jQuery(document).ready(function($) {
+    "use strict";
+    
+    $('#customers-testimonials').owlCarousel({
+        loop: true,
+        center: true, // Keep center true to maintain shadow effect on larger screens
+        items: 3,
+        margin: 0,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 450,
+        responsive: {
+            0: {
+                items: 1,
+                center: false // Disable centering on small screens
+            },
+            600: {
+                items: 1,
+                center: false // Disable centering on medium screens
+            },
+            1170: {
+                items: 3,
+                center: true // Enable centering on large screens
+            }
+        }
+    });
+});
+</script>
 </html>
