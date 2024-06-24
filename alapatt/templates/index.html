@@ -17,11 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}">
 
-   
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     
     
     <style>
@@ -238,221 +237,262 @@
         min-width: 200px;
     }
         </style>
-    <!-- <style>
+    <style>
         .shadow-effect {
-            background: #fff;
-            padding: 20px;
-            border-radius: 4px;
-            text-align: center;
-            border: 1px solid #ECECEC; /* Existing border */
-            box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
-        }
-        #customers-testimonials .shadow-effect p {
-            font-family: inherit;
-            font-size: 17px;
-            line-height: 1.5;
-            margin: 0 0 17px 0;
-            font-weight: 300;
-        }
-        .testimonial-name {
-            margin: -17px auto 0;
-            display: table;
-            width: auto;
-            background: #cea665;
-            padding: 9px 35px;
-            border-radius: 12px;
-            text-align: center;
-            color: #fff;
-            box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
-        }
-        #customers-testimonials .item {
-            text-align: center;
-            padding: 50px;
-            margin-bottom: 80px;
-            opacity: .2;
-            -webkit-transform: scale3d(0.8, 0.8, 1);
-            transform: scale3d(0.8, 0.8, 1);
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-        #customers-testimonials .owl-item.active.center .item {
-            opacity: 1;
-            -webkit-transform: scale3d(1.0, 1.0, 1);
-            transform: scale3d(1.0, 1.0, 1);
-        }
-        .owl-carousel .owl-item img {
-            transform-style: preserve-3d;
-            max-width: 90px;
-            margin: 0 auto 17px;
-        }
-        #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
-        #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
-            background: #cea665;
-            transform: translate3d(0px, -50%, 0px) scale(0.7);
-        }
-        #customers-testimonials.owl-carousel .owl-dots {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-        }
-        #customers-testimonials.owl-carousel .owl-dots .owl-dot {
-            display: inline-block;
-        }
-        #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
-            background: #cea665;
-            display: inline-block;
-            height: 20px;
-            margin: 0 2px 5px;
-            transform: translate3d(0px, -50%, 0px) scale(0.3);
-            transform-origin: 50% 50% 0;
-            transition: all 250ms ease-out 0s;
-            width: 20px;
-        }
-
-        @media (max-width: 600px) {
-        #customers-testimonials .item {
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        #customers-testimonials .shadow-effect p {
-            font-size: 14px;
-        }
-
-        .testimonial-name {
-            padding: 7px 20px;
-            font-size: 14px;
-        }
-    }
-
-    @media (max-width: 400px) {
-        #customers-testimonials .item {
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        #customers-testimonials .shadow-effect p {
-            font-size: 12px;
-        }
-
-        .testimonial-name {
-            padding: 5px 15px;
-            font-size: 12px;
-        }
-
-        .owl-carousel .owl-item img {
-            max-width: 60px;
-        }
-    }
-
-    @media (max-width: 200px) {
-        #customers-testimonials .item {
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        #customers-testimonials .shadow-effect p {
-            font-size: 10px;
-        }
-
-        .testimonial-name {
-            padding: 3px 10px;
-            font-size: 10px;
-        }
-
-        .owl-carousel .owl-item img {
-            max-width: 40px;
-        }
-    }
-    
-    </style> -->
-   <style>
-   .shadow-effect {
-    background: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    text-align: center;
-    border: 1px solid #ECECEC;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
-}
-
-#customers-testimonials .shadow-effect p {
-    font-family: inherit;
-    font-size: 17px;
-    line-height: 1.5;
-    margin: 0 0 17px 0;
-    font-weight: 300;
-}
-
-.testimonial-name {
-    margin: -17px auto 0;
-    display: table;
-    width: auto;
-    background: #cea665;
-    padding: 9px 35px;
-    border-radius: 12px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
-}
-
-#customers-testimonials .item {
-    text-align: center;
-    padding: 50px;
-    margin-bottom: 80px;
-    opacity: .2;
-    transform: scale3d(0.8, 0.8, 1);
-    transition: all 0.3s ease-in-out;
-}
-
-#customers-testimonials .owl-item.active.center .item {
-    opacity: 1;
-    transform: scale3d(1.0, 1.0, 1);
-}
-
-.owl-carousel .owl-item img {
-    transform-style: preserve-3d;
-    max-width: 90px;
-    margin: 0 auto 17px;
-}
-
-#customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
-#customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
-    background: #cea665;
-    transform: translate3d(0px, -50%, 0px) scale(0.7);
-}
-
-#customers-testimonials.owl-carousel .owl-dots {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-
-#customers-testimonials.owl-carousel .owl-dots .owl-dot {
-    display: inline-block;
-}
-
-#customers-testimonials.owl-carousel .owl-dots .owl-dot span {
-    background: #cea665;
-    display: inline-block;
-    height: 20px;
-    margin: 0 2px 5px;
-    transform: translate3d(0px, -50%, 0px) scale(0.3);
-    transform-origin: 50% 50% 0;
-    transition: all 250ms ease-out 0s;
-    width: 20px;
-}
-
-@media (max-width: 600px) {
-    #customers-testimonials .item {
-        padding: 30px;
-        margin-bottom: 40px;
-        opacity: 1; /* Ensure full opacity for single item view */
-        transform: scale3d(1.0, 1.0, 1); /* Ensure full scale for single item view */
+        background: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: center;
+        border: 1px solid #ECECEC; /* Existing border */
+        box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
     }
 
     #customers-testimonials .shadow-effect p {
+        font-family: inherit;
+        font-size: 17px;
+        line-height: 1.5;
+        margin: 0 0 17px 0;
+        font-weight: 300;
+    }
+
+    .testimonial-name {
+        margin: -17px auto 0;
+        display: table;
+        width: auto;
+        background: #cea665;
+        padding: 9px 35px;
+        border-radius: 12px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
+    }
+
+    #customers-testimonials .item {
+        text-align: center;
+        padding: 50px;
+        margin-bottom: 80px;
+        opacity: .2;
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        opacity: 1;
+        -webkit-transform: scale3d(1.0, 1.0, 1);
+        transform: scale3d(1.0, 1.0, 1);
+    }
+
+    .owl-carousel .owl-item img {
+        transform-style: preserve-3d;
+        max-width: 90px;
+        margin: 0 auto 17px;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+        background: #cea665;
+        transform: translate3d(0px, -50%, 0px) scale(0.7);
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot {
+        display: inline-block;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+        background: #cea665;
+        display: inline-block;
+        height: 20px;
+        margin: 0 2px 5px;
+        transform: translate3d(0px, -50%, 0px) scale(0.3);
+        transform-origin: 50% 50% 0;
+        transition: all 250ms ease-out 0s;
+        width: 20px;
+    }
+    @media (max-width: 400px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 300px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -90px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 80px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 350px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -100px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 100px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 700px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 400px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -90px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 120px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+
+@media (min-width: 700px) and (max-width: 900px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 500px; /* Adjust width */
+        margin-left: -110px;
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 160px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+@media (min-width: 900px) and (max-width: 1000px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 500px; /* Adjust width */
+        margin-left: -110px;
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
         font-size: 14px;
     }
 
@@ -460,49 +500,18 @@
         padding: 7px 20px;
         font-size: 14px;
     }
-}
-
-@media (max-width: 400px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    #customers-testimonials .shadow-effect p {
-        font-size: 12px;
-    }
-
-    .testimonial-name {
-        padding: 5px 15px;
-        font-size: 12px;
-    }
 
     .owl-carousel .owl-item img {
-        max-width: 60px;
+        max-width: 70px;
+        margin: 0 auto 10px;
     }
 }
+   
+        </style>
+        
+        
+        
 
-@media (max-width: 200px) {
-    #customers-testimonials .item {
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
-    #customers-testimonials .shadow-effect p {
-        font-size: 10px;
-    }
-
-    .testimonial-name {
-        padding: 3px 10px;
-        font-size: 10px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 40px;
-    }
-}
-
-   </style>
     <style>
         @media (max-width: 600px) {
         .blog-posts-home .blog-details {
@@ -1031,10 +1040,14 @@
                         {% for category in product_category %}
                         <li class="featured-category">
                            
+                            {% if category.image %}
                             <img src="{{category.image.url}}" alt="Featured Category">
+                            {% endif %}
                             <div class="featured-category-details">
                                 <div class="details">
+                                    {% if category.category_name %}
                                     <h3 class="title"><a href="{% url 'Product_details' category.category_name %}">{{category.category_name}}</a></h3>
+                                    {% endif %}
                                     <p class="description">The Elegan pays tribute to the tradition of fine jewellery in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
                                     <p class="jw-button"><a href="{% url 'Product_details' category.category_name %}">Show More</a></p>
                                 </div>
@@ -1062,7 +1075,7 @@
                     </div>
                 </div>
                 <div class="thumb">
-                    <a href="product-details.html">
+                    <a href="{% url 'about' %}">
                         <img src="{% static 'assets/img/category/335A6501.jpg' %}" alt="New featured Product" style="width: 400px;">
                     </a>
                 </div>
@@ -1255,16 +1268,53 @@
         
         <!-- Blog Posts: End -->
         <!-- Hero Image: Begin -->
-        <section class="hero-image img-hover">
+        <!-- <section class="hero-image img-hover">
              <div class="hero-image-text">
                 
                 <img src="{% static 'assets/img/Alapatt-Logo@0811.png' %}" alt="diamon parallax" style="margin-top: 10px;">
                 
             </div>
-        </section>
+        </section> -->
+        <section class="hero-image img-hover">
+            <div class="hero-image-text">
+              <img src="{% static 'assets/img/Alapatt-Logo@0811.png' %}" alt="diamond parallax" style="margin-top: 10px;">
+            </div>
+          </section>
         
         <!-- Hero Image: End -->
         <!-- Team Member: Begin -->
+        <!-- <section class="team-member-wrap container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2>
+                </div>
+                <h3 class="section-subtitle">What Our Clients Say</h3>
+                <h5 class="section-small-subtitle">We enjoy a well-earned reputation among gold consumers in the state. Thanks to the unmatched quality that we produce with each gram of gold. </h5>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="customers-testimonials" class="owl-carousel">
+                            {% for review in client_review %}
+                            <div class="item">
+                                <div class="shadow-effect">
+                                    {% if review.client_image %}
+                                    <img class="img-circle" src="{{ review.client_image.url }}" alt="{{ review.client_name }}">
+                                    {% endif %}
+
+                                    {% if review.review %}
+                                    <p>{{ review.review }}</p>
+                                    {% endif %}
+                                    
+                                </div>
+                                <div class="testimonial-name">{{ review.client_name }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
         <section class="team-member-wrap container">
             <div class="section-header">
                 <div class="section-title">
@@ -1282,10 +1332,11 @@
                                 <div class="shadow-effect">
                                     {% if review.client_image %}
                                     <img class="img-circle" src="{{ review.client_image.url }}" alt="{{ review.client_name }}">
-                                    {% else %}
-                                    <img class="img-circle" src="{% static 'assets/img/member-1.png' %}" alt="{{ review.client_name }}">
                                     {% endif %}
+            
+                                    {% if review.review %}
                                     <p>{{ review.review }}</p>
+                                    {% endif %}
                                 </div>
                                 <div class="testimonial-name">{{ review.client_name }}</div>
                             </div>
@@ -1295,13 +1346,7 @@
                 </div>
             </div>
         </section>
-        
-
-        
-        
-        
-            
-            
+                    
         <!-- Team Member: End -->
         <!-- Grayscale Collection: Begin -->
         <section class="grayscale-collection-wrap">
@@ -1797,7 +1842,7 @@
     <script src="{% static 'assets/js/scripts.min.js' %}"></script>
     <script src="{% static 'assets/js/messenger.js' %}"></script>
 
-            <!-- <script>
+            <script>
                 jQuery(document).ready(function($) {
         		"use strict";
         		
@@ -1808,7 +1853,7 @@
 		            margin: 0,
 		            autoplay: true,
 		            dots:true,
-		            autoplayTimeout: 8500,
+		            autoplayTimeout: 2500,
 		            smartSpeed: 450,
 		            responsive: {
 		              0: {
@@ -1820,38 +1865,39 @@
 		              1170: {
 		                items: 3
 		              }
+                      
 		            }
 		        });
         	});
-            </script> -->
+            </script>
             <!-- <script>
-                jQuery(document).ready(function($) {
-                    "use strict";
-                    
-                    $('#customers-testimonials').owlCarousel({
-                        loop: true,
-                        center: true,
-                        items: 3,
-                        margin: 0,
-                        autoplay: true,
-                        dots: true,
-                        autoplayTimeout: 3000,
-                        smartSpeed: 450,
-                        responsive: {
-                            0: {
-                                items: 1
-                            },
-                            768: {
-                                items: 2
-                            },
-                            1170: {
-                                items: 3
-                            }
-                        }
+                 jQuery(document).ready(function($) {
+        		"use strict";
+        		
+		        $('#customers-testimonials').owlCarousel({
+		            loop: true,
+		            center: true,
+		            items: 3,
+		            margin: 0,
+		            autoplay: true,
+		            dots:true,
+		            autoplayTimeout: 8500,
+		            smartSpeed: 450,
+                    responsive: {
+		              0: {
+		                items: 1
+		              },
+		              768: {
+		                items: 2
+		              },
+		              1170: {
+		                items: 3
+		              }
+		            }
                     });
                 });
-            </script> -->
-            
+                </script> -->
+
 
     <script>
         function toggleParagraph(element) {
@@ -1902,34 +1948,5 @@
     </script>
     
 </body>
-<script>
-    jQuery(document).ready(function($) {
-    "use strict";
-    
-    $('#customers-testimonials').owlCarousel({
-        loop: true,
-        center: true, // Keep center true to maintain shadow effect on larger screens
-        items: 3,
-        margin: 0,
-        autoplay: true,
-        dots: true,
-        autoplayTimeout: 3000,
-        smartSpeed: 450,
-        responsive: {
-            0: {
-                items: 1,
-                center: false // Disable centering on small screens
-            },
-            600: {
-                items: 1,
-                center: false // Disable centering on medium screens
-            },
-            1170: {
-                items: 3,
-                center: true // Enable centering on large screens
-            }
-        }
-    });
-});
-</script>
+   
 </html>

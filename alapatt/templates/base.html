@@ -246,10 +246,12 @@
                     <div class="header-right">
                         <div class="search-input">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="">
+                                {% for gold_rate in rate %}
+                                <input type="text" class="form-control" value="{{ gold_rate.gold_rate }}-INR/gram">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"></button>
                                  </span>
+                                 {% endfor %}
                             </div>
                         </div>
                         <!-- <div class="header-cart">
@@ -500,9 +502,9 @@
                             <a href="https://tinos.co.in/"><span class="footer-bottom-color">tinos.co.in</span></a>
                             <span>All Rights Reserved.</span>
                         </div>
-                        <div class="footer-payment-method">
+                        <!-- <div class="footer-payment-method">
                             <img src="{% static 'assets/img/footer-payment.png' %}" alt="Payment">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <a href="#" id="back-to-top">

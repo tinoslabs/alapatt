@@ -3,9 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from .models import product_category, sub_category, ProductDetails, EnquiryModel, ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details
+from .models import product_category, sub_category, ProductDetails, EnquiryModel, ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Product_Details
 from .models import ProductDetails
-from .forms import productForm,sub_category_Form, sub_category_Form, product_details_Form, EnquiryForm, ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm
+from .forms import productForm,sub_category_Form, sub_category_Form, product_details_Form, EnquiryForm, ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product
 from .models import ChatMessage
 from django.core.mail import send_mail
 from .forms import ContactForm
@@ -251,35 +251,13 @@ def add_product_category(request):
     return render(request, 'admin_pages/add_product_category.html', {'form': form})
 
 
-# @login_required(login_url='user_login')
-# def add_product_category(request):
-#     if request.method == 'POST':
-#         form = productForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('add_sub_category') 
-#     else:
-#         form = productForm()
-
-#     return render(request, 'admin_pages/add_product_category.html', {'form': form})
-
 @login_required(login_url='user_login')
 def view_product_category(request):
     product = New_Category.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_product_category.html', {'product': product})
 
-# @login_required(login_url='user_login')
-# def update_product_category(request,id):
-#     product = get_object_or_404(New_Category, id=id)
-#     if request.method == 'POST':
-#         form = Product_Form(request.POST, request.FILES, instance=product)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('view_product_category')
-#     else:
-#         form = Product_Form(instance=product)
-#     return render(request, 'admin_pages/update_product_category.html', {'form': form, 'product': product})
 
+@login_required(login_url='user_login')
 def update_product_category(request, id):
     product = get_object_or_404(New_Category, id=id)
     if request.method == 'POST':
@@ -296,6 +274,7 @@ def delete_product_category(request,id):
     product = New_Category.objects.get(id=id)
     product.delete()
     return redirect('view_product_category')
+
 
 @login_required(login_url='user_login')
 def admin_add_product_details(request):
@@ -348,6 +327,93 @@ def Product_details(request,category_name):
     else:
         messages.warning(request,"No such category found")
     return render(request,'Product_details.html')
+
+
+@login_required(login_url='user_login')
+def add_featured_product_category(request):
+    if request.method == 'POST':
+        form = Featured_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_featured_category') 
+    else:
+        form = Featured_Form()
+
+    return render(request, 'admin_pages/add_featured_product_category.html', {'form': form})
+
+@login_required(login_url='user_login')
+def view_featured_category(request):
+    product = Featured_Category.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_featured_category.html', {'product': product})
+
+def update_featured_category(request, id):
+    product = get_object_or_404(Featured_Category, id=id)
+    if request.method == 'POST':
+        form = Featured_Form(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('view_featured_category')
+    else:
+        form = Featured_Form(instance=product)
+    return render(request, 'admin_pages/update_featured_category.html', {'form': form, 'product': product})
+
+@login_required(login_url='user_login')
+def delete_featured_category(request,id):
+    products = Featured_Category.objects.get(id=id)
+    products.delete()
+    return redirect('view_featured_category')
+
+# @login_required(login_url='user_login')
+# def add_featured_details(request):
+#     categories = Featured_Category.objects.all() 
+#     if request.method == 'POST':
+#         product_details = Featured_Product(request.POST, request.FILES)
+#         if product_details.is_valid():
+#             product_details.save()
+        
+#             return redirect('view_featured_details')  
+#     else:
+#         product_details = Featured_Product()
+   
+#     return render(request, 'admin_pages/add_featured_details.html', {'product_details': product_details,'categories':categories})
+
+def add_featured_details(request):
+    categories = Featured_Category.objects.all()
+    if request.method == 'POST':
+        product_details = Featured_Product(request.POST, request.FILES)
+        if product_details.is_valid():
+            product_details.save()
+            return redirect('view_featured_details')
+    else:
+        product_details = Featured_Product()
+    return render(request, 'admin_pages/add_featured_details.html', {'product_details': product_details, 'categories': categories})
+
+
+@login_required(login_url='user_login')
+def view_featured_details(request):
+    products = Featured_Product_Details.objects.all().order_by('-id')
+    return render(request,'admin_pages/view_featured_details.html',{'products':products})
+
+@login_required(login_url='user_login')
+def update_featured_details(request, id):
+    products = get_object_or_404(Featured_Product_Details, id=id)
+    categories = Featured_Category.objects.all()  
+
+    if request.method == 'POST':
+        form = Featured_Product(request.POST, request.FILES, instance=products)
+        if form.is_valid():
+            form.save()
+            return redirect('view_featured_details')
+    else:
+        form = Featured_Product(instance=products)
+
+    return render(request, 'admin_pages/admin_update_product_details.html', {'form': form, 'products': products, 'categories': categories})
+
+@login_required(login_url='user_login')
+def delete_featured_details(request,id):
+    products = Featured_Product_Details.objects.get(id=id)
+    products.delete()
+    return redirect('view_featured_details')
 
 @login_required(login_url='user_login')
 def add_sub_category(request):

@@ -81,6 +81,16 @@ urlpatterns = [
     path('admin_update_product_details/<int:id>/',views.admin_update_product_details,name='admin_update_product_details'),
     path('admin_delete_product_details/<int:id>/',views.admin_delete_product_details,name='admin_delete_product_details'),
 
+    path('add_featured_product_category',views.add_featured_product_category,name='add_featured_product_category'),
+    path('view_featured_category', views.view_featured_category, name='view_featured_category'),
+    path('update_featured_category/<int:id>/', views.update_featured_category, name='update_featured_category'),
+    path('delete_featured_category/<int:id>/', views.delete_featured_category, name='delete_featured_category'),
+
+    path('add_featured_details', views.add_featured_details, name='add_featured_details'),
+    path('view_featured_details', views.view_featured_details, name='view_featured_details'),
+    path('update_featured_details/<int:id>/', views.update_featured_details, name='update_featured_details'),
+    path('delete_featured_details/<int:id>/', views.delete_featured_details, name='delete_featured_details'),
+
     path('add_sub_category', views.add_sub_category, name='add_sub_category'),
     path('view_sub_category', views.view_sub_category, name='view_sub_category'),
     path('update_sub_category/<int:id>/', views.update_sub_category, name='update_sub_category'),
