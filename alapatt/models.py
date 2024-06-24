@@ -88,3 +88,24 @@ class Product_Details(models.Model):
      product_name = models.CharField(max_length=100,null=True,blank=True)
      product_price = models.DecimalField(max_digits=8, decimal_places=2,null=True,blank=True)
      product_image = models.ImageField(upload_to='images/')
+
+     def __str__(self):
+        return self.product_name or "Unnamed Product"
+     
+class Featured_Category(models.Model):
+    category_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/', null=True,blank=True)
+    description = models.CharField(max_length=500, null=True,blank=True)
+    status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
+    def __str__(self):
+        return self.category_name
+
+
+class Featured_Product_Details(models.Model):
+     category = models.ForeignKey(New_Category, on_delete=models.CASCADE)
+     product_name = models.CharField(max_length=100,null=True,blank=True)
+     product_price = models.DecimalField(max_digits=8, decimal_places=2,null=True,blank=True)
+     product_image = models.ImageField(upload_to='images/')
+
+     def __str__(self):
+        return self.product_name or "Unnamed Product"

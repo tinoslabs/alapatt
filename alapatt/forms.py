@@ -1,5 +1,5 @@
 from django import forms
-from .models import product_category, sub_category, ProductDetails, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel
+from .models import product_category, sub_category, ProductDetails, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel,Featured_Category,Featured_Product_Details
 
 class productForm(forms.ModelForm):
     class Meta:
@@ -46,4 +46,14 @@ class Product_Form(forms.ModelForm):
 class ProductDtailsForm(forms.ModelForm):
     class Meta:
         model = Product_Details
+        fields = '__all__'
+
+class Featured_Form(forms.ModelForm):
+    class Meta:
+        model = Featured_Category
+        fields = '__all__'
+
+class Featured_Product(forms.ModelForm):
+    class Meta:
+        model = Featured_Product_Details
         fields = '__all__'

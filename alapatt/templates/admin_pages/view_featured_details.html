@@ -1,0 +1,79 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="col-lg-10 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">View Featured Products</h4>
+            <a href="">
+              <button class="btn btn-primary">Add Featured Product</button>
+          </a>
+         
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Category Name</th>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Product Price</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for details in products %}
+                  <tr>
+                    <td style="width: 150px; ">
+                        {{details.category.category_name}}
+                    </td>
+
+                    {% if details.product_name %}
+                    <td style="width: 150px; ">
+                        {{details.product_name}}
+                    </td>
+                    {% else %}
+                    <td>Data Not Found</td>
+                    {% endif %}
+
+
+                    {% if details.product_price %}
+                    <td style="width: 150px; ">
+                        {{details.product_price}}
+                    </td>
+                    {% else %}
+                    <td>Data Not Found</td>
+                    {% endif %}
+                  
+                    <td style="width: 150px; ">
+                      {% if details.product_image %}
+                      <img src="{{details.product_image.url}}" alt="Current Image" style="width: 80px; height: 80px;">
+                      <br>
+                      
+                  {% else %}
+                      <p>No image available</p>
+                  {% endif %}
+                  </td>
+
+                 
+
+                    <td style="width: 150px; ">
+                      <a href="{% url 'admin_update_product_details' details.id  %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i> </button></a>
+                    </td>
+                    <td style="width: 150px; ">
+                      <a href="{% url 'admin_delete_product_details' details.id  %}"><button><i class="mdi mdi-delete" aria-hidden="true"></i> </button></a>
+                     
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
