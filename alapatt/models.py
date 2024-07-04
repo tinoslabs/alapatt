@@ -1,5 +1,6 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
+from django.utils import timezone
 # Create your models here.
 
 class EnquiryModel(models.Model):
@@ -31,26 +32,6 @@ class product_category(models.Model):
     def __str__(self):
         return self.name
 
-
-class sub_category(models.Model):
-    category = models.ForeignKey(product_category,on_delete=models.CASCADE)
-    product_name = models.CharField(max_length=100, null=True, blank=True)
-    status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
-
-    def __str__(self):
-        return self.product_name if self.product_name else "No Product Name"
-
-
-class ProductDetails(models.Model):
-    product_category = models.ForeignKey(product_category, on_delete=models.CASCADE)
-    sub_category = models.ForeignKey(sub_category, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    product_image = models.ImageField(upload_to='project_images/')
-    product_price = models.DecimalField(max_digits=8, decimal_places=2)
-    status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
-
-    def __str__(self):
-        return self.name
 
 class ChatMessage(models.Model):
     name = models.CharField(max_length=100)
@@ -101,11 +82,39 @@ class Featured_Category(models.Model):
         return self.category_name
 
 
-class Featured_Product_Details(models.Model):
-     category = models.ForeignKey(New_Category, on_delete=models.CASCADE)
+class Featured_Products(models.Model):
+     category = models.ForeignKey(Featured_Category, on_delete=models.CASCADE)
      product_name = models.CharField(max_length=100,null=True,blank=True)
      product_price = models.DecimalField(max_digits=8, decimal_places=2,null=True,blank=True)
      product_image = models.ImageField(upload_to='images/')
 
      def __str__(self):
         return self.product_name or "Unnamed Product"
+     
+     
+class Career_Model(models.Model):    
+    job_position = models.CharField(max_length=100)
+    job_type = models.CharField(max_length=100)
+    company_name = models.CharField(max_length=100)
+    place = models.CharField(max_length=100)
+    salary = models.IntegerField()
+    job_details = RichTextField(max_length=20000)
+    posted_date = models.DateField()
+    end_date = models.DateTimeField()
+    
+    def is_active(self):
+        return self.end_date >= timezone.now()
+    
+
+
+class Job_Application(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=500)
+    email = models.EmailField(max_length=100, null=True, blank=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    pdf_file = models.FileField(upload_to='pdfs/')
+    job_position = models.ForeignKey(Career_Model, on_delete=models.CASCADE, related_name='candidates', null=True)
+    
+    def _str_(self):
+        return self.first_name

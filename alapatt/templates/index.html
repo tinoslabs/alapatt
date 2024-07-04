@@ -507,11 +507,7 @@
         margin: 0 auto 10px;
     }
 }
-   
         </style>
-        
-        
-        
 
     <style>
         @media (max-width: 600px) {
@@ -670,12 +666,12 @@
             <div id="header-top" class="clear">
                 <!--Header Logo: Begin-->
                 <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Final.png' %}" alt="main logo"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo"></a>
                     <h1 class="hidden-heading">Jewelry</h1>
                 </div>
                 <!--Header Logo: End-->
                 <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" >
+                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
                     <ul>
                         <li>
                             <span><a href="{% url 'index' %}">home</a></span>
@@ -748,6 +744,9 @@
                         
                         <li>
                             <span><a href="{% url 'about' %}">About Us</a></span>
+                        </li>
+                        <li>
+                            <span><a href="{% url 'careers' %}">Careers</a></span>
                         </li>
                         <li>
                             <span><a href="{% url 'contact' %}">contact</a></span>
@@ -882,6 +881,9 @@
                             </li>
                             <li class="level0 parent">
                                 <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'careers' %}" title="Gemstone Rings">Careers</a>
                             </li>
                             <li class="level0 parent">
                                 <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
@@ -1111,7 +1113,6 @@
                     <ul class="featured-categories">
                         {% for category in product_category %}
                         <li class="featured-category">
-                           
                             {% if category.image %}
                             <img src="{{category.image.url}}" alt="Featured Category">
                             {% endif %}
@@ -1167,141 +1168,26 @@
                 <div class="section-main">
                     <!-- Featured Categories: Begin -->
                     <ul class="featured-categories">
+                        {% for category in Featured_Products %}
                         <li class="featured-category">
-                            <!-- <img src="{% static 'assets/img/category/category-1.jpg' %}" alt="Featured Category"> -->
-                            <img src="{% static 'assets/img/models/335A63866.jpg' %}" alt="Featured Category">
+                            {% if category.image %}
+                            <img src="{{category.image.url}}" alt="Featured Category">
+                            {% endif %}
                             <div class="featured-category-details">
                                 <div class="details">
-                                    <h3 class="title"><a href="{% url 'gold_necklace' %}">GOLD NECKLACE</a></h3>
+                                    <h3 class="title"><a href="{% url 'featured_products' category.category_name %}">{{category.category_name}}</a></h3>
                                     <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
                                     <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
                                 </div>
                             </div>
                         </li>
-                        <li class="featured-category">
-                           
-                            <img src="{% static 'assets/img/models/335A6553.jpg' %}" alt="Featured Category">
-                            <!-- <img src="{% static 'assets/img/models/335A6077-2.jpg' %}" alt="Featured Category"> -->
-                            <div class="featured-category-details">
-                                <div class="details">
-                                    <h3 class="title"><a href="{% url 'diamond_earrings' %}">Earrings</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
-                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="featured-category">
-                            <!-- <img src="{% static 'assets/img/category/category-3.jpg' %}" alt="Featured Category"> -->
-                            <img src="{% static 'assets/img/models/335A624999.jpg' %}" alt="Featured Category">
-                            <div class="featured-category-details">
-                                <div class="details">
-                                    <h3 class="title"><a href="{% url 'stone_necklace' %}">PRECIOUS STONE</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
-                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="featured-category">
-                            <!-- <img src="{% static 'assets/img/models/335A6137.jpg' %}" alt="Featured Category"> -->
-                             <img src="{% static 'assets/img/models/335A60777.jpg' %}" alt="Featured Category">
-                            <div class="featured-category-details">
-                                <div class="details">
-                                    <h3 class="title"><a href="{% url 'diamond_ring' %}">Gold & Diamond Rings</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
-                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="featured-category">
-                            <!-- <img src="{% static 'assets/img/models/335A6553.jpg' %}" alt="Featured Category"> -->
-                             <img src="{% static 'assets/img/models/335A6137.jpg' %}" alt="Featured Category">
-                            <div class="featured-category-details">
-                                <div class="details">
-                                    <h3 class="title"><a href="{% url 'gold_bangles' %}">Bangles</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
-                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="featured-category">
-                            <img src="{% static 'assets/img/models/33567890_3.jpg' %}" alt="Featured Category">
-                            <div class="featured-category-details">
-                                <div class="details">
-                                    <!-- <h3 class="title"><a href="{% url 'stone_ring' %}">Precious Stone Rings</a></h3> -->
-                                    <h3 class="title"><a href="{% url 'diamond_necklace' %}">Diamond Necklace</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
-                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
-                                </div>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                     <!-- Featured Categories: End -->
                 </div>
             </div>
         </section>
-        <!-- Featured Category List: End -->
-        <!-- Blog Posts: Begin -->
-        <!-- <section class="blog-posts-home container">
-            <div class="section-header">
-                <div class="section-title">
-                    <h2>elegan shop</h2>
-                </div>
-                <h3 class="section-subtitle" style="font-family: 'Playfair Display', serif; color: #cea665;">PURCHASE PLAN</h3>
-                <h5 class="section-small-subtitle">
-                    Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery. Our showroom is open every day of the week.
-                </h5>
-            </div>
-            <div class="row">
-                <ul class="blog-posts clear">
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/swarna-sayoojya-logo.svg' %}" alt="blog 1" style="width: 300px; height: 200px;">
-                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif; font-size: 20px;">A golden helping hand from Alapatt to fulfil your daughter’s wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya aims at securing small easy amounts periodically to plan big buying of Gold in future.</p>
-                        </div>
-                    </li>
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/kanaka.svg' %}" alt="blog 2" style="width: 300px; height: 200px;">
-                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif;font-size: 20px;">A golden helping hand from Alapatt to fulfil your daughter’s wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Kanaka Saubhagya aims at securing small easy amounts periodically to plan big buying of Gold in future.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section> -->
-        <!-- <section class="blog-posts-home container">
-            <div class="section-header">
-                <div class="section-title">
-                    <h2>elegan shop</h2></div>
-                <h3 class="section-subtitle">Blog Posts</h3>
-                <h5 class="section-small-subtitle">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco .</h5>
-            </div>
-            <div class="row">
-                <ul class="blog-posts clear">
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover">
-                            <img src="{% static 'assets/img/blog-1.jpg' %}" alt="blog 1">
-                        </div>
-                        
-                        <div class="blog-details">
-                            <h4 class="blog-title" style="color: balck;">Friday Fresh Recipes</h4>
-                           
-                            <p>But the placing of the cap-sheaf to all this blundering business was reserved for the scientific Frederick Cuvier, brother to the famous Baron. In 1836, he published a Natural History of...</p>
-                        </div>
-                    </li>
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover">
-                            <img src="{% static 'assets/img/blog-2.jpg' %}" alt="blog 2">
-                        </div>
-                        
-                        <div class="blog-details">
-                            <h4 class="blog-title" style="color: balck;">The Story Of Beauty</h4>
-                            
-                            <p>Founded in New York City in 1932, by Mr. Harry – an innate gemologist, an intuitive business man, and a dedicated philanthropist – the brand continues to set the standard for the ultimate...</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section> -->
+       
         <section class="blog-posts-home container">
             <div class="section-header">
                 <div class="section-title">

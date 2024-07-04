@@ -108,74 +108,17 @@
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link" href="{% url 'admin_dashboard'%}">
-        <!-- <i class="mdi mdi-grid-large menu-icon"></i> -->
+        
         <i class="menu-icon mdi mdi-home"></i>
         <span class="menu-title">Dashboard</span>
       </a>
-    </li>
-
-    <!-- <li class="nav-item nav-category">Product</li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-        aria-controls="form-elements">
-        <i class="menu-icon mdi mdi-card-text-outline"></i>
-        <span class="menu-title">Add Product Category</span>
-        <i class="menu-arrow"></i>
-      </a>
-      <div class="collapse" id="form-elements">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"><a class="nav-link" href="{% url 'add_product_category' %}">Add Product Category</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'view_product_category' %}">View Product Category</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'add_sub_category' %}">Add Sub Category</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'view_sub_category' %}">View Sub Category</a></li>
-
-        </ul>
-      </div>
-    </li>
-    <li class="nav-item nav-category">Add Product Details</li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#product-details" aria-expanded="false"
-        aria-controls="form-elements">
-        <i class="menu-icon mdi mdi-card-text-outline"></i>
-        <span class="menu-title">Add Product Details</span>
-        <i class="menu-arrow"></i>
-      </a>
-      <div class="collapse" id="product-details">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"><a class="nav-link" href="{% url 'add_product_details' %}">Add Product Details</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'view_product_details' %}">View Product Details</a></li>
-          
-          
-
-        </ul>
-      </div>
-    </li> -->
-
-    <li class="nav-item nav-category">Add Products</li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#product" aria-expanded="false"
-        aria-controls="form-elements">
-        <i class="menu-icon mdi mdi-card-text-outline"></i>
-        <span class="menu-title">Add Products</span>
-        <i class="menu-arrow"></i>
-      </a>
-      <div class="collapse" id="product">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"><a class="nav-link" href="{% url 'add_product_category' %}">Add Product Category</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'view_product_category' %}">View Product Category</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'admin_add_product_details' %}">Add Product Details</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'admin_view_product_details' %}">View Product Details</a></li>
-          
-
-        </ul>
-      </div>
     </li>
 
     <li class="nav-item nav-category">Gold Rate</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#gold-rate" aria-expanded="false"
         aria-controls="form-elements">
-        <i class="menu-icon mdi mdi-card-text-outline"></i>
+        <i class="menu-icon mdi mdi-star-outline"></i>
         <span class="menu-title">Add Gold Rate</span>
         <i class="menu-arrow"></i>
       </a>
@@ -188,6 +131,83 @@
         </ul>
       </div>
     </li>
+
+    <li class="nav-item nav-category">Add Products</li>
+    <li class="nav-item">
+
+      <a class="nav-link" data-bs-toggle="collapse" href="#product" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-shopping"></i>
+        <span class="menu-title">Add Products</span>
+        <i class="menu-arrow"></i>
+      </a>
+
+      <div class="collapse" id="product">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_product_category' %}">Add Product Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_product_category' %}">View Product Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'admin_add_product_details' %}">Add Product Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'admin_view_product_details' %}">View Product Details</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item nav-category">Add Featured Product</li>
+    <li class="nav-item">
+
+      <a class="nav-link" data-bs-toggle="collapse" href="#featured" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-card-text-outline"></i>
+        <span class="menu-title">Add Featured Products</span>
+        <i class="menu-arrow"></i>
+      </a>
+
+      <div class="collapse" id="featured">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_featured_product_category' %}">Featured Product Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_featured_category' %}">View Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_featured_details' %}">Add Featured Product Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_featured_details' %}">View Featured Product Details</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item nav-category">Add Job Details</li>
+    <li class="nav-item">
+
+      <a class="nav-link" data-bs-toggle="collapse" href="#jobDetails" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi mdi-book-open"></i>
+        <span class="menu-title">Add Job Details</span>
+        <i class="menu-arrow"></i>
+      </a>
+
+      <div class="collapse" id="jobDetails">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'add_job_details' %}">Add Job Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_job_details' %}">View Job Details</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+    <li class="nav-item nav-category">View Job Application</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#application" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="menu-icon mdi mdi-account-box"></i>
+        <span class="menu-title">View Job Application</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="application">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'view_job_application' %}">View Job Application</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+    
 
     <li class="nav-item nav-category">Add Client Review</li>
     <li class="nav-item">
