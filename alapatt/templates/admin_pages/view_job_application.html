@@ -1,0 +1,76 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="col-lg-11 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Candidate Details</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Job Position</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Resume</th>
+                            <th>Download PDF</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applications %}
+                        <tr>
+                            <td>{{ application.job_position.job_position }}</td>
+                            <td>{{ application.first_name }}</td>
+                            <td>{{ application.last_name }}</td>
+                            <td>{{ application.address }}</td>
+                            <td>{{ application.email }}</td>
+                            <td>{{ application.phone }}</td>
+                            <!-- <td>
+                                {% if application.pdf_file %}
+                                <object data="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
+                                    <p>Sorry, your browser does not support PDFs. Please download the PDF to view it.</p>
+                                </object>
+                                {% else %}
+                                <p>No resume uploaded.</p>
+                                {% endif %}
+                            </td> -->
+                            <td>
+                                {% if application.pdf_file %}
+                                <object data="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
+                                    <embed src="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
+                                        <p>Sorry, your browser does not support PDFs. Please download the PDF to view it.</p>
+                                    </embed>
+                                </object>
+                                {% else %}
+                                <p>No resume uploaded.</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if application.pdf_file %}
+                                <a href="{{ application.pdf_file.url }}" download>
+                                    <button>Download PDF</button>
+                                </a>
+                                {% else %}
+                                No PDF file available
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_job_application' application.id %}">
+                                    <button><i class="mdi mdi-delete" aria-hidden="true"></i></button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

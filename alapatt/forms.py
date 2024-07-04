@@ -1,19 +1,9 @@
 from django import forms
-from .models import product_category, sub_category, ProductDetails, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel,Featured_Category,Featured_Product_Details
+from .models import product_category, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel,Featured_Category,Featured_Products,Career_Model, Job_Application
 
 class productForm(forms.ModelForm):
     class Meta:
         model = product_category
-        fields = '__all__'
-
-class sub_category_Form(forms.ModelForm):
-    class Meta:
-        model = sub_category
-        fields = '__all__'
-
-class product_details_Form(forms.ModelForm):
-    class Meta:
-        model = ProductDetails
         fields = '__all__'
 
 class EnquiryForm(forms.ModelForm):
@@ -53,7 +43,17 @@ class Featured_Form(forms.ModelForm):
         model = Featured_Category
         fields = '__all__'
 
-class Featured_Product(forms.ModelForm):
+class Featured_Product_Form(forms.ModelForm):
     class Meta:
-        model = Featured_Product_Details
+        model = Featured_Products
+        fields = '__all__'
+
+class CareerForm(forms.ModelForm):
+    class Meta:
+        model = Career_Model
+        fields = '__all__'
+
+class Job_Application_Form(forms.ModelForm):
+    class Meta:
+        model = Job_Application
         fields = '__all__'

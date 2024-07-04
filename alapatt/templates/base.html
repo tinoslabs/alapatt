@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-XXXXX" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
 </head>
 
 <body class="product-details-page">
@@ -29,14 +31,14 @@
                 </div>
                 <!--Header Logo: End-->
                 <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" >
+                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
                     <ul>
                         <li>
                             <span><a href="{% url 'index' %}">home</a></span>
                         </li>
                         
                         <li class="has-sub">
-                            <span><a href="category-grid.html">pages</a></span>
+                            <span><a href="category-grid.html">Collections</a></span>
                             <ul class="sub-menu double-column">
                                 <li>
                                     <h4>Gold</h4>
@@ -98,6 +100,9 @@
                         </li>
                         <li>
                             <span><a href="{% url 'about' %}">About Us</a></span>
+                        </li>
+                        <li>
+                            <span><a href="{% url 'careers' %}">Careers</a></span>
                         </li>
                         <li>
                             <span><a href="{% url 'contact' %}">contact</a></span>
@@ -230,8 +235,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            
                             <li class="level0 parent">
                                 <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'careers' %}" title="Gemstone Rings">Careers</a>
                             </li>
                             <li class="level0 parent">
                                 <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
@@ -320,7 +329,7 @@
                                 <h4 class="footer-logo">
                                     <img src="{% static 'assets/img/LOGO-ALAPATT.png' %}" alt="elegan shop">
                                 </h4>
-                                <div class="footer-acordion-wrap">
+                                <!-- <div class="footer-acordion-wrap">
                                     <p class="footer-slogan">Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery.</p>
                                     <div class="footer-contacts">
                                         <div class="footer-contact clear">
@@ -336,7 +345,7 @@
                                             <p class="location-details">info@netbaseteam.com</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 
                             </div>
                             <!-- Footer Column 1: End -->
@@ -482,9 +491,9 @@
                         <!-- Footer Social Connect: Begin -->
                         <div class="footer-social">
                             <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="fa fa-facebook"></i></a>
-                            <!-- <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="icon-youtube"></i></a> -->
+                            
                             <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="fa fa-youtube"></i></a>
-                            <a href="https://www.instagram.com/alapattfashionjewellery/"><i class="fab fa-instagram"></i></a>
+                            
                             
                         </div>
     
@@ -649,6 +658,9 @@
         <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
         <script src="{% static 'assets/js/scripts.min.js' %}"></script>
         <script src="{% static 'assets/js/messenger.js' %}"></script>
+
+
+        
     </body>
     
     </html>

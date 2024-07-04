@@ -3,13 +3,16 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from .models import product_category, sub_category, ProductDetails, EnquiryModel, ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Product_Details
-from .models import ProductDetails
-from .forms import productForm,sub_category_Form, sub_category_Form, product_details_Form, EnquiryForm, ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product
+from .models import product_category, EnquiryModel, ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Products, Career_Model, Job_Application
+from .forms import productForm,EnquiryForm, ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product_Form, CareerForm, Job_Application_Form
 from .models import ChatMessage
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.http import JsonResponse
+from django.utils import timezone
+from django.conf import settings 
+
+from django.http import Http404
 # Create your views here.
 
 
@@ -73,6 +76,7 @@ def index(request):
     rate = GoldRate.objects.all()
     product_category = New_Category.objects.all()
     product_details = Product_Details.objects.all()
+    Featured_Products = Featured_Category.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -80,7 +84,7 @@ def index(request):
             return HttpResponse('added')
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'client_review': client_review, 'form': form, 'rate':rate, 'product_details':product_details,'product_category':product_category})
+    return render(request, 'index.html', {'client_review': client_review, 'form': form, 'rate':rate, 'product_details':product_details, 'product_category':product_category, 'Featured_Products':Featured_Products})
 
 
 
@@ -141,20 +145,20 @@ def category_grid(request):
 
 
 
-def product_list(request, category_id, subcategory_id=None):
-    category = get_object_or_404(product_category, id=category_id)
-    subcategory = None
-    if subcategory_id:
-        subcategory = get_object_or_404(sub_category, id=subcategory_id, category=category)
-        products = ProductDetails.objects.filter(product_category=category, sub_category=subcategory, status=True)
-    else:
-        products = ProductDetails.objects.filter(product_category=category, status=True)
+# def product_list(request, category_id, subcategory_id=None):
+#     category = get_object_or_404(product_category, id=category_id)
+#     subcategory = None
+#     if subcategory_id:
+#         subcategory = get_object_or_404(sub_category, id=subcategory_id, category=category)
+#         products = ProductDetails.objects.filter(product_category=category, sub_category=subcategory, status=True)
+#     else:
+#         products = ProductDetails.objects.filter(product_category=category, status=True)
     
-    return render(request, 'product_list.html', {
-        'category': category,
-        'subcategory': subcategory,
-        'products': products
-    })
+#     return render(request, 'product_list.html', {
+#         'category': category,
+#         'subcategory': subcategory,
+#         'products': products
+#     })
 # diamod section start #
 
 def diamond_anklet(request):
@@ -363,110 +367,94 @@ def delete_featured_category(request,id):
     products.delete()
     return redirect('view_featured_category')
 
-# @login_required(login_url='user_login')
-# def add_featured_details(request):
-#     categories = Featured_Category.objects.all() 
-#     if request.method == 'POST':
-#         product_details = Featured_Product(request.POST, request.FILES)
-#         if product_details.is_valid():
-#             product_details.save()
-        
-#             return redirect('view_featured_details')  
-#     else:
-#         product_details = Featured_Product()
-   
-#     return render(request, 'admin_pages/add_featured_details.html', {'product_details': product_details,'categories':categories})
-
 def add_featured_details(request):
     categories = Featured_Category.objects.all()
     if request.method == 'POST':
-        product_details = Featured_Product(request.POST, request.FILES)
-        if product_details.is_valid():
-            product_details.save()
+        details = Featured_Product_Form(request.POST, request.FILES)
+        if details.is_valid():
+            details.save()
             return redirect('view_featured_details')
     else:
-        product_details = Featured_Product()
-    return render(request, 'admin_pages/add_featured_details.html', {'product_details': product_details, 'categories': categories})
+        details = Featured_Product_Form()
+    return render(request, 'admin_pages/add_featured_details.html', {'details': details, 'categories': categories})
 
 
 @login_required(login_url='user_login')
 def view_featured_details(request):
-    products = Featured_Product_Details.objects.all().order_by('-id')
+    products = Featured_Products.objects.all().order_by('-id')
     return render(request,'admin_pages/view_featured_details.html',{'products':products})
 
 @login_required(login_url='user_login')
 def update_featured_details(request, id):
-    products = get_object_or_404(Featured_Product_Details, id=id)
+    products = get_object_or_404(Featured_Products, id=id)
     categories = Featured_Category.objects.all()  
 
     if request.method == 'POST':
-        form = Featured_Product(request.POST, request.FILES, instance=products)
+        form = Featured_Product_Form(request.POST, request.FILES, instance=products)
         if form.is_valid():
             form.save()
             return redirect('view_featured_details')
     else:
-        form = Featured_Product(instance=products)
+        form = Featured_Product_Form(instance=products)
 
-    return render(request, 'admin_pages/admin_update_product_details.html', {'form': form, 'products': products, 'categories': categories})
+    return render(request, 'admin_pages/update_featured_details.html', {'form': form, 'products': products, 'categories': categories})
 
 @login_required(login_url='user_login')
 def delete_featured_details(request,id):
-    products = Featured_Product_Details.objects.get(id=id)
+    products = Featured_Products.objects.get(id=id)
     products.delete()
     return redirect('view_featured_details')
 
-@login_required(login_url='user_login')
-def add_sub_category(request):
-    categories = product_category.objects.all()
-    if request.method == 'POST':
-        form = sub_category_Form(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('add_product_details') 
+
+def featured_products(request,category_name):
+    category = Featured_Category.objects.all()
+    if(Featured_Category.objects.filter(category_name=category_name, status=0)):
+        product_details = Featured_Products.objects.filter(category__category_name=category_name)
+        category_name = Featured_Category.objects.filter(category_name=category_name).first()
+        context = {'product_details': product_details,'category_name':category_name,'category':category}
+        return render(request,"Featured_Product_details.html",context)
     else:
-        form = sub_category_Form()
-
-    return render(request, 'admin_pages/add_sub_category.html', {'form': form, 'categories':categories})
-
-
-@login_required(login_url='user_login')
-def view_sub_category(request):
-    data = sub_category.objects.all().order_by('-id')
-    return render(request, 'admin_pages/view_sub_category.html', {'data': data})
-
-
-@login_required(login_url='user_login')
-def update_sub_category(request,id):
-    categories = product_category.objects.all()
-    data = get_object_or_404(sub_category, id=id)
-    if request.method == 'POST':
-        form = sub_category_Form(request.POST, request.FILES, instance=data)
-        if form.is_valid():
-            form.save()
-            return redirect('view_sub_category')
-    else:
-        form = sub_category_Form(instance=data)
-    return render(request, 'admin_pages/update_sub_category.html', {'form': form, 'data': data, 'categories':categories})
-
-@login_required(login_url='user_login')
-def delete_sub_category(request,id):
-    product = sub_category.objects.get(id=id)
-    product.delete()
-    return redirect('add_product_details')
+        messages.warning(request,"No such category found")
+    return render(request,'Featured_Product_details.html')
 
 # @login_required(login_url='user_login')
-# def add_product_details(request):
+# def add_sub_category(request):
 #     categories = product_category.objects.all()
-#     category = sub_category.objects.all()
 #     if request.method == 'POST':
-#         form = product_details_Form(request.POST, request.FILES)
+#         form = sub_category_Form(request.POST, request.FILES)
 #         if form.is_valid():
 #             form.save()
-#             return redirect('view_product_details') 
+#             return redirect('add_product_details') 
 #     else:
-#         form = product_details_Form()
+#         form = sub_category_Form()
 
-#     return render(request, 'admin_pages/add_product_details.html', {'form': form, 'categories':categories,'category':category})
+#     return render(request, 'admin_pages/add_sub_category.html', {'form': form, 'categories':categories})
+
+
+# @login_required(login_url='user_login')
+# def view_sub_category(request):
+#     data = sub_category.objects.all().order_by('-id')
+#     return render(request, 'admin_pages/view_sub_category.html', {'data': data})
+
+
+# @login_required(login_url='user_login')
+# def update_sub_category(request,id):
+#     categories = product_category.objects.all()
+#     data = get_object_or_404(sub_category, id=id)
+#     if request.method == 'POST':
+#         form = sub_category_Form(request.POST, request.FILES, instance=data)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('view_sub_category')
+#     else:
+#         form = sub_category_Form(instance=data)
+#     return render(request, 'admin_pages/update_sub_category.html', {'form': form, 'data': data, 'categories':categories})
+
+# @login_required(login_url='user_login')
+# def delete_sub_category(request,id):
+#     product = sub_category.objects.get(id=id)
+#     product.delete()
+#     return redirect('add_product_details')
 
 
 # def add_product_details(request):
@@ -485,23 +473,6 @@ def delete_sub_category(request,id):
 #         'categories': categories,
 #         'subcategories': subcategories
 #     })
-
-def add_product_details(request):
-    categories = product_category.objects.all()
-    subcategories = sub_category.objects.all()
-    if request.method == 'POST':
-        form = product_details_Form(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('view_product_details')
-    else:
-        form = product_details_Form()
-
-    return render(request, 'admin_pages/add_product_details.html', {
-        'form': form,
-        'categories': categories,
-        'subcategories': subcategories
-    })
 
 
 
@@ -626,6 +597,42 @@ def delete_gold_rate(request,id):
     gold_rate.delete()
     return redirect('view_gold_rate')
 
+@login_required(login_url='user_login')
+def add_job_details(request):
+    if request.method == 'POST':
+        form = CareerForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_job_details') 
+    else:
+        form = CareerForm()
+
+    return render(request, 'admin_pages/add_job_details.html', {'form': form})
+
+@login_required(login_url='user_login')
+def view_job_details(request):
+    job_details = Career_Model.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_job_details.html', {'job_details': job_details})
+
+@login_required(login_url='user_login')
+def update_job_details(request, id):
+    job_details = get_object_or_404(Career_Model, id=id)
+    if request.method == 'POST':
+        form = CareerForm(request.POST, request.FILES, instance=job_details)
+        if form.is_valid():
+            form.save()
+            return redirect('view_job_details')
+    else:
+        form = CareerForm(instance=job_details)
+    return render(request, 'admin_pages/update_job_details.html', {'form': form, 'job_details': job_details})
+
+
+@login_required(login_url='user_login')
+def delete_job_details(request,id):
+    job_details = Career_Model.objects.get(id=id)
+    job_details.delete()
+    return redirect('view_job_details')
+
 def about_1(request):
     return render(request,'about-1.html')
 
@@ -640,3 +647,47 @@ def demo(request):
 
 def contact_new(request):
     return render(request,'contact-new.html')
+
+
+def careers(request):
+    jobs = Career_Model.objects.filter(end_date__gte=timezone.now())
+    return render(request, 'career.html', {'jobs': jobs})
+
+def job_details(request,job_position):
+    job_details = get_object_or_404(Career_Model, job_position=job_position)
+    return render(request,'job_details.html',{'job_details':job_details})
+
+
+def job_application(request):
+    job_positions = Career_Model.objects.all()
+    if request.method == 'POST':
+        form = Job_Application_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your application has been submitted successfully!')
+            return redirect('job_application')          
+    else:
+        form = Job_Application_Form()
+
+    return render(request, 'application.html', {'form': form,'job_positions':job_positions})
+
+@login_required(login_url='user_login')
+def view_job_application(request):
+    applications = Job_Application.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_job_application.html', {'applications': applications})
+
+@login_required(login_url='user_login')
+def delete_job_application(request, id):
+    candidate = get_object_or_404(Job_Application, id=id)
+    candidate.delete()
+    return redirect('view_job_application')
+
+def generate_certificate_url(id):
+    try:
+        certificate = Job_Application.objects.get(id1=id)
+        return f'{settings.MEDIA_URL}{certificate.pdf_file}'
+    except Job_Application.DoesNotExist:
+        return None
+    
+def application(request):
+    return render(request,'application.html')
