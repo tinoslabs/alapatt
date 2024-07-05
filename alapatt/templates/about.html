@@ -1,41 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<!-- <style>
-    .new-featured-product .row {
-    display: flex;
-    align-items: center;
-}
 
-.new-featured-product .thumb {
-    flex: 1;
-    text-align: center;
-}
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
 
-.new-featured-product .meta-wrap {
-    flex: 1;
-    padding: 20px;
-}
-
-.new-featured-product .meta {
-    text-align: left;
-}
-
-.new-featured-product .meta h3 {
-    text-align: center;
-    color: #dfb858;
-}
-
-.new-featured-product .meta p img {
-    display: block;
-    margin: 0 auto 20px auto;
-}
-
-.new-featured-product .meta p.jw-button {
-    text-align: center;
-}
-
-</style> -->
 <style>
 .new-featured-product .row {
     display: flex;
@@ -89,6 +60,7 @@
 
 
 </style>
+
 <style>
     .thumb a img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -135,6 +107,11 @@
             </a>
             
         </div>
+        <!-- <div class="thumb">
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YRpIRwX7hKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 450px;margin-top: 150px;"></iframe>
+            </div>
+        </div> -->
         
     </div>
     <div class="row">
@@ -152,8 +129,94 @@
             </div>
         </div>
     </div>
+    <br><br>
+    <!-- <div class="space-medium">
+        <div class="container">
+            <div class="row">
+                <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8 col-md-12 col-sm-12 col-12 text-center">
+                    
+                    <div class="section-title">
+                        <h2>What our customer says</h2>
+                        <p>Quisque tempus justo molestie lacus blandit, eget molestie eros tristique. Nulla facilisi. Maecenas mollis ultricies faucibus.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+               
+                {% for video in data %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="video-testimonial-block">
+                        
+                        <div class="video">
+                            {% if video.review_video %}
+                            <iframe src="{{ video.review_video.url }}" allowfullscreen></iframe>
+                            {% endif %}
+                        </div>
+                        <a href="#" class="video-play"></a>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h4 class="mb10">{{ video.client_name }}</h4>
+                        
+                    </div>
+                </div>
+                {% empty %}
+                <div>No videos found</div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div> -->
     <br><br><br><br>
 </section>
-
-
+<!-- <div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8 col-md-12 col-sm-12 col-12 text-center">
+                
+                <div class="section-title">
+                    <h2>What our customer says</h2>
+                    <p>Quisque tempus justo molestie lacus blandit, eget molestie eros tristique. Nulla facilisi. Maecenas mollis ultricies faucibus.</p>
+                </div>
+               
+            </div>
+        </div>
+        <div class="row">
+            
+            {% for video in data %}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="video-testimonial-block">
+                    
+                    <div class="video">
+                        {% if video.review_video %}
+                        <iframe src="{{ video.review_video.url }}" allowfullscreen></iframe>
+                        {% endif %}
+                    </div>
+                    <a href="#" class="video-play"></a>
+                </div>
+                <div class="video-testimonial-content">
+                    <h4 class="mb10">{{ video.client_name }}</h4>
+                    
+                </div>
+            </div>
+            {% empty %}
+            <div>No videos found</div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div> -->
+<script>
+    $(".video-play").on('click', function(e) {
+        e.preventDefault();
+        var vidWrap = $(this).parent(),
+            iframe = vidWrap.find('.video iframe'),
+            iframeSrc = iframe.attr('src'),
+            iframePlay = iframeSrc + "?autoplay=1";
+        vidWrap.children('.video-thumbnail').fadeOut();
+        vidWrap.children('.video-play').fadeOut();
+        vidWrap.find('.video iframe').attr('src', iframePlay);
+    });
+</script>
 {% endblock %}

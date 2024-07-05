@@ -637,10 +637,12 @@ def about_1(request):
     return render(request,'about-1.html')
 
 def about(request):
-    return render(request,'about.html')
+    data = ClientReview.objects.all()
+    return render(request,'about.html',{'data':data})
 
 def testimonial(request):
-    return render(request,'testimonial.html')
+    data = ClientReview.objects.all()
+    return render(request,'testimonial.html',{'data':data})
 
 def demo(request):
     return render(request,'demo.html')
@@ -659,7 +661,8 @@ def job_details(request,job_position):
 
 
 def job_application(request):
-    job_positions = Career_Model.objects.all()
+    # job_positions = Career_Model.objects.all()
+    job_positions = Career_Model.objects.filter(end_date__gte=timezone.now())
     if request.method == 'POST':
         form = Job_Application_Form(request.POST, request.FILES)
         if form.is_valid():
