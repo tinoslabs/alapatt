@@ -43,6 +43,7 @@ class ChatMessage(models.Model):
     def __str__(self):
         return f"Message from {self.name}"
     
+    
 class ClientReview(models.Model):
     client_name = models.CharField(max_length=100, null=True, blank=True)
     client_image = models.ImageField(upload_to='client_images/', null=True, blank=True)
@@ -50,7 +51,8 @@ class ClientReview(models.Model):
     review_video = models.FileField(upload_to='review_videos/', null=True, blank=True)
     def __str__(self):
         return self.client_name
-    
+
+
 class GoldRate(models.Model):
     gold_rate = models.DecimalField(max_digits=8, decimal_places=2)
     

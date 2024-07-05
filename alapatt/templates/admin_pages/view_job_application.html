@@ -30,7 +30,8 @@
                             <td>{{ application.address }}</td>
                             <td>{{ application.email }}</td>
                             <td>{{ application.phone }}</td>
-                            <!-- <td>
+                            
+                            <td>
                                 {% if application.pdf_file %}
                                 <object data="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
                                     <p>Sorry, your browser does not support PDFs. Please download the PDF to view it.</p>
@@ -38,18 +39,15 @@
                                 {% else %}
                                 <p>No resume uploaded.</p>
                                 {% endif %}
-                            </td> -->
-                            <td>
-                                {% if application.pdf_file %}
-                                <object data="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
-                                    <embed src="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
-                                        <p>Sorry, your browser does not support PDFs. Please download the PDF to view it.</p>
-                                    </embed>
-                                </object>
-                                {% else %}
-                                <p>No resume uploaded.</p>
-                                {% endif %}
                             </td>
+                            <!-- <td>
+                                {% if application.pdf_file %}
+                                    <embed src="{{ application.pdf_file.url }}" type="application/pdf" width="200" height="200">
+                                    <p>Sorry, your browser does not support PDFs. Please download the PDF to view it.</p>
+                                {% else %}
+                                    <p>No resume uploaded.</p>
+                                {% endif %}
+                            </td> -->
                             <td>
                                 {% if application.pdf_file %}
                                 <a href="{{ application.pdf_file.url }}" download>
