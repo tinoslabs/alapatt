@@ -9248,9 +9248,12 @@ footer {
 */
 .grayscale-collection-wrap {
   margin-bottom: 30px; }
-  @media (max-width: 992px) {
+  /* @media (max-width: 992px) {
     .grayscale-collection-wrap {
-      display: none; } }
+      display: block; 
+      
+    } } */
+    
   /* .grayscale-collection-wrap .collection-header {
     text-align: center;
     background: #f2e8d1;
@@ -9263,7 +9266,7 @@ footer {
       padding-bottom: 185px;
       overflow: hidden;
       color: white;
-      background: #f2e8d1; 
+      /* background: #f2e8d1;  */
   }
   
   

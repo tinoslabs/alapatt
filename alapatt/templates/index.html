@@ -654,7 +654,23 @@
 
     </style>
     
-    
+    <!-- <style>
+    @media (max-width: 500px) {
+        .grayscale-collection-wrap .collection-header {
+            padding-top: 30px;
+            padding-bottom: 60px; 
+        }
+
+        .grayscale-collection-wrap .collection-header .video-background {
+            padding-bottom: 56.25%; 
+        }
+
+        .grayscale-collection-wrap .collection-header .video-background iframe {
+            width: 100%;
+            height: 100%;
+        }
+        }
+    </style> -->
    </head>    
 
 <body class="home-page">
@@ -1076,7 +1092,7 @@
             <div class="row">
                 <ul class="blog-posts clear">
                     <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
+                        <div class="blog-thumb img-hover">
                             <img src="{% static 'assets/img/swarna-sayoojya-logo.svg' %}" alt="blog 1" style="width: 300px; height: 200px;">
                             <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif; font-size: 20px;">Gold & Diamonds Purchase Plan
                                 A golden helping hand from Alapatt to fulfil your daughter's wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya aims at securing small easy amounts periodically to plan big buying of Gold in future.
@@ -1090,7 +1106,7 @@
                         </div>
                     </li>
                     <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
+                        <div class="blog-thumb img-hover">
                             <img src="{% static 'assets/img/kanaka.svg' %}" alt="blog 2" style="width: 300px; height: 200px;">
                             <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif;font-size: 20px;">Gold & Diamonds Purchase Plan
                                 This is a scheme that provides free making charges. Making charge is free on items that attract value addition up to 15%.
@@ -1312,33 +1328,60 @@
         <!-- Team Member: End -->
         <!-- Grayscale Collection: Begin -->
         <section class="grayscale-collection-wrap">
-            <!-- <div class="collection-header">
-                <img src="{% static 'assets/img/Alapatt Logo@2x-8 (1).png' %}" alt="diamond">
-                <h2>collections</h2>
-                <p>The unmistakable stamp of craftsmanship we etch on each of our designs. Our range of gold ornaments is one of the most envied among even our peers, because of the selection process we use and our panel of fashion experts…</p>
-            </div> -->
             <div class="collection-header">
-                <div class="video-background">
-                    <iframe src="https://www.youtube.com/embed/YRpIRwX7hKU?autoplay=1&mute=1&loop=1&playlist=YRpIRwX7hKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 700px;width: 1300px;"></iframe>
-                <!-- </div>
-                <div class="content"> -->
-                    <!-- <img src="{% static 'assets/img/Alapatt Logo@2x-8 (1).png' %}" alt="diamond"> -->
-                    <!-- <h2>collections</h2> -->
-                    <!-- <p>The unmistakable stamp of craftsmanship we etch on each of our designs. Our range of gold ornaments is one of the most envied among even our peers, because of the selection process we use and our panel of fashion experts…</p> -->
-                <!-- </div> -->
+              <div class="video-background">
+                <iframe src="https://www.youtube.com/embed/YRpIRwX7hKU?autoplay=1&mute=1&loop=1&playlist=YRpIRwX7hKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
-            
-            <div class="collection-wrap container clear">
-                <!-- <div class="collection clear">
-                    <img src="{% static 'assets/img/collection/collection-1.png' %}" alt="collection" class="grayscale" id="collection-1">
-                    <img src="{% static 'assets/img/collection/collection-2-1.jpg' %}" alt="collection" class="grayscale" id="collection-2">
-                    <img src="{% static 'assets/img/collection/collection-3-1.jpg' %}" alt="collection" class="grayscale" id="collection-3">
-                    <img src="{% static 'assets/img/collection/collection-5-1.jpg' %}" alt="collection" class="grayscale" id="collection-4">
-                    <img src="{% static 'assets/img/collection/collection-6-1.jpg' %}" alt="collection" class="grayscale" id="collection-5">
-                </div> -->
-            </div>
-           
-        </section>
+          </section>
+          
+          <style>
+            /* CSS Styles */
+            .grayscale-collection-wrap {
+              margin-bottom: 30px;
+            }
+          
+            .grayscale-collection-wrap .collection-header {
+              text-align: center;
+              position: relative;
+              color: white;
+            }
+          
+            .grayscale-collection-wrap .collection-header .video-background {
+              position: relative;
+              width: 80%;
+              
+              padding-top: 40%; /* 16:9 aspect ratio (9 / 16 * 100) */
+              overflow: hidden;
+              margin: 0 auto; /* Center the video */
+              margin-bottom: -150px;
+            }
+          
+            .grayscale-collection-wrap .collection-header iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border: 0;
+            }
+          
+            /* Media query for screens up to 768px */
+            @media screen and (max-width: 768px) {
+              .grayscale-collection-wrap .collection-header .video-background {
+                padding-top: 50%; /* Adjust aspect ratio for smaller screens */
+                margin-bottom: -150px;
+              }
+          
+              .grayscale-collection-wrap .collection-header iframe {
+                height: 100%; /* Ensure iframe fills its container */
+                
+              }
+            }
+          </style>
+          
+
+ 
         
         
         
