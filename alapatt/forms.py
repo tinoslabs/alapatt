@@ -6,6 +6,21 @@ class productForm(forms.ModelForm):
         model = product_category
         fields = '__all__'
 
+# class Collections_Form(forms.ModelForm):
+#     class Meta:
+#         model = collections_category
+#         fields = '__all__'
+
+# class sub_category_Form(forms.ModelForm):
+#     class Meta:
+#         model = sub_category
+#         fields = '__all__'
+
+# class collections_details_form(forms.ModelForm):
+#     class Meta:
+#         model = Collections_Details
+#         fields = '__all__'
+
 class EnquiryForm(forms.ModelForm):
     class Meta:
         model = EnquiryModel
@@ -21,13 +36,11 @@ class GoldForm(forms.ModelForm):
         model = GoldRate
         fields = '__all__'
 
-
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactModel
         fields = '__all__'
     
-
 class Product_Form(forms.ModelForm):
     class Meta:
         model = New_Category
@@ -57,3 +70,4 @@ class Job_Application_Form(forms.ModelForm):
     class Meta:
         model = Job_Application
         fields = '__all__'
+

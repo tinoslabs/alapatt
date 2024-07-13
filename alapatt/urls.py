@@ -29,9 +29,8 @@ urlpatterns = [
     path('submit_query/',views.submit_query, name='submit_query'),
     path('chatbot_message_view',views.chatbot_message_view,name='chatbot_message_view'),
     path('delete_message/<int:id>/',views.delete_message,name='delete_message'),
-    path('test', views.test, name='test'),
 
-    path('category_grid', views.category_grid, name='category_grid'),
+    # path('category_grid', views.category_grid, name='category_grid'),
    
     # path('products/<int:category_id>/', views.product_list, name='product_list_by_category'),
     # path('products/<int:category_id>/<int:subcategory_id>/', views.product_list, name='product_list_by_subcategory'),
@@ -113,11 +112,9 @@ urlpatterns = [
     path('update_gold_rate/<int:id>/', views.update_gold_rate, name='update_gold_rate'),
     path('delete_gold_rate/<int:id>/', views.delete_gold_rate, name='delete_gold_rate'),
 
-    path('about_1', views.about_1, name='about_1'),
     path('about', views.about, name='about'),
-    path('testimonial', views.testimonial, name='testimonial'),
-    path('demo', views.demo, name='demo'),
-    path('contact_new', views.contact_new, name='contact_new'),
+
+   
     # path('login', views.login, name='login'),
 
     
@@ -133,4 +130,25 @@ urlpatterns = [
     path('view_job_application', views.view_job_application, name='view_job_application'),
     path('delete_job_application/<int:id>/',views.delete_job_application, name='delete_job_application'),
     path('application',views.application, name='application'),
+
+    # path('add_collections_category', views.add_collections_category, name='add_collections_category'),
+    # path('view_collections_category', views.view_collections_category, name='view_collections_category'),
+    # path('update_collections_category/<int:id>/', views.update_collections_category, name='update_collections_category'),
+    # path('delete_collections_category/<int:id>/',views.delete_collections_category, name='delete_collections_category'),
+
+    # path('add_sub_category', views.add_sub_category, name='add_sub_category'),
+    # path('view_sub_category', views.view_sub_category, name='view_sub_category'),
+    # path('update_sub_category/<int:id>/', views.update_sub_category, name='update_sub_category'),
+    # path('delete_sub_category/<int:id>/', views.delete_sub_category, name='delete_sub_category'),
+
+    # path('add_collections_details', views.add_collections_details, name='add_collections_details'),
+    # path('view_collections_details/', views.view_collections_details, name='view_collections_details'),
+    # path('update_collections_details/<int:pk>/', views.update_collections_details, name='update_collections_details'),
+    # path('delete_collections_details/<int:id>/', views.delete_collections_details, name='delete_collections_details'),
+
+    # path('collections/<int:category_id>/', views.collections_details_view, name='collections_details'),
+    # path('collections/<int:category_id>/<int:subcategory_id>/', views.collections_details_view, name='collections_details_subcategory'),
+    # path('collection_details/<int:category_id>/<int:subcategory_id>/', views.collection_details, name='collection_details'),
+    # path('collection_details/<slug:category_slug>/<slug:product_slug>/', views.collection_details, name='collection_details'),
+    
 ]

@@ -22,655 +22,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/additional.css' %}">
     
     
-    <style>
-    .blog-posts-home {
-    padding: 20px;
-    }
-
-    .section-header {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .blog-posts {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .blog-post {
-        width: 48%;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        margin-bottom: 20px;
-        transition: transform 0.3s, box-shadow 0.3s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .blog-post:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .blog-thumb {
-        text-align: center;
-        cursor: pointer;
-    }
-
-    .blog-thumb a {
-        text-decoration: none;
-    }
-
-    .blog-thumb img {
-        max-width: 100%;
-        height: auto;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 15px;
-        border-radius: 5px 5px 0 0;
-    }
-
-    .hidden-paragraph {
-        display: none;
-        padding: 10px;
-        font-size: 1em;
-        color: #555;
-        text-align: center;
-    }
-    </style>
-    <style>
-        .blog-post-container {
-        display: flex;
-        justify-content: space-between; /* Adjust as per your layout preference */
-        margin-bottom: 20px; /* Adjust spacing between each blog post */
-    }
-
-.blog-post {
-    width: calc(50% - 10px); /* Adjust width for responsiveness */
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.blog-thumb {
-    text-align: center;
-}
-
-.blog-content {
-    margin-top: 10px;
-}
-
-.blog-content h4 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
-}
-
-.blog-content p {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.read-more-link {
-    font-family: 'Playfair Display', serif;
-    color: #007bff;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.read-more-link:hover {
-    text-decoration: underline;
-}
-    </style>
-    <style>
-        .blog-posts-home .blog-thumb {
-            text-align: center; /* Center the content within the blog-thumb */
-        }
-
-        .button-container {
-            margin-top: 10px; /* Add some space above the button */
-        }
-
-        .pay-now-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            color: #fff;
-            background-color: #cea665; /* Adjust the color to match your theme */
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .pay-now-button:hover {
-            background-color: #b08c48; /* Darken the background color on hover */
-        }
-    </style>
-    <!-- <style>
-        @media only screen and (max-width: 200px) {
-    .blog-posts-home .section-title h2 {
-        font-size: 1.5rem;
-    }
-
-    .blog-posts-home .section-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .blog-posts-home .section-small-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .blog-posts-home .row {
-        flex-direction: column;
-    }
-
-    .blog-posts-home .blog-post {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    .blog-posts-home .blog-thumb img {
-        width: 100%;
-        height: auto;
-    }
-
-    .blog-posts-home .pay-now-button {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-    }
-}
-    </style> -->
-    <style>
-        .map-container {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .map-container iframe {
-        width: 100%;
-        height: 450px;
-        border: 0;
-    }
-
-    /* Media queries for responsiveness */
-    @media (max-width: 1200px) {
-        .map-container iframe {
-            height: 400px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .map-container iframe {
-            height: 350px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .map-container iframe {
-            height: 300px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .map-container iframe {
-            height: 250px;
-        }
-    }
-
-    /* Ensure minimum width is 200px */
-    .map-container iframe {
-        min-width: 200px;
-    }
-        </style>
-    <style>
-        .shadow-effect {
-        background: #fff;
-        padding: 20px;
-        border-radius: 4px;
-        text-align: center;
-        border: 1px solid #ECECEC; /* Existing border */
-        box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
-    }
-
-    #customers-testimonials .shadow-effect p {
-        font-family: inherit;
-        font-size: 17px;
-        line-height: 1.5;
-        margin: 0 0 17px 0;
-        font-weight: 300;
-    }
-
-    .testimonial-name {
-        margin: -17px auto 0;
-        display: table;
-        width: auto;
-        background: #cea665;
-        padding: 9px 35px;
-        border-radius: 12px;
-        text-align: center;
-        color: #fff;
-        box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
-    }
-
-    #customers-testimonials .item {
-        text-align: center;
-        padding: 50px;
-        margin-bottom: 80px;
-        opacity: .2;
-        -webkit-transform: scale3d(0.8, 0.8, 1);
-        transform: scale3d(0.8, 0.8, 1);
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        opacity: 1;
-        -webkit-transform: scale3d(1.0, 1.0, 1);
-        transform: scale3d(1.0, 1.0, 1);
-    }
-
-    .owl-carousel .owl-item img {
-        transform-style: preserve-3d;
-        max-width: 90px;
-        margin: 0 auto 17px;
-    }
-
-    #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
-    #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
-        background: #cea665;
-        transform: translate3d(0px, -50%, 0px) scale(0.7);
-    }
-
-    #customers-testimonials.owl-carousel .owl-dots {
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-    }
-
-    #customers-testimonials.owl-carousel .owl-dots .owl-dot {
-        display: inline-block;
-    }
-
-    #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
-        background: #cea665;
-        display: inline-block;
-        height: 20px;
-        margin: 0 2px 5px;
-        transform: translate3d(0px, -50%, 0px) scale(0.3);
-        transform-origin: 50% 50% 0;
-        transition: all 250ms ease-out 0s;
-        width: 20px;
-    }
-    @media (max-width: 400px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 40px;
-        width: 300px; /* Adjust width */
-        height: auto; /* Adjust height */
-        display: none; /* Hide all testimonials initially */
-        margin-left: -90px;
-        
-        
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        display: block; /* Display only the main testimonial card */
-    }
-
-    .shadow-effect {
-        padding: 10px;
-        width: 90%; /* Adjust width */
-        height: auto; /* Adjust height */
-        box-shadow: none; /* Remove shadow effect */
-    }
-
-    .shadow-effect p {
-        font-size: 14px;
-    }
-
-    .testimonial-name {
-        padding: 7px 20px;
-        font-size: 14px;
-        margin-left: 80px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 70px;
-        margin: 0 auto 10px;
-    }
-}
-
-@media (min-width: 400px) and (max-width: 600px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 40px;
-        width: 350px; /* Adjust width */
-        height: auto; /* Adjust height */
-        display: none; /* Hide all testimonials initially */
-        margin-left: -100px;
-        
-        
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        display: block; /* Display only the main testimonial card */
-    }
-
-    .shadow-effect {
-        padding: 10px;
-        width: 90%; /* Adjust width */
-        height: auto; /* Adjust height */
-        box-shadow: none; /* Remove shadow effect */
-    }
-
-    .shadow-effect p {
-        font-size: 14px;
-    }
-
-    .testimonial-name {
-        padding: 7px 20px;
-        font-size: 14px;
-        margin-left: 100px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 70px;
-        margin: 0 auto 10px;
-    }
-}
-
-@media (min-width: 600px) and (max-width: 700px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 40px;
-        width: 400px; /* Adjust width */
-        height: auto; /* Adjust height */
-        display: none; /* Hide all testimonials initially */
-        margin-left: -90px;
-        
-        
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        display: block; /* Display only the main testimonial card */
-    }
-
-    .shadow-effect {
-        padding: 10px;
-        width: 90%; /* Adjust width */
-        height: auto; /* Adjust height */
-        box-shadow: none; /* Remove shadow effect */
-    }
-
-    .shadow-effect p {
-        font-size: 14px;
-    }
-
-    .testimonial-name {
-        padding: 7px 20px;
-        font-size: 14px;
-        margin-left: 120px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 70px;
-        margin: 0 auto 10px;
-    }
-}
-
-
-@media (min-width: 700px) and (max-width: 900px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 40px;
-        width: 500px; /* Adjust width */
-        margin-left: -110px;
-        height: auto; /* Adjust height */
-        display: none; /* Hide all testimonials initially */
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        display: block; /* Display only the main testimonial card */
-    }
-
-    .shadow-effect {
-        padding: 10px;
-        width: 90%; /* Adjust width */
-        height: auto; /* Adjust height */
-        box-shadow: none; /* Remove shadow effect */
-    }
-
-    .shadow-effect p {
-        font-size: 14px;
-    }
-
-    .testimonial-name {
-        padding: 7px 20px;
-        font-size: 14px;
-        margin-left: 160px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 70px;
-        margin: 0 auto 10px;
-    }
-}
-@media (min-width: 900px) and (max-width: 1000px) {
-    #customers-testimonials .item {
-        padding: 20px;
-        margin-bottom: 40px;
-        width: 500px; /* Adjust width */
-        margin-left: -110px;
-        height: auto; /* Adjust height */
-        display: none; /* Hide all testimonials initially */
-    }
-
-    #customers-testimonials .owl-item.active.center .item {
-        display: block; /* Display only the main testimonial card */
-    }
-
-    .shadow-effect {
-        padding: 10px;
-        width: 90%; /* Adjust width */
-        height: auto; /* Adjust height */
-        box-shadow: none; /* Remove shadow effect */
-    }
-
-    .shadow-effect p {
-        font-size: 14px;
-    }
-
-    .testimonial-name {
-        padding: 7px 20px;
-        font-size: 14px;
-    }
-
-    .owl-carousel .owl-item img {
-        max-width: 70px;
-        margin: 0 auto 10px;
-    }
-}
-        </style>
-
-    <style>
-        @media (max-width: 600px) {
-        .blog-posts-home .blog-details {
-            padding: 15px;
-        }
-
-        .blog-posts-home .blog-title {
-            font-size: 18px;
-        }
-
-        .blog-posts-home .blog-meta {
-            font-size: 12px;
-        }
-
-        .blog-posts-home .blog-details p {
-            font-size: 14px;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .blog-posts-home .blog-details {
-            padding: 10px;
-        }
-
-        .blog-posts-home .blog-title {
-            font-size: 16px;
-        }
-
-        .blog-posts-home .blog-meta {
-            font-size: 10px;
-        }
-
-        .blog-posts-home .blog-details p {
-            font-size: 12px;
-        }
-    }
-
-    @media (max-width: 200px) {
-        .blog-posts-home .blog-details {
-            padding: 5px;
-        }
-
-        .blog-posts-home .blog-title {
-            font-size: 14px;
-        }
-
-        .blog-posts-home .blog-meta {
-            font-size: 8px;
-        }
-
-        .blog-posts-home .blog-details p {
-            font-size: 10px;
-        }
-    }
-    </style>
-    <style>
-            /* Default styling for larger screens */
-            .blog-posts-home .blog-post {
-                width: 48%;
-                margin-bottom: 20px;
-                list-style: none;
-            }
-
-            .blog-posts-home .blog-post:nth-child(odd) {
-                margin-right: 4%;
-            }
-
-            .blog-posts-home .blog-post:nth-child(even) {
-                margin-right: 0;
-            }
-
-            /* Styling for small screens */
-            @media (max-width: 767px) {
-                .blog-posts-home .row {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                .blog-posts-home .blog-post {
-                    width: 100%;
-                    margin-bottom: 20px;
-                }
-
-                .blog-posts-home .blog-post:nth-child(odd),
-                .blog-posts-home .blog-post:nth-child(even) {
-                    margin-right: 0;
-                }
-            }
-        </style>
-    <style>
-            /* Default image styling */
-    #featured-logo {
-        width: 200px;
-    }
-
-    /* Media query for screens 200px and above */
-    @media (min-width: 200px) and (max-width: 399px) {
-        #featured-logo {
-            width: 150px;
-        }
-    }
-
-    /* Media query for screens 400px and above */
-    @media (min-width: 400px) and (max-width: 599px) {
-        #featured-logo {
-            width: 175px;
-        }
-    }
-
-    /* Media query for screens 600px and above */
-    @media (min-width: 600px) and (max-width: 767px) {
-        #featured-logo {
-            width: 200px;
-        }
-    }
-
-    /* Media query for screens 768px and above */
-    @media (min-width: 768px) {
-        #featured-logo {
-            width: 200px;
-        }
-    }
-    </style>
-    <style>
     
-
-    /* Responsive styles (screens wider than 200px) */
-    @media (min-width: 200px) {
-        .tp-caption {
-            text-align: center !important; /* Center align text content */
-            left: 0 !important; /* Reset left position */
-            right: 0 !important; /* Reset right position */
-            transform: translateX(0) !important; /* Center align */
-            width: 100% !important; /* Ensure full width */
-        }
-
-        .tp-caption .jw-button {
-            display: inline-block; /* Ensure the buttons are inline-block */
-            margin: 10px 5px; /* Center the buttons and add some spacing */
-        }
-    }
-
-    </style>
-    
-    <!-- <style>
-    @media (max-width: 500px) {
-        .grayscale-collection-wrap .collection-header {
-            padding-top: 30px;
-            padding-bottom: 60px; 
-        }
-
-        .grayscale-collection-wrap .collection-header .video-background {
-            padding-bottom: 56.25%; 
-        }
-
-        .grayscale-collection-wrap .collection-header .video-background iframe {
-            width: 100%;
-            height: 100%;
-        }
-        }
-    </style> -->
    </head>    
 
 <body class="home-page">
@@ -725,7 +80,7 @@
                                         
                                         <li><a href="{% url 'diamond_pendants' %}">Pendants</a></li>
                                         
-                                        <!-- <li><a href="{% url 'diamond_ring' %}">Ring</a></li> -->
+                                        
                                     </ul>
                                 </li>
                                 <li>
@@ -743,6 +98,21 @@
                                 
                             </ul>
                         </li>
+                        <!-- <li class="has-sub">
+                            <span><a href="#">Collections</a></span>
+                            <ul class="sub-menu double-column">
+                                {% for collection in collections %}
+                                <li>
+                                    <h4>{{ collection.collection_name }}</h4>
+                                    <ul>
+                                        {% for sub in collection.sub_category_set.all %}
+                                        <li><a href="{% url 'collection_details' collection.id sub.id %}">{{ sub.product_name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li> -->
                         <li class="has-sub">
                             <span><a href="#">Purchase Plan</a></span>
                             <ul class="sub-menu single-column">
@@ -912,23 +282,6 @@
                 <!--Search and Cart: Begin-->
                 <div class="header-right-wrap">
                     <div class="header-right">
-                        <!-- <div class="search-input">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Gold Rate Now :">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
-                                 </span>
-                            </div>
-                        </div> -->
-                        <!-- <div class="search-input">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="gold-rate">
-                                
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" id="refresh-btn" style="color: white;">Refresh</button>
-                                </span>
-                            </div>
-                        </div> -->
                         <div class="search-input">
                             <div class="input-group">
                                 {% for gold_rate in rate %}
@@ -938,9 +291,7 @@
                                 </span>
                                 {% endfor %}
                             </div>
-                        </div>
-                    
-                        
+                        </div>    
                     </div>
                 </div>
                 <!--Search and Cart: Begin-->
@@ -964,7 +315,7 @@
                             <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-370" data-y="340" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                                 <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="right" data-hoffset="-400" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="right" data-hoffset="-400" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color:white;">
                                 Crafted with exceptional precision and the highest standards,<br/> each piece of jewellery embodies the essence of purity,<br>celebrating the timeless beauty and unmatched quality that <br>defines every creation. 
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-430" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -981,9 +332,9 @@
                             
                             
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
-                                <img src="{% static 'assets/img/slider/slide-1-lay1.png' %}" alt="">
+                                <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="left" data-hoffset="500" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="left" data-hoffset="500" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color:white">
                                 Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -994,13 +345,13 @@
                     
                         <!-- SLIDE 3 -->
                         <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
-                            <img src="{% static 'assets/img/slider/slide-3.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <img src="{% static 'assets/img/slider/44444.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                             <!-- <img src="{% static 'assets/img/slider/335A6501.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"> -->
                             
                             <div class="tp-caption skewfromrightshort fadeout" data-x="700" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
-                                <img src="{% static 'assets/img/slider/slide-1-lay2.png' %}" alt="">
+                                <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color-2" data-x="700" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color-2" data-x="700" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color:white;">
                                 Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="870" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -1015,70 +366,6 @@
         <!--Main Slider: End-->
         <!-- New Product: Begin  -->
         
-         
-       
-
-        <!-- <section class="blog-posts-home container">
-            <div class="section-header">
-                <div class="section-title">
-                    <h2>elegan shop</h2>
-                </div>
-                <h3 class="section-subtitle" style="font-family: 'Playfair Display', serif; color: #cea665;">PURCHASE PLAN</h3>
-                <h5 class="section-small-subtitle">
-                    A golden helping hand from Alapatt to fulfil your daughter’s wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya and Kanaka Soubhagya aims at securing small easy amounts periodically to plan big buying of Gold in future.
-                </h5>
-            </div>
-            <div class="row">
-                <ul class="blog-posts clear">
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/swarna-sayoojya-logo.svg' %}" alt="blog 1" style="width: 300px; height: 200px;">
-                            <div class="button-container">
-                                
-                                <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" class="pay-now-button">Read More</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/kanaka.svg' %}" alt="blog 2" style="width: 300px; height: 200px;">
-                            <div class="button-container">
-                                
-                                <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" class="pay-now-button">Read More</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section> -->
-        <!-- <section class="blog-posts-home container">
-            <div class="section-header">
-                <div class="section-title">
-                    <h2>elegan shop</h2>
-                </div>
-                <h3 class="section-subtitle" style="font-family: 'Playfair Display', serif; color: #cea665;">PURCHASE PLAN</h3>
-                <h5 class="section-small-subtitle">
-                    Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery. Our showroom is open every day of the week.
-                </h5>
-            </div>
-            <div class="row">
-                <ul class="blog-posts clear">
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/swarna-sayoojya-logo.svg' %}" alt="blog 1" style="width: 300px; height: 200px;">
-                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif; font-size: 20px;">Gold & Diamonds Purchase Plan A golden helping hand from Alapatt to fulfil your daughter's wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya aims at securing small easy amounts periodically to plan big buying of Gold in future. Swarna SAYOOJYA: The features The scheme is designed with a clear perception on the various future needs of the customers like wedding, family security etc. so that they are not deprived of their golden dreams by the soaring prices of gold every day. SWARNA SAYOOJYA : The details You have options of any of the seven slabs of Rs. 500, 1000, 2000, 5000, 10000, 20000 and 25000 equal monthly installments. Gold is returned in the 12th month after equal monthly payments for 11 consecutive months for the value of amount paid + scheme discount from Alapatt. This is the easiest opportunity to defeat the soaring gold prices.</p>
-                            
-                        </div>
-                    </li>
-                    <li class="blog-post">
-                        <div class="blog-thumb img-hover" onclick="toggleParagraph(this)">
-                            <img src="{% static 'assets/img/kanaka.svg' %}" alt="blog 2" style="width: 300px; height: 200px;">
-                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif;font-size: 20px;">Gold & Diamonds Purchase Plan This is a scheme that provides free making charges. Making charge is free on items that attract value addition up to 15%. It is aimed at providing easy possession of gold for the customers. Gold can be purchased opting any of the seven slabs of Rs. 500, 1000, 2000, 5000, 10000, 20000 and 25000 on advance equal monthly installments for 11 months. Gold is returned in the 12th month after equal monthly payment for 11 consecutive months for the value of amount paid. The highest attraction is that no making charge/value addition is made on items attracting making charges up to 15%. In other words the customers are given ornaments for the entire amount paid without any making charges for items that attract making charges up to 15%. Those items on which making charges exceed 15%, value addition is limited to the percentage exceeding 15% only.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section> -->
         <section class="blog-posts-home container">
             <div class="section-header">
                 <div class="section-title">
@@ -1141,7 +428,7 @@
                                     {% if category.category_name %}
                                     <h3 class="title"><a href="{% url 'Product_details' category.category_name %}">{{category.category_name}}</a></h3>
                                     {% endif %}
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewellery in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
+                                    <p class="description">We enjoy a well-earned reputation among gold consumers in the state. Thanks to the unmatched quality that we produce with each gram of gold. The unmistakable stamp of craftsmanship we etch on each of our designs. Our range of gold ornaments is one of the most envied among even our peers, because of the selection process we use and our panel of fashion experts…</p>
                                     <p class="jw-button"><a href="{% url 'Product_details' category.category_name %}">Show More</a></p>
                                 </div>
                             </div>
@@ -1196,7 +483,7 @@
                             <div class="featured-category-details">
                                 <div class="details">
                                     <h3 class="title"><a href="{% url 'featured_products' category.category_name %}">{{category.category_name}}</a></h3>
-                                    <p class="description">The Elegan pays tribute to the tradition of fine jewelry in its most timeless form. Appealing to both men and women, each model is produced in rose or white gold beautifully combining purity and elegance.</p>
+                                    <p class="description">Range of jewellery varies from the traditional to trend setting styles.</p>
                                     <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
                                 </div>
                             </div>
@@ -1370,7 +657,7 @@
             @media screen and (max-width: 768px) {
               .grayscale-collection-wrap .collection-header .video-background {
                 padding-top: 50%; /* Adjust aspect ratio for smaller screens */
-                margin-bottom: -150px;
+                margin-bottom: -170px;
               }
           
               .grayscale-collection-wrap .collection-header iframe {
@@ -1411,29 +698,29 @@
                 <!-- Contact: Begin -->
                 <div class="contact">
                     <h3>Contact us</h3>
-                    <form method="POST" action="{% url 'index' %}" >
+                    <form id="contact-form" method="POST" action="{% url 'index' %}">
                         {% csrf_token %}
-                    
                         <!-- Success message container -->
-                        <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
-                    
+                        <div id="contact-success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
+                        
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Your name*">
+                            <input type="text" class="form-control" name="name" placeholder="Your name*" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Your email*">
+                            <input type="email" class="form-control" name="email" placeholder="Your email*" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="phone" placeholder="Your phone" >
+                            <input type="text" class="form-control" name="phone" placeholder="Your phone">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="comment" placeholder="Comments*" rows="10"></textarea>
+                            <textarea class="form-control" name="comment" placeholder="Comments*" rows="10" required></textarea>
                         </div>
                         <button type="submit" class="jw-button">Send Message</button>
                     </form>
+                    
                     
                     <!-- index.html -->
 
@@ -1494,7 +781,7 @@
                     <form id="messenger">
                         {% csrf_token %}
                         <div class="Input Input-blank">
-    <!-- 							<textarea name="msg" class="Input_field" placeholder="Send a message..."></textarea> -->
+    
                             <input style="max-width: 100%; width:220px;overflow-wrap:break-word;white-space: pre-wrap;" name="msg" class="Input_field" placeholder="Send a message...">
                             <button type="submit" class="Input_button Input_button-send">
                                 <div class="Icon">
@@ -1511,6 +798,8 @@
             </div>
         </div>
     </div>
+    
+
     
 
     <!-- Main: End -->
@@ -1722,45 +1011,9 @@
         <!-- Footer bottom: End -->
     </footer>
     <!-- Footer: End -->
-     <!-- <style>
-        .grayscale-collection-wrap .collection-header {
-    text-align: center;
-    position: relative;
-    padding-top: 60px;
-    padding-bottom: 185px;
-    overflow: hidden;
-    color: white;
-}
-
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.video-background iframe {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    object-fit: cover;
-}
-
-.collection-header .content {
-    position: relative;
-    z-index: 1;
-}
-
-.collection-header h2, .collection-header p {
-    color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-}
-     </style> -->
     
-    <style>
+    
+     <!-- <style>
 
         @keyframes jump {
             0% {
@@ -1773,11 +1026,11 @@
                 transform: translateY(0);
             }
         }
-            /* chatbot code */
+            
             
             @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
             
-            /* Chatbot */
+            
             .botIcon {bottom: 15px;left: 15px;position: fixed;z-index: 9999;}
             .iconInner {-webkit-align-items: center;-ms-align-items: center;align-items: center;background: #a64bf4;background: -webkit-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background: -o-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background: -moz-linear-gradient(to left,#00dbde, #fc00ff, #00dbde,#fc00ff);background: linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background-position: 50%;background-size: 300%;border-radius: 50%;color: #fff;cursor: pointer;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-flex-wrap: wrap;-ms-flex-wrap: wrap;flex-wrap: wrap;font-size: 1.7em;height: 2em;justify-content: center;width: 2em;}
             .botSubject, .messages, .showBotSubject .botIconContainer, .showMessenger .botIconContainer {display: none;}
@@ -1875,51 +1128,24 @@
             }
     
             .single-logo img {
-            max-height: 100px; /* Adjust the maximum height as needed */
+            max-height: 100px;
         }
     
         #preloader .preloader-icon {
-            height: 40px; /* Adjust the height as needed */
+            height: 40px; 
         }
-            </style>
-        
-        <style>
-            
-            .hidden-paragraph {
-                display: none;
-                padding: 10px;
-                background: #fff;
-                border-top: 1px solid #ddd;
+    </style> -->
+
+       <!-- <script>
+        document.getElementById('showAllItemsBtn').addEventListener('click', function() {
+            var allItemsList = document.getElementById('allItemsList');
+            if (allItemsList.style.display === 'block') {
+                allItemsList.style.display = 'none';
+            } else {
+                allItemsList.style.display = 'block';
             }
-            .pay-now-button {
-                display: block;
-                margin: 10px;
-                color: #fff;
-                text-decoration: none;
-                background: #cea665;
-                padding: 10px;
-                text-align: center;
-                border-radius: 5px;
-                
-                
-               
-            }
-            /* .pay-now-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            color: #fff;
-            background-color: #cea665; 
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        } */
-            .blog-thumb.open .hidden-paragraph {
-                display: block;
-            }
-        </style>
-       
+        });
+        </script> -->
         
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
@@ -1933,8 +1159,12 @@
     <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
     <script src="{% static 'assets/js/scripts.min.js' %}"></script>
     <script src="{% static 'assets/js/messenger.js' %}"></script>
+    <script src="{% static 'assets/js/toggle.js' %}"></script>
+    <script src="{% static 'assets/js/toggleparagraph.js' %}"></script>
+    <script src="{% static 'assets/js/ajax.js' %}"></script>
+    <script src="{% static 'assets/js/carousel.js' %}"></script>
 
-            <script>
+            <!-- <script>
                 jQuery(document).ready(function($) {
         		"use strict";
         		
@@ -1961,37 +1191,9 @@
 		            }
 		        });
         	});
-            </script>
-            <!-- <script>
-                 jQuery(document).ready(function($) {
-        		"use strict";
-        		
-		        $('#customers-testimonials').owlCarousel({
-		            loop: true,
-		            center: true,
-		            items: 3,
-		            margin: 0,
-		            autoplay: true,
-		            dots:true,
-		            autoplayTimeout: 8500,
-		            smartSpeed: 450,
-                    responsive: {
-		              0: {
-		                items: 1
-		              },
-		              768: {
-		                items: 2
-		              },
-		              1170: {
-		                items: 3
-		              }
-		            }
-                    });
-                });
-                </script> -->
-
-
-    <script>
+            </script> -->
+            
+    <!-- <script>
         function toggleParagraph(element) {
             const img = element.querySelector('img');
             const paragraph = element.querySelector('.hidden-paragraph');
@@ -2004,42 +1206,42 @@
                 paragraph.style.display = 'none';
             }
         }
-    </script>
+    </script> -->
     
     <script>
         $(document).ready(function() {
-            $('form').on('submit', function(event) {
+            $('#contact-form').on('submit', function(event) {
                 event.preventDefault(); // Prevent the default form submission
                 var formData = $(this).serialize(); // Serialize the form data
-    
+        
                 $.ajax({
                     type: 'POST',
-                    url: '{% url "index" %}', // Ensure this matches your Django URL pattern
+                    url: "{% url 'index' %}", // Ensure this matches your Django URL pattern
                     data: formData,
                     success: function(response) {
                         // Show the success message above the form
-                        $('#success-message').text('Form submitted successfully...!').show();
-    
+                        $('#contact-success-message').text('Form submitted successfully...!').show();
+        
                         // Clear the form fields
-                        $('form')[0].reset();
-    
+                        $('#contact-form')[0].reset();
+        
                         // Hide the success message after 5 seconds and refresh the page
                         setTimeout(function() {
-                            $('#success-message').fadeOut('slow', function() {
+                            $('#contact-success-message').fadeOut('slow', function() {
                                 location.reload();
                             });
                         }, 5000);
                     },
                     error: function(response) {
-                        // Handle error
-                        alert('An error occurred: ' + response.responseText);
+                        // Log the error to the console, but do not display any alert or message
+                        console.error('Error occurred:', response.responseText);
                     }
                 });
             });
         });
-    </script>
+        </script>
     
-    <script>
+    <!-- <script>
         function toggleParagraph(element) {
             const img = element.querySelector('img');
             const paragraph = element.querySelector('.hidden-paragraph');
@@ -2052,7 +1254,7 @@
                 paragraph.style.display = 'none';
             }
         }
-    </script>
+    </script> -->
     
     
 </body>

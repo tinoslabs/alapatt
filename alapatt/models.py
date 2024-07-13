@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils import timezone
+
 # Create your models here.
 
 class EnquiryModel(models.Model):
@@ -24,6 +25,34 @@ class ContactModel(models.Model):
     def __str__(self):
         return self.name
     
+# class collections_category(models.Model):
+#     collection_name = models.CharField(max_length=100)
+#     status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
+    
+#     def __str__(self):
+#         return self.collection_name
+    
+
+# class sub_category(models.Model):
+#     category = models.ForeignKey(collections_category,on_delete=models.CASCADE)
+#     product_name = models.CharField(max_length=100, null=True, blank=True)
+#     status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
+    
+#     def __str__(self):
+#         return self.product_name if self.product_name else "No Product Name"
+  
+    
+# class Collections_Details(models.Model):
+#     collections = models.ForeignKey(collections_category, on_delete=models.CASCADE)
+#     sub_category = models.ForeignKey(sub_category, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100, null=True, blank=True)
+#     product_image = models.ImageField(upload_to='collections_images/')
+#     product_price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+#     status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
+
+#     def __str__(self):
+#         return self.name
+
 
 class product_category(models.Model):
     name = models.CharField(max_length=100)
@@ -108,7 +137,6 @@ class Career_Model(models.Model):
         return self.end_date >= timezone.now()
     
 
-
 class Job_Application(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -120,3 +148,7 @@ class Job_Application(models.Model):
     
     def _str_(self):
         return self.first_name
+    
+
+   
+

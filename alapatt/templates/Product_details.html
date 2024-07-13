@@ -45,14 +45,13 @@
                             </div>
                             <!-- <span class="hot-icon">sale!</span> -->
                         </div>
+                        
                         <div class="product-details">
-                            <h3 class="product-title"><a href="product-details.html">{{details.product_name}}</a></h3>
-                            
-                            <!-- <p class="product-price">
-                                <del>$16.98</del>
-                                <span>$12.99</span>
-                            </p> -->
+                            {% if details.product_name %}
+                            <h3 class="product-title"><a href="product-details.html">{{details.product_name}}</a></h3>  
+                            {% endif %}  
                         </div>
+                        
                     </li>
                     
                     {% endfor %}

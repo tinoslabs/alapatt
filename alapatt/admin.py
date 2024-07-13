@@ -4,3 +4,7 @@ from .models import *
 
 # admin.site.register(ProductDetails)
 admin.site.register(ContactModel)
+
+# admin.site.register(Collections_Details)
+
+# admin.site.register(collections_category)

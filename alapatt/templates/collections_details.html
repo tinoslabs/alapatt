@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main class="main category-page">
+    <div class="breadcrumb-wrap clear">
+        <div class="container">
+            <h2 class="page-title">View Products</h2>
+            <p class="breadcrumb">
+                <span>You are here:</span><span>Home /</span><span>Shop /</span><span>Product Details</span>
+            </p>
+        </div>
+    </div>
+
+   
+
+    
+    <div class="cross-sell-products">
+        <div class="container">
+            <div class="cross-sell-title">
+                <h3>you may also be interested in the following product(s)</h3>
+            </div>
+            <ul class="products owl-carousel">
+                {% for details in products %}
+                <li class="product">
+                    <div class="product-thumb">
+                        <img src="{{ details.product_image.url }}" alt="Product">
+                        <div class="product-action">
+                            
+                        </div>
+                        {% if details.status %}
+                        <span class="hot-icon">sale!</span>
+                        {% endif %}
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">{{ details.name }}</h3>
+                        
+                        <p class="product-price">
+                            {% if details.product_price %}
+                            <!-- <del>$16.98</del> -->
+                            <span>{{ details.product_price }}</span>
+                            {% else %}
+                            <span>Price Not Available</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+{% endblock %}
