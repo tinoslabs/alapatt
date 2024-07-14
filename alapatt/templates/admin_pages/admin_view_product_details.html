@@ -38,14 +38,6 @@
                     {% endif %}
 
 
-                    {% if details.product_price %}
-                    <td style="width: 150px; ">
-                        {{details.product_price}}
-                    </td>
-                    {% else %}
-                    <td>Data Not Found</td>
-                    {% endif %}
-                  
                     <td style="width: 150px; ">
                       {% if details.product_image %}
                       <img src="{{details.product_image.url}}" alt="Current Image" style="width: 80px; height: 80px;">
@@ -55,6 +47,16 @@
                       <p>No image available</p>
                   {% endif %}
                   </td>
+
+                    {% if details.product_price %}
+                    <td style="width: 150px; ">
+                        {{details.product_price}}
+                    </td>
+                    {% else %}
+                    <td>Data Not Found</td>
+                    {% endif %}
+                  
+                    
 
                  
 
