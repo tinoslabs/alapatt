@@ -29,12 +29,8 @@ urlpatterns = [
     path('submit_query/',views.submit_query, name='submit_query'),
     path('chatbot_message_view',views.chatbot_message_view,name='chatbot_message_view'),
     path('delete_message/<int:id>/',views.delete_message,name='delete_message'),
-    path('test', views.test, name='test'),
+  
 
-    path('category_grid', views.category_grid, name='category_grid'),
-   
-    # path('products/<int:category_id>/', views.product_list, name='product_list_by_category'),
-    # path('products/<int:category_id>/<int:subcategory_id>/', views.product_list, name='product_list_by_subcategory'),
 
     path('contact/', views.contact, name='contact'),
     path('view_enquiry',views.view_enquiry, name='view_enquiry'),
@@ -93,15 +89,7 @@ urlpatterns = [
 
     path('featured_products/<str:category_name>/', views.featured_products, name='featured_products'),
 
-    # path('add_sub_category', views.add_sub_category, name='add_sub_category'),
-    # path('view_sub_category', views.view_sub_category, name='view_sub_category'),
-    # path('update_sub_category/<int:id>/', views.update_sub_category, name='update_sub_category'),
-    # path('delete_sub_category/<int:id>/', views.delete_sub_category, name='delete_sub_category'),
-
-    # path('add_product_details', views.add_product_details, name='add_product_details'),
-    # path('view_product_details', views.view_product_details, name='view_product_details'),
-    # path('update_product_details/<int:id>/', views.update_product_details, name='update_product_details'),
-    # path('delete_product_details/<int:id>/', views.delete_product_details, name='delete_product_details'),
+   
     
     path('add_client_reviews', views.add_client_reviews, name='add_client_reviews'),
     path('view_client_reviews', views.view_client_reviews, name='view_client_reviews'),
@@ -113,10 +101,7 @@ urlpatterns = [
     path('update_gold_rate/<int:id>/', views.update_gold_rate, name='update_gold_rate'),
     path('delete_gold_rate/<int:id>/', views.delete_gold_rate, name='delete_gold_rate'),
 
-    path('about_1', views.about_1, name='about_1'),
     path('about', views.about, name='about'),
-    path('testimonial', views.testimonial, name='testimonial'),
-    path('demo', views.demo, name='demo'),
     path('contact_new', views.contact_new, name='contact_new'),
     # path('login', views.login, name='login'),
 

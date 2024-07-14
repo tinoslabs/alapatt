@@ -13,23 +13,7 @@
             </div>
         </div>
 
-        <!-- <div class="container">
-            <div class="row">
-                
-                <div class="product-details-wrap">
-                    <div class="row">
-                        
-                        
-                    </div>
-
-                </div>
-                
-                <div class="product-details-sidebar">
-                   
-                </div>
-               
-            </div>
-        </div> -->
+        
         <div class="cross-sell-products">
             <div class="container">
                 <div class="cross-sell-title">
@@ -46,12 +30,9 @@
                             <!-- <span class="hot-icon">sale!</span> -->
                         </div>
                         <div class="product-details">
-                            <h3 class="product-title"><a href="product-details.html">{{details.product_name}}</a></h3>
-                            
-                            <!-- <p class="product-price">
-                                <del>$16.98</del>
-                                <span>$12.99</span>
-                            </p> -->
+                            {% if details.product_name %}
+                            <h3 class="product-title"><a href="">{{details.product_name}}</a></h3>
+                            {% endif %}
                         </div>
                     </li>
                     

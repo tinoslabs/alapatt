@@ -16,14 +16,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      
     <link rel="icon" href="{% static 'careers/img/favicon.png' %}" type="image/png" sizes="16x16">
-
-    
-
-    <!-- Font -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap" rel="stylesheet"> -->
     <!-- Font -->
 
     <!--build:css-->
@@ -48,14 +40,14 @@
                 </div>
                 <!--Header Logo: End-->
                 <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
+                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 12px;">
                     <ul>
                         <li>
                             <span><a href="{% url 'index' %}">home</a></span>
                         </li>
                         
                         <li class="has-sub">
-                            <span><a href="category-grid.html">pages</a></span>
+                            <span><a href="{% url 'gold_ring' %}">Collections</a></span>
                             <ul class="sub-menu double-column">
                                 <li>
                                     <h4>Gold</h4>
@@ -281,19 +273,7 @@
         </div>
     </header>
 
-    
-    <!-- <section class="page-header position-relative overflow-hidden ptb-120 bg-dark" style="background: url('careers/img/page-header-bg.svg')no-repeat bottom left">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <h1 class="display-5 fw-bold">Career</h1>
-                    <p class="lead">Seamlessly actualize client-based users after out-of-the-box value. Globally embrace strategic data through frictionless expertise.</p>
-                </div>
-            </div>
-            <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light right-5"></div>
-        </div>
-    </section> -->
-    <!--page header section end-->
+
 
     <!--open jobs section start-->
     <section id="open-positions" class="open-jobs ptb-120">
@@ -379,25 +359,11 @@
                             <!-- Footer Column 1: Begin -->
                             <div class="footer-column" id="footer-column-1">
                                 <h4 class="footer-logo">
-                                    <img src="{% static 'assets/img/LOGO-ALAPATT.png' %}" alt="elegan shop">
+                                    <img src="{% static 'assets/img/LOGO-ALAPATT.jpg' %}" alt="elegan shop">
                                 </h4>
-                                <!-- <div class="footer-acordion-wrap">
+                                <div class="footer-acordion-wrap">
                                     <p class="footer-slogan">Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery.</p>
-                                    <div class="footer-contacts">
-                                        <div class="footer-contact clear">
-                                            <i class="icon icon-location"></i>
-                                            <p class="location-details">257 Charlington Gates Road Morrison, Nr. 568</p>
-                                        </div>
-                                        <div class="footer-contact clear">
-                                            <i class="icon icon-phone"></i>
-                                            <p class="location-details">0-800-12-345-6 880</p>
-                                        </div>
-                                        <div class="footer-contact clear">
-                                            <i class="icon icon-email"></i>
-                                            <p class="location-details">info@netbaseteam.com</p>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                </div>
                                 
                             </div>
                             <!-- Footer Column 1: End -->
@@ -407,10 +373,10 @@
                                 <div class="footer-acordion-wrap">
                                     <div class="footer-post clear">
                                         <div class="footer-post-thumb">
-                                            <a href=""><img src="{% static 'assets/img/collection/gold-ring-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
+                                            <a href=""><img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
-                                            <h4 class="footer-post-title"><a href="blog-details.html">Gold</a></h4>
+                                            <h4 class="footer-post-title"><a href="">Gold</a></h4>
                                             <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
                                         </div>
                                     </div>
@@ -419,13 +385,13 @@
                                             <a href=""><img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
-                                            <h4 class="footer-post-title"><a href="blog-details.html">Diamond</a></h4>
+                                            <h4 class="footer-post-title"><a href="">Diamond</a></h4>
                                             <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
                                         </div>
                                     </div>
                                     <div class="footer-post clear">
                                         <div class="footer-post-thumb">
-                                            <a href=""><img src="{% static 'assets/img/collection/precious-ring-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
+                                            <a href=""><img src="{% static 'assets/img/flickr/flickr-7.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
                                         </div>
                                         <div class="footer-post-details">
                                             <h4 class="footer-post-title"><a href="">Precious Stone</a></h4>
@@ -542,10 +508,9 @@
                         <!-- Footer Columns: End -->
                         <!-- Footer Social Connect: Begin -->
                         <div class="footer-social">
-                            <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="fa fa-facebook"></i></a>
-                            <!-- <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="icon-youtube"></i></a> -->
-                            <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="fa fa-youtube"></i></a>
                             <a href="https://www.instagram.com/alapattfashionjewellery/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="fab fa-youtube"></i></a>
                             
                         </div>
     
@@ -710,16 +675,6 @@
         <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
         <script src="{% static 'assets/js/scripts.min.js' %}"></script>
         <script src="{% static 'assets/js/messenger.js' %}"></script>
-
-
-        <!-- <script src="{% static 'careers/js/vendors/jquery-3.6.0.min.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/swiper-bundle.min.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/jquery.magnific-popup.min.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/parallax.min.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/aos.js' %}"></script>
-        <script src="{% static 'careers/js/vendors/massonry.min.js' %}"></script>
-        <script src="{% static 'careers/js/app.js' %}"></script> -->
     </body>
     
     </html>

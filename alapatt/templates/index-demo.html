@@ -1,0 +1,1900 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Alapatt Fashion Jewellery</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
+    <meta name="description" content="Jewelry HTML Template">
+    <meta name="author" content="Netbase">
+    <!--Main stylesheet-->
+    <link rel="stylesheet" href="{% static 'assets/css/fontello.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/external.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-XXXXX" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{% static 'assets/img/Alapatt Logo@2x-8 (3).png' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    
+    <style>
+    .blog-posts-home {
+    padding: 20px;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .blog-posts {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .blog-post {
+        width: 48%;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin-bottom: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .blog-post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .blog-thumb {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .blog-thumb a {
+        text-decoration: none;
+    }
+
+    .blog-thumb img {
+        max-width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 15px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .hidden-paragraph {
+        display: none;
+        padding: 10px;
+        font-size: 1em;
+        color: #555;
+        text-align: center;
+    }
+    </style>
+    <style>
+        .blog-post-container {
+        display: flex;
+        justify-content: space-between; /* Adjust as per your layout preference */
+        margin-bottom: 20px; /* Adjust spacing between each blog post */
+    }
+
+.blog-post {
+    width: calc(50% - 10px); /* Adjust width for responsiveness */
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.blog-thumb {
+    text-align: center;
+}
+
+.blog-content {
+    margin-top: 10px;
+}
+
+.blog-content h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.blog-content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.read-more-link {
+    font-family: 'Playfair Display', serif;
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
+    </style>
+    <style>
+        .blog-posts-home .blog-thumb {
+            text-align: center; /* Center the content within the blog-thumb */
+        }
+
+        .button-container {
+            margin-top: 10px; /* Add some space above the button */
+        }
+
+        .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #fff;
+            background-color: #cea665; /* Adjust the color to match your theme */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pay-now-button:hover {
+            background-color: #b08c48; /* Darken the background color on hover */
+        }
+    </style>
+    <!-- <style>
+        @media only screen and (max-width: 200px) {
+    .blog-posts-home .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog-posts-home .section-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .blog-posts-home .section-small-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .blog-posts-home .row {
+        flex-direction: column;
+    }
+
+    .blog-posts-home .blog-post {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .blog-posts-home .blog-thumb img {
+        width: 100%;
+        height: auto;
+    }
+
+    .blog-posts-home .pay-now-button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+    </style> -->
+    <style>
+        .map-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 450px;
+        border: 0;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 1200px) {
+        .map-container iframe {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .map-container iframe {
+            height: 350px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .map-container iframe {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .map-container iframe {
+            height: 250px;
+        }
+    }
+
+    /* Ensure minimum width is 200px */
+    .map-container iframe {
+        min-width: 200px;
+    }
+        </style>
+    <style>
+        .shadow-effect {
+        background: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: center;
+        border: 1px solid #ECECEC; /* Existing border */
+        box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    }
+
+    #customers-testimonials .shadow-effect p {
+        font-family: inherit;
+        font-size: 17px;
+        line-height: 1.5;
+        margin: 0 0 17px 0;
+        font-weight: 300;
+    }
+
+    .testimonial-name {
+        margin: -17px auto 0;
+        display: table;
+        width: auto;
+        background: #cea665;
+        padding: 9px 35px;
+        border-radius: 12px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
+    }
+
+    #customers-testimonials .item {
+        text-align: center;
+        padding: 50px;
+        margin-bottom: 80px;
+        opacity: .2;
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        opacity: 1;
+        -webkit-transform: scale3d(1.0, 1.0, 1);
+        transform: scale3d(1.0, 1.0, 1);
+    }
+
+    .owl-carousel .owl-item img {
+        transform-style: preserve-3d;
+        max-width: 90px;
+        margin: 0 auto 17px;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+        background: #cea665;
+        transform: translate3d(0px, -50%, 0px) scale(0.7);
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot {
+        display: inline-block;
+    }
+
+    #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+        background: #cea665;
+        display: inline-block;
+        height: 20px;
+        margin: 0 2px 5px;
+        transform: translate3d(0px, -50%, 0px) scale(0.3);
+        transform-origin: 50% 50% 0;
+        transition: all 250ms ease-out 0s;
+        width: 20px;
+    }
+    @media (max-width: 400px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 300px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -90px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 80px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 350px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -100px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 100px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 700px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 400px; /* Adjust width */
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+        margin-left: -90px;
+        
+        
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 120px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+
+
+@media (min-width: 700px) and (max-width: 900px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 500px; /* Adjust width */
+        margin-left: -110px;
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+        margin-left: 160px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+@media (min-width: 900px) and (max-width: 1000px) {
+    #customers-testimonials .item {
+        padding: 20px;
+        margin-bottom: 40px;
+        width: 500px; /* Adjust width */
+        margin-left: -110px;
+        height: auto; /* Adjust height */
+        display: none; /* Hide all testimonials initially */
+    }
+
+    #customers-testimonials .owl-item.active.center .item {
+        display: block; /* Display only the main testimonial card */
+    }
+
+    .shadow-effect {
+        padding: 10px;
+        width: 90%; /* Adjust width */
+        height: auto; /* Adjust height */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .shadow-effect p {
+        font-size: 14px;
+    }
+
+    .testimonial-name {
+        padding: 7px 20px;
+        font-size: 14px;
+    }
+
+    .owl-carousel .owl-item img {
+        max-width: 70px;
+        margin: 0 auto 10px;
+    }
+}
+        </style>
+
+    <style>
+        @media (max-width: 600px) {
+        .blog-posts-home .blog-details {
+            padding: 15px;
+        }
+
+        .blog-posts-home .blog-title {
+            font-size: 18px;
+        }
+
+        .blog-posts-home .blog-meta {
+            font-size: 12px;
+        }
+
+        .blog-posts-home .blog-details p {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .blog-posts-home .blog-details {
+            padding: 10px;
+        }
+
+        .blog-posts-home .blog-title {
+            font-size: 16px;
+        }
+
+        .blog-posts-home .blog-meta {
+            font-size: 10px;
+        }
+
+        .blog-posts-home .blog-details p {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 200px) {
+        .blog-posts-home .blog-details {
+            padding: 5px;
+        }
+
+        .blog-posts-home .blog-title {
+            font-size: 14px;
+        }
+
+        .blog-posts-home .blog-meta {
+            font-size: 8px;
+        }
+
+        .blog-posts-home .blog-details p {
+            font-size: 10px;
+        }
+    }
+    </style>
+    <style>
+            /* Default styling for larger screens */
+            .blog-posts-home .blog-post {
+                width: 48%;
+                margin-bottom: 20px;
+                list-style: none;
+            }
+
+            .blog-posts-home .blog-post:nth-child(odd) {
+                margin-right: 4%;
+            }
+
+            .blog-posts-home .blog-post:nth-child(even) {
+                margin-right: 0;
+            }
+
+            /* Styling for small screens */
+            @media (max-width: 767px) {
+                .blog-posts-home .row {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .blog-posts-home .blog-post {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                .blog-posts-home .blog-post:nth-child(odd),
+                .blog-posts-home .blog-post:nth-child(even) {
+                    margin-right: 0;
+                }
+            }
+        </style>
+    <style>
+            /* Default image styling */
+    #featured-logo {
+        width: 200px;
+    }
+
+    /* Media query for screens 200px and above */
+    @media (min-width: 200px) and (max-width: 399px) {
+        #featured-logo {
+            width: 150px;
+        }
+    }
+
+    /* Media query for screens 400px and above */
+    @media (min-width: 400px) and (max-width: 599px) {
+        #featured-logo {
+            width: 175px;
+        }
+    }
+
+    /* Media query for screens 600px and above */
+    @media (min-width: 600px) and (max-width: 767px) {
+        #featured-logo {
+            width: 200px;
+        }
+    }
+
+    /* Media query for screens 768px and above */
+    @media (min-width: 768px) {
+        #featured-logo {
+            width: 200px;
+        }
+    }
+    </style>
+    <style>
+    
+
+    /* Responsive styles (screens wider than 200px) */
+    @media (min-width: 200px) {
+        .tp-caption {
+            text-align: center !important; /* Center align text content */
+            left: 0 !important; /* Reset left position */
+            right: 0 !important; /* Reset right position */
+            transform: translateX(0) !important; /* Center align */
+            width: 100% !important; /* Ensure full width */
+        }
+
+        .tp-caption .jw-button {
+            display: inline-block; /* Ensure the buttons are inline-block */
+            margin: 10px 5px; /* Center the buttons and add some spacing */
+        }
+    }
+
+    </style>
+    
+    <!-- <style>
+    @media (max-width: 500px) {
+        .grayscale-collection-wrap .collection-header {
+            padding-top: 30px;
+            padding-bottom: 60px; 
+        }
+
+        .grayscale-collection-wrap .collection-header .video-background {
+            padding-bottom: 56.25%; 
+        }
+
+        .grayscale-collection-wrap .collection-header .video-background iframe {
+            width: 100%;
+            height: 100%;
+        }
+        }
+    </style> -->
+   </head>    
+
+<body class="home-page">
+    <!--Header: Begin-->
+    <!-- <header class="container-fluid clear" style="position: fixed;"> -->
+    <header class="container-fluid clear">
+        <div class="row">
+            <!--Header Top: Begin-->
+            <div id="header-top" class="clear">
+                <!--Header Logo: Begin-->
+                <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo"></a>
+                    <h1 class="hidden-heading">Jewelry</h1>
+                </div>
+                <!--Header Logo: End-->
+                <!--Main Navigation: Begin-->
+                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
+                    <ul>
+                        <li>
+                            <span><a href="{% url 'index' %}">home</a></span>
+                        </li>
+                        
+                        <li class="has-sub">
+                            <span><a href="{% url 'gold_ring' %}">Collections</a></span>
+                            <ul class="sub-menu double-column">
+                                <li>
+                                    <h4>Gold</h4>
+                                    <ul>
+                                        <li><a href="{% url 'gold_ring' %}">Ring</a></li>
+                                        <li><a href="{% url 'gold_necklace' %}">Necklace</a></li>
+                                        <li><a href="{% url 'gold_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'gold_bangles' %}">Bangles</a></li>
+                                        <li><a href="{% url 'gold_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'gold_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'gold_earrings' %}">Earrings</a></li>
+                                        
+                                        <li><a href="{% url 'gold_pendants' %}">Pendants</a></li>
+                                        
+                                        
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4>Diamond</h4>
+                                    <ul>
+                                        <li><a href="{% url 'diamond_necklace' %}">Necklace</a></li>
+                                        <li><a href="{% url 'diamond_ring' %}">Rings</a></li>
+                                        <li><a href="{% url 'diamond_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'diamond_bangles' %}">Bangles</a></li>
+                                        <li><a href="{% url 'diamond_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'diamond_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'diamond_earrings' %}">Earrings</a></li>
+                                        
+                                        <li><a href="{% url 'diamond_pendants' %}">Pendants</a></li>
+                                        
+                                        <!-- <li><a href="{% url 'diamond_ring' %}">Ring</a></li> -->
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4>Precious Stone</h4>
+                                    <ul>
+                                        <li><a href="{% url 'stone_necklace' %}">Necklace</a></li>
+                                        <li><a href="{% url 'stone_ring' %}">Rings</a></li>
+                                        <li><a href="{% url 'stone_earrings' %}">Earrings</a></li>
+                                        <li><a href="{% url 'stone_anklet' %}">Anklet</a></li>
+                                        <li><a href="{% url 'stone_chain' %}">Chain</a></li>
+                                        <li><a href="{% url 'stone_bracelet' %}">Bracelet</a></li>
+                                        <li><a href="{% url 'stone_bangles' %}">Bangles</a></li>  
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <span><a href="#">Purchase Plan</a></span>
+                            <ul class="sub-menu single-column">
+                                <li>
+                                    <h4>Pay Now</h4>
+                                    <ul>
+                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">SWARNA SAYOOJYA</a></li>
+                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">KANAKA SOUBHAGYA</a></li>
+                                        <!-- <li><a href="blog-details.html">blog details</a></li> -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        
+                        <li>
+                            <span><a href="{% url 'about' %}">About Us</a></span>
+                        </li>
+                        <li>
+                            <span><a href="{% url 'careers' %}">Careers</a></span>
+                        </li>
+                        <li>
+                            <span><a href="{% url 'contact' %}">contact</a></span>
+                        </li>
+                    </ul>
+                    <span class="mbmenu-icon">
+                        <i class="icon-menu-1"></i>
+                    </span>
+                    <div id="mb-main-menu" class="main-menu">
+                        <div class="mb-menu-title">
+                            <h3>Navigation</h3>
+                            <span id="close-mb-menu">
+                                <i class="icon-cancel-circled"></i>
+                            </span>
+                        </div>
+                        <ul class="sub-cate-list">
+                            <li class="level0">
+                                <a href="{% url 'index' %}">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="#">
+                                    <span>Gold</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="{% url 'gold_anklet' %}" title="Gold Rings"> Anklet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_bangles' %}" title="White Gold Rings">Bangles</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_bracelet' %}" title="Gemstone Rings">Bracelet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_chain' %}" title="Silver Rings">Chain</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_earrings' %}" title="Silver Rings">Earrings</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_necklace' %}" title="Silver Rings">Necklace</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_pendants' %}" title="Silver Rings">Pendants</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'gold_ring' %}" title="Silver Rings">Rings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="#">
+                                    <span>Diamond</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_anklet' %}" title="Diamond Anklet">Anklet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_bangles' %}" title="Diamond Bangles">Bangles</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_bracelet' %}" title="Diamond Bracelet">Bracelet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_chain' %}" title="Diamond Chain">Chain</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_earrings' %}" title="Diamond Earrings">Earrings</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_necklace' %}" title="Diamond Necklace">Necklace</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_pendants' %}" title="Diamond Pendants">Pendants</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'diamond_ring' %}" title="Diamond Rings">Rings</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="#">
+                                    <span>Precious Stone</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="{% url 'stone_anklet' %}" title="Precious Stone Anklet">Anklet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_bangles' %}" title="Precious Stone Bangles">Bangles</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_bracelet' %}" title="Precious Stone Bracelet">Bracelet</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_chain' %}" title="Precious Stone Chain">Chain</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_earrings' %}" title="Precious Stone Earrings">Earrings</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_necklace' %}" title="Precious Stone Necklace">Necklace</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_pendants' %}" title="Precious Stone Pendants">Pendants</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="{% url 'stone_ring' %}" title="Precious Stone Rings">Rings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="#">
+                                    <span>Purchase Plan</span>
+                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                </a>
+                                <ul class="level0">
+                                    <li class="level1">
+                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Anklet">Swarna Sayoojya</a>
+                                    </li>
+                                    <li class="level1">
+                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Bangles">Kanaka Soubhagya</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'careers' %}" title="Gemstone Rings">Careers</a>
+                            </li>
+                            <li class="level0 parent">
+                                <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </nav>
+                <!--Main Navigation: End-->
+                <!--Search and Cart: Begin-->
+                <div class="header-right-wrap">
+                    <div class="header-right">
+                        
+                        <div class="search-input">
+                            <div class="input-group">
+                                {% for gold_rate in rate %}
+                                <input type="text" class="form-control" id="gold-rate-input" value="{{ gold_rate.gold_rate }}-INR/gram">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" id="refresh-btn" onclick="fetchGoldRate()" style="color: white;">Gold</button>
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    
+                        
+                    </div>
+                </div>
+                <!--Search and Cart: Begin-->
+            </div>
+            <!--Header Top: End-->
+        </div>
+    </header>
+    <!--Header: End-->
+    <!-- Main: Begin -->
+    <main>
+        <!--Main Slider: Begin-->
+        <div class="home-slidershow">
+            <div class="slide-show">
+                <div class="vt-slideshow">
+                    <ul>
+                        <!-- SLIDE 1 -->
+                        <li data-transition="random" data-slotamount="7" data-masterspeed="1500">
+                            <!-- <img src="{% static 'assets/img/slider/slide-1.jpg' %}" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"> -->
+                            <img src="{% static 'assets/img/slider/111111112.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-370" data-y="340" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="right" data-hoffset="-400" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                Crafted with exceptional precision and the highest standards,<br/> each piece of jewellery embodies the essence of purity,<br>celebrating the timeless beauty and unmatched quality that <br>defines every creation. 
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-430" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">SWARNA SAYOOJYA</a></p>
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">KANAKA SOUBHAGYA</a></p>
+                            </div>
+                        </li>
+                        
+                    
+                        <!-- SLIDE 2 -->
+                        <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
+                           
+                            <img src="{% static 'assets/img/slider/slider1122.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            
+                            
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="left" data-hoffset="500" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">SWARNA SAYOOJYA</a></p>
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">KANAKA SOUBHAGYA</a></p>
+                            </div>
+                        </li>
+                    
+                        <!-- SLIDE 3 -->
+                        <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
+                            <img src="{% static 'assets/img/44444.jpg' %}" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                           
+                            
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="700" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout slide-color-2" data-x="700" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
+                            </div>
+                            <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="870" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">SWARNA SAYOOJYA</a></p>
+                                <p class="jw-button"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">KANAKA SOUBHAGYA</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Main Slider: End-->
+        <!-- New Product: Begin  -->
+        
+         
+       
+
+        
+        <section class="blog-posts-home container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2>
+                </div>
+                <h3 class="section-subtitle" style="font-family: 'Playfair Display', serif; color: #cea665;">PURCHASE PLAN</h3>
+                <h5 class="section-small-subtitle">
+                    A golden helping hand from Alapatt to fulfil your daughter’s wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya and Kanaka Soubhagya aims at securing small easy amounts periodically to plan big buying of Gold in future.
+                </h5>
+            </div>
+            <div class="row">
+                <ul class="blog-posts clear">
+                    <li class="blog-post">
+                        <div class="blog-thumb img-hover">
+                            <img src="{% static 'assets/img/swarna-sayoojya-logo.svg' %}" alt="blog 1" style="width: 300px; height: 200px;">
+                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif; font-size: 20px;">Gold & Diamonds Purchase Plan
+                                A golden helping hand from Alapatt to fulfil your daughter's wedding dreams with a secured future aimed at defeating the fluctuating gold prices. Swarna Sayoojya aims at securing small easy amounts periodically to plan big buying of Gold in future.
+                                
+                                Swarna SAYOOJYA: The features
+                                         The scheme is designed with a clear perception on the various future needs of the customers like wedding, family security etc. so that they are not deprived of their golden dreams by the soaring prices of gold every day.
+                                
+                                SWARNA SAYOOJYA : The details
+                                You have options of any of the seven slabs of Rs. 500, 1000, 2000, 5000, 10000, 20000 and 25000 equal monthly installments. Gold is returned in the 12th month after equal monthly payments for 11 consecutive months for the value of amount paid + scheme discount from Alapatt. This is the easiest opportunity to defeat the soaring gold prices.</p>
+                            <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" class="pay-now-button" >Pay Now</a>
+                        </div>
+                    </li>
+                    <li class="blog-post">
+                        <div class="blog-thumb img-hover">
+                            <img src="{% static 'assets/img/kanaka.svg' %}" alt="blog 2" style="width: 300px; height: 200px;">
+                            <p class="hidden-paragraph" style="font-family: 'Playfair Display', serif;font-size: 20px;">Gold & Diamonds Purchase Plan
+                                This is a scheme that provides free making charges. Making charge is free on items that attract value addition up to 15%.
+                                It is aimed at providing easy possession of gold for the customers. Gold can be purchased opting any of the seven slabs of Rs. 500, 1000, 2000, 5000, 10000, 20000 and 25000 on advance equal monthly installments for 11 months. Gold is returned in the 12th month after equal monthly payment for 11 consecutive months for the value of amount paid. The highest attraction is that no making charge/value addition is made on items attracting making charges up to 15%. In other words the customers are given ornaments for the entire amount paid without any making charges for items that attract making charges up to 15%. Those items on which making charges exceed 15%, value addition is limited to the percentage exceeding 15% only.</p>
+                            <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" class="pay-now-button">Pay Now</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        
+        
+        <section class="featured-category-wrap container-fluid">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2></div>
+                <h3 style="color: #dfb858;text-align: center;font-family: 'Playfair Display', serif;">PRODUCT BY CATEGORY</h3>
+                <h5 class="section-small-subtitle">A promise of Perfection & Purity In Every Piece Of Jewellery</h5>
+            </div>
+            <div class="row">
+                <div class="section-main">
+                    <!-- Featured Categories: Begin -->
+                    <ul class="featured-categories">
+                        {% for category in product_category %}
+                        <li class="featured-category">
+                            {% if category.image %}
+                            <img src="{{category.image.url}}" alt="Featured Category">
+                            {% endif %}
+                            <div class="featured-category-details">
+                                <div class="details">
+                                    {% if category.category_name %}
+                                    <h3 class="title"><a href="{% url 'Product_details' category.category_name %}">{{category.category_name}}</a></h3>
+                                    {% endif %}
+                                    <p class="description">Range of jewellery varies from the traditional to trend setting styles.</p>
+                                    <p class="jw-button"><a href="{% url 'Product_details' category.category_name %}">Show More</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- Featured Categories: End -->
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- New Product: End -->
+        <!-- New Featured Product: Begin -->
+        <section class="new-featured-product container-fluid">
+            <div class="row">
+                <div class="meta-wrap">
+                    <br><br><br>
+                    <div class="meta">
+                        <p><img id="featured-logo" src="{% static 'assets/img/Alapatt Logo@2x-8 (1).png' %}" alt="New featured"></p>
+                        <h3 style="text-align: center;color: #dfb858;font-family: 'Playfair Display', serif;">We Are P.T. Antony & Sons Alapatt Fashion Jewellery</h3>
+                        <p style="font-family: 'Playfair Display', serif;font-size: 20px;">We enjoy a well-earned reputation among gold consumers in the state. Thanks to the unmatched quality that we produce with each gram of gold. The unmistakable stamp of craftsmanship we etch on each of our designs. Our range of gold ornaments is one of the most envied among even our peers, because of the selection process we use and our panel of fashion experts…</p>
+                        
+                    </div>
+                </div>
+                <div class="thumb">
+                    <a href="{% url 'about' %}">
+                        <img src="{% static 'assets/img/category/335A6501.jpg' %}" alt="New featured Product" style="width: 400px;">
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Featured Product: End -->
+        <!-- Featured Category List: Begin -->
+        <section class="featured-category-wrap container-fluid">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2></div>
+                <h3 style="color: #dfb858;text-align: center;font-family: 'Playfair Display', serif;">FEATURED PRODUCTS</h3>
+                <h5 class="section-small-subtitle">A promise of Perfection & Purity In Every Piece Of Jewellery</h5>
+            </div>
+            <div class="row">
+                <div class="section-main">
+                    <!-- Featured Categories: Begin -->
+                    <ul class="featured-categories">
+                        {% for category in Featured_Products %}
+                        <li class="featured-category">
+                            {% if category.image %}
+                            <img src="{{category.image.url}}" alt="Featured Category">
+                            {% endif %}
+                            <div class="featured-category-details">
+                                <div class="details">
+                                    <h3 class="title"><a href="{% url 'featured_products' category.category_name %}">{{category.category_name}}</a></h3>
+                                    <p class="description">Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery.</p>
+                                    <p class="jw-button"><a href="{% url 'contact' %}">Contact Us</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- Featured Categories: End -->
+                </div>
+            </div>
+        </section>
+       
+        <section class="blog-posts-home container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2>
+                </div>
+                <h3 class="section-subtitle">Blog Posts</h3>
+                <h5 class="section-small-subtitle">
+                    Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery. Our showroom is open every day of the week.
+                </h5>
+            </div>
+            <div class="row blog-posts">
+                <li class="blog-post">
+                    <div class="blog-thumb img-hover">
+                        <img src="{% static 'assets/img/blog-1.jpg' %}" alt="blog 1">
+                    </div>
+                    <div class="blog-details">
+                        <h4 class="blog-title" style="color: black;">Fresh Recipes</h4>
+                        <p>
+                            Range of jewellery varies from the traditional to trend setting styles. Diamond Arcade is a section exclusively devoted to diamonds with an array of Nakshatra and Azmi diamonds, the leading names in diamond designs.
+                        </p>
+                    </div>
+                </li>
+                <li class="blog-post">
+                    <div class="blog-thumb img-hover">
+                        <img src="{% static 'assets/img/blog-2.jpg' %}" alt="blog 2">
+                    </div>
+                    <div class="blog-details">
+                        <h4 class="blog-title" style="color: black;">The Story Of Beauty</h4>
+                        <p>
+                            Our roots go back to 1963 when the Jewellery business was established by Late Sri.P.T.ANTONY. Alapatt Fashion Jewellery in East fort, Trivandrum brings you 100% 916 Hallmarking gold.Its collection is unmatched in range, elegance of design and purity. 
+                        </p>
+                    </div>
+                </li>
+            </div>
+        </section>
+        
+        
+        <section class="hero-image img-hover">
+            <div class="hero-image-text">
+              <img src="{% static 'assets/img/Alapatt-Logo@0811.png' %}" alt="diamond parallax" style="margin-top: 10px;">
+            </div>
+          </section>
+        
+        <section class="team-member-wrap container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>elegan shop</h2>
+                </div>
+                <h3 class="section-subtitle">What our customer says</h3>
+                <h5 class="section-small-subtitle">We enjoy a well-earned reputation among gold consumers in the state. Thanks to the unmatched quality that we produce with each gram of gold. </h5>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="customers-testimonials" class="owl-carousel">
+                            {% for review in client_review %}
+                            <div class="item">
+                                <div class="shadow-effect">
+                                    {% if review.client_image %}
+                                    <img class="img-circle" src="{{ review.client_image.url }}" alt="{{ review.client_name }}">
+                                    {% endif %}
+            
+                                    {% if review.review %}
+                                    <p>{{ review.review }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="testimonial-name">{{ review.client_name }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    
+        <!-- Team Member: End -->
+        <!-- Grayscale Collection: Begin -->
+        <section class="grayscale-collection-wrap">
+            <div class="collection-header">
+              <div class="video-background">
+                <iframe src="https://www.youtube.com/embed/YRpIRwX7hKU?autoplay=1&mute=1&loop=1&playlist=YRpIRwX7hKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </section>
+          
+          <style>
+            /* CSS Styles */
+            .grayscale-collection-wrap {
+              margin-bottom: 30px;
+            }
+          
+            .grayscale-collection-wrap .collection-header {
+              text-align: center;
+              position: relative;
+              color: white;
+            }
+          
+            .grayscale-collection-wrap .collection-header .video-background {
+              position: relative;
+              width: 80%;
+              
+              padding-top: 40%; /* 16:9 aspect ratio (9 / 16 * 100) */
+              overflow: hidden;
+              margin: 0 auto; /* Center the video */
+              margin-bottom: -150px;
+            }
+          
+            .grayscale-collection-wrap .collection-header iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border: 0;
+            }
+          
+            /* Media query for screens up to 768px */
+            @media screen and (max-width: 768px) {
+              .grayscale-collection-wrap .collection-header .video-background {
+                padding-top: 50%; /* Adjust aspect ratio for smaller screens */
+                margin-bottom: -150px;
+              }
+          
+              .grayscale-collection-wrap .collection-header iframe {
+                height: 100%; /* Ensure iframe fills its container */
+                
+              }
+            }
+          </style>
+        
+        <!-- Register Newsletter: End -->
+        <!-- Contact Section: Begin -->
+        <section class="contact-location container">
+            <div class="row">
+                <!-- Contact: Begin -->
+                <div class="contact">
+                    <h3>Contact us</h3>
+                    <form method="POST" action="{% url 'index' %}" >
+                        {% csrf_token %}
+                    
+                        <!-- Success message container -->
+                        <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
+                    
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Your name*">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your email*">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="phone" placeholder="Your phone" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment" placeholder="Comments*" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="jw-button">Send Message</button>
+                    </form>
+                    
+                    <!-- index.html -->
+
+                </div>
+                <!-- Contact: End -->
+                <!-- Location: Begin -->
+                <div class="location">
+                    <h3>Location</h3>
+                    
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.7315290614287!2d76.94663731478496!3d8.481245893805736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bbe4a5becd7b%3A0xb56f0f906dae4ee9!2sAlapatt%20Fashion%20Jewellery!5e0!3m2!1sen!2sin!4v1615932022811!5m2!1sen!2sin"
+                            width="600"
+                            height="450"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <br><br>
+                    <p>
+                        <span class="icon icon-phone"></span>
+                        <span class="location-details"> 9895467900, 0471 2453760, 0471 2453761</span>
+                    </p>
+                    
+                    <p>
+                        <span class="icon icon-email"></span>
+                        <span class="location-details"> afjtvm@yahoo.co.in</span>
+                    </p>
+                </div>
+                <!-- Location: End -->
+            </div>
+        </section>
+        
+        
+        <!-- Contact Section: End -->
+    </main>
+    
+    <div class="botIcon">
+        <div class="botIconContainer">
+            <div class="iconInner" style="animation: jump 1s infinite alternate; font-size: 24px;">
+                <i class="fa fa-commenting" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="Layout Layout-open Layout-expand Layout-right">
+            <div class="Messenger_messenger">
+                <div class="Messenger_header">
+                    <h4 class="Messenger_prompt" style="color: aliceblue;">How can we help you?</h4> <span class="chat_close_icon"><i class="fa fa-window-close" aria-hidden="true"></i></span>
+                </div>
+                <div class="Messenger_content">
+                    <div class="Messages">
+                        <div class="Messages_list"></div>
+                    </div>
+                    <form id="messenger">
+                        {% csrf_token %}
+                        <div class="Input Input-blank">
+    <!-- 							<textarea name="msg" class="Input_field" placeholder="Send a message..."></textarea> -->
+                            <input style="max-width: 100%; width:220px;overflow-wrap:break-word;white-space: pre-wrap;" name="msg" class="Input_field" placeholder="Send a message...">
+                            <button type="submit" class="Input_button Input_button-send">
+                                <div class="Icon">
+                                    <svg viewBox="1496 193 57 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Group-9-Copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1523.000000, 220.000000) rotate(-270.000000) translate(-1523.000000, -220.000000) translate(1499.000000, 193.000000)">
+                                            <path d="M5.42994667,44.5306122 L16.5955554,44.5306122 L21.049938,20.423658 C21.6518463,17.1661523 26.3121212,17.1441362 26.9447801,20.3958097 L31.6405465,44.5306122 L42.5313185,44.5306122 L23.9806326,7.0871633 L5.42994667,44.5306122 Z M22.0420732,48.0757124 C21.779222,49.4982538 20.5386331,50.5306122 19.0920112,50.5306122 L1.59009899,50.5306122 C-1.20169244,50.5306122 -2.87079654,47.7697069 -1.64625638,45.2980459 L20.8461928,-0.101616237 C22.1967178,-2.8275701 25.7710778,-2.81438868 27.1150723,-0.101616237 L49.6075215,45.2980459 C5.08414042,47.7885641 49.1422456,50.5306122 46.3613062,50.5306122 L29.1679835,50.5306122 C27.7320366,50.5306122 26.4974445,49.5130766 26.2232033,48.1035608 L24.0760553,37.0678766 L22.0420732,48.0757124 Z" id="sendicon" fill="#96AAB4" fill-rule="nonzero"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Main: End -->
+    <!-- Footer: Begin -->
+    <footer>
+        <!-- Footer Top: Begin -->
+        <div class="footer-top">
+            <section class="container">
+                <div class="row">
+                    <!-- Footer Columns: Begin -->
+                    <div class="footer-columns clear">
+                        <!-- Footer Column 1: Begin -->
+                        <div class="footer-column" id="footer-column-1">
+                            <h4 class="footer-logo">
+                                <img src="{% static 'assets/img/LOGO-ALAPATT.png' %}" alt="elegan shop" style="width:300px;">
+                            </h4>
+                            <div class="footer-acordion-wrap">
+                                <p class="footer-slogan">Visit P. T. Antony & Sons Alapatt Fashion Jewellery and experience the true meaning of purity and perfection in every piece of jewellery.</p>
+                            </div>
+                            
+                        </div>
+                        <!-- Footer Column 1: End -->
+                        <!-- Footer Column 2: Begin -->
+                        <div class="footer-column" id="footer-column-2">
+                            <h4 class="column-title">lastest post</h4>
+                            <div class="footer-acordion-wrap">
+                                <div class="footer-post clear">
+                                    <div class="footer-post-thumb">
+                                        <a href=""><img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
+                                    </div>
+                                    <div class="footer-post-details">
+                                        <h4 class="footer-post-title"><a href="">Gold</a></h4>
+                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
+                                    </div>
+                                </div>
+                                <div class="footer-post clear">
+                                    <div class="footer-post-thumb">
+                                        <a href=""><img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
+                                    </div>
+                                    <div class="footer-post-details">
+                                        <h4 class="footer-post-title"><a href="">Diamond</a></h4>
+                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
+                                    </div>
+                                </div>
+                                <div class="footer-post clear">
+                                    <div class="footer-post-thumb">
+                                        <a href=""><img src="{% static 'assets/img/flickr/flickr-7.jpg' %}" alt="Footer post" style="width: 63px;height:62px"></a>
+                                    </div>
+                                    <div class="footer-post-details">
+                                        <h4 class="footer-post-title"><a href="">Precious Stone</a></h4>
+                                        <p class="footer-post-description">Whether the flitting attendanc of the one still and...</p>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!-- Footer Column 2: End -->
+                        <!-- Footer Column 3: Begin -->
+                        <div class="footer-column" id="footer-column-3">
+                            <h4 class="column-title">opening times</h4>
+                            <div class="footer-acordion-wrap">
+                                <p>
+                                    <span class="date">Monday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Tuesday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Wednesday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Thursday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Friday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Saturday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                                <p>
+                                    <span class="date">Sunday</span>
+                                    <span class="time">8.00Am - 7.30Pm</span>
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <!-- Footer Column 3: End -->
+                        <!-- Footer Column 4: Begin -->
+                        <div class="footer-column" id="footer-column-4">
+                            <h4 class="column-title">flickr photos</h4>
+                            <div class="footer-acordion-wrap">
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-1.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets\img\flickr\flickr-1.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-2.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-3.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-3.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-5.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-5.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-7.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-7.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-8.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-8.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-1.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-1.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-2.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-2.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-3.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-3.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                                <div class="footer-flickr">
+                                    <a class="fancybox" href="{% static 'assets/img/flickr/flickr-4.jpg' %}">
+                                        <img src="{% static 'assets/img/flickr/flickr-4.jpg' %}" alt="flickr">
+                                    </a>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!-- Footer Column 4: End -->
+                    </div>
+                    <!-- Footer Columns: End -->
+                    <!-- Footer Social Connect: Begin -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/alapattfashionjewellerytvm/"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/watch?v=zwK2hdMSwXw"><i class="fa fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/alapattfashionjewellery/"><i class="fa fa-instagram"></i></a>
+                        
+                    </div>
+
+                    <!-- Footer Social Connect: End -->
+                </div>
+            </section>
+        </div>
+        <!-- Footer Top: End -->
+        <!-- Footer bottom: Begin -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-copyright">
+                        <span>Central - Copyright &copy; 2024</span>
+                        <a href="https://tinos.co.in/"><span class="footer-bottom-color">tinos.co.in</span></a>
+                        <span>All Rights Reserved.</span>
+                    </div>
+                    <!-- <div class="footer-payment-method">
+                        <img src="{% static 'assets/img/footer-payment.png' %}" alt="Payment">
+                    </div> -->
+                </div>
+            </div>
+            <a href="#" id="back-to-top">
+                <i class="icon-up-open"></i> Top
+            </a>
+        </div>
+        <!-- Footer bottom: End -->
+    </footer>
+    <!-- Footer: End -->
+     <!-- <style>
+        .grayscale-collection-wrap .collection-header {
+    text-align: center;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 185px;
+    overflow: hidden;
+    color: white;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background iframe {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.collection-header .content {
+    position: relative;
+    z-index: 1;
+}
+
+.collection-header h2, .collection-header p {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+     </style> -->
+    
+    <style>
+
+        @keyframes jump {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+            /* chatbot code */
+            
+            @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+            
+            /* Chatbot */
+            .botIcon {bottom: 15px;left: 15px;position: fixed;z-index: 9999;}
+            .iconInner {-webkit-align-items: center;-ms-align-items: center;align-items: center;background: #a64bf4;background: -webkit-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background: -o-linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background: -moz-linear-gradient(to left,#00dbde, #fc00ff, #00dbde,#fc00ff);background: linear-gradient(to left, #00dbde, #fc00ff, #00dbde, #fc00ff);background-position: 50%;background-size: 300%;border-radius: 50%;color: #fff;cursor: pointer;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-flex-wrap: wrap;-ms-flex-wrap: wrap;flex-wrap: wrap;font-size: 1.7em;height: 2em;justify-content: center;width: 2em;}
+            .botSubject, .messages, .showBotSubject .botIconContainer, .showMessenger .botIconContainer {display: none;}
+           
+            .botIcon .iconInner {
+                -webkit-align-items: center;
+                -ms-align-items: center;
+                align-items: center;
+                background: #dfb858; /* Blue color */
+                background: -webkit-linear-gradient(to left, #dfb858, #dfb858, #dfb858, #dfb858); 
+                background: -o-linear-gradient(to left, #dfb858, #dfb858, #dfb858, #dfb858); 
+                background: -moz-linear-gradient(to left,#dfb858, #dfb858, #dfb858,#dfb858); 
+                background: linear-gradient(to left, #dfb858, #dfb858, #dfb858, #dfb858); 
+                background-position: 50%;
+                background-size: 300%;
+                border-radius: 50%;
+                color: #fff;
+                cursor: pointer;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                font-size: 1.7em;
+                height: 2em;
+                justify-content: center;
+                width: 2em;
+            }
+            
+            .botIcon .Messages, .botIcon .Messages_list {-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;}
+            .chat_close_icon {color: #fff;cursor: pointer;font-size: 16px;position: absolute;right: 12px;z-index: 9;}
+            .chat_on {background-color: #8a57cf;bottom: 20px;border-radius: 50%;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;color: #fff;cursor: pointer;display: block;height: 45px;padding: 9px;position: fixed;right: 15px;text-align: center;width: 45px;z-index: 10;}
+            .chat_on_icon {color: #fff;font-size: 25px;text-align: center;}
+            .botIcon .Layout {-webkit-animation: appear .15s cubic-bezier(.25, .25, .5, 1.1);-ms-animation: appear .15s cubic-bezier(.25, .25, .5, 1.1);animation: appear .15s cubic-bezier(.25, .25, .5, 1.1);-webkit-animation-fill-mode: forwards;-ms-animation-fill-mode: forwards;animation-fill-mode: forwards;background-color: rgb(63, 81, 181);bottom: 20px;border-radius: 10px;box-shadow: 5px 0 20px 5px rgba(0, 0, 0, .1);box-sizing: content-box !important;color: rgb(255, 255, 255);display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;-webkit-box-pack: end;-webkit-justify-content: flex-end;-ms-flex-pack: end;justify-content: flex-end;max-height: 30px;max-width: 300px;min-width: 50px;opacity: 0;pointer-events: auto;position: fixed;-webkit-transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1), min-width .2s cubic-bezier(.25, .25, .5, 1), max-width .2s cubic-bezier(.25, .25, .5, 1), min-height .2s cubic-bezier(.25, .25, .5, 1), max-height .2s cubic-bezier(.25, .25, .5, 1), border-radius 50ms cubic-bezier(.25, .25, .5, 1) .15s, background-color 50ms cubic-bezier(.25, .25, .5, 1) .15s, color 50ms cubic-bezier(.25, .25, .5, 1) .15s;-ms-transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1), min-width .2s cubic-bezier(.25, .25, .5, 1), max-width .2s cubic-bezier(.25, .25, .5, 1), min-height .2s cubic-bezier(.25, .25, .5, 1), max-height .2s cubic-bezier(.25, .25, .5, 1), border-radius 50ms cubic-bezier(.25, .25, .5, 1) .15s, background-color 50ms cubic-bezier(.25, .25, .5, 1) .15s, color 50ms cubic-bezier(.25, .25, .5, 1) .15s;transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1), min-width .2s cubic-bezier(.25, .25, .5, 1), max-width .2s cubic-bezier(.25, .25, .5, 1), min-height .2s cubic-bezier(.25, .25, .5, 1), max-height .2s cubic-bezier(.25, .25, .5, 1), border-radius 50ms cubic-bezier(.25, .25, .5, 1) .15s, background-color 50ms cubic-bezier(.25, .25, .5, 1) .15s, color 50ms cubic-bezier(.25, .25, .5, 1) .15s;z-index: 999999999;}
+            .botIcon .Layout-open {border-radius: 10px;color: #fff;height: 500px;max-height: 500px;max-width: 300px;overflow: hidden;-webkit-transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1.1), min-width .2s cubic-bezier(.25, .25, .5, 1.1), max-width .2s cubic-bezier(.25, .25, .5, 1.1), max-height .2s cubic-bezier(.25, .25, .5, 1.1), min-height .2s cubic-bezier(.25, .25, .5, 1.1), border-radius 0ms cubic-bezier(.25, .25, .5, 1.1), background-color 0ms cubic-bezier(.25, .25, .5, 1.1), color 0ms cubic-bezier(.25, .25, .5, 1.1);-ms-transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1.1), min-width .2s cubic-bezier(.25, .25, .5, 1.1), max-width .2s cubic-bezier(.25, .25, .5, 1.1), max-height .2s cubic-bezier(.25, .25, .5, 1.1), min-height .2s cubic-bezier(.25, .25, .5, 1.1), border-radius 0ms cubic-bezier(.25, .25, .5, 1.1), background-color 0ms cubic-bezier(.25, .25, .5, 1.1), color 0ms cubic-bezier(.25, .25, .5, 1.1);transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1.1), min-width .2s cubic-bezier(.25, .25, .5, 1.1), max-width .2s cubic-bezier(.25, .25, .5, 1.1), max-height .2s cubic-bezier(.25, .25, .5, 1.1), min-height .2s cubic-bezier(.25, .25, .5, 1.1), border-radius 0ms cubic-bezier(.25, .25, .5, 1.1), background-color 0ms cubic-bezier(.25, .25, .5, 1.1), color 0ms cubic-bezier(.25, .25, .5, 1.1);width: 100%;}
+            .botIcon .Layout-expand {display: none;height: 400px;max-height: 100vh;min-height: 300px;}
+            .showBotSubject.botIcon .Layout-expand {display: block;}
+            .botIcon .Layout-mobile {bottom: 10px}
+            .botIcon .Layout-mobile.Layout-open {min-width: calc(100% - 20px);width: calc(100% - 20px);}
+            .botIcon .Layout-mobile.Layout-expand {border-radius: 0 !important;bottom: 0;height: 100%;min-height: 100%;min-width: 100%;width: 100%;}
+            .botIcon .Messenger_messenger {height: 100%;-webkit-box-orient: vertical;-webkit-box-direction: normal;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;position: relative;width: 100%;}
+            .botIcon .Messenger_header, .botIcon .Messenger_messenger {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;}
+            .botIcon .Messenger_header {-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;background-color: rgb(22, 46, 98);color: rgb(255, 255, 255);-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;height: 40px;padding-left: 10px;padding-right: 40px;}
+            
+            .botIcon .Messenger_header h4 {-webkit-animation: slidein .15s .3s;-ms-animation: slidein .15s .3s;animation: slidein .15s .3s;-webkit-animation-fill-mode: forwards;-ms-animation-fill-mode: forwards;animation-fill-mode: forwards;font-size: 16px;opacity: 0;}
+            .botIcon .Messenger_prompt {font-size: 16px;font-weight: 400;line-height: 18px;margin: 0;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+            .botIcon .Messenger_content {background-color: #fff;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;height: 80px;}
+            .botIcon .Messages {background-color: #fff;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;-webkit-flex-shrink: 1;-ms-flex-negative: 1;flex-shrink: 1;overflow-x: hidden;overflow-y: auto;padding: 10px;position: relative;-webkit-overflow-scrolling: touch;}
+            .botIcon .Input {background-color: #fff;border-top: 1px solid #e6ebea;color: #96aab4;-webkit-box-flex: 0;-webkit-flex-grow: 0;-ms-flex-positive: 0;flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;padding-bottom: 15px;padding-top: 17px;position: relative;width: 100%;}
+            .botIcon .Input-blank .Input_field {max-height: 20px;}
+            .botIcon .Input_field {background-color: transparent;border: none;outline: none;padding-left: 20px;padding-right: 45px;resize: none;width: 100%;font-size: 14px;line-height: 20px;min-height: 20px !important;}
+            .botIcon .Input_button-emoji {right: 45px;}
+            .botIcon .Input_button {background-color: transparent;border: none;bottom: 15px;cursor: pointer;height: 25px;outline: none;padding: 0;position: absolute;width: 25px;}
+            .botIcon .Input_button-send {right: 15px;}
+            .botIcon .Input-emoji .Input_button-emoji .Icon, .botIcon .Input_button:hover .Icon {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);-webkit-transition: all .1s ease-in-out;-ms-transition: all .1s ease-in-out;transition: all .1s ease-in-out;}
+            .botIcon .Input-emoji .Input_button-emoji .Icon path, .botIcon .Input_button:hover .Icon path {fill: #2c2c46;}
+            .Icon svg {height: auto;width: 100%;}
+            
+            .msg {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;}
+            .msg.user {-webkit-box-direction: row-reverse;-webkit-flex-direction: row-reverse;-ms-flex-direction: row-reverse;flex-direction: row-reverse;}
+            .msg + .msg {margin-top: 15px;}
+            span.responsText {color: #000;display: inline-block;margin-left: 10px;vertical-align: top;max-width: calc(100% - 50px);}
+            .msg.user span.responsText {margin-left: 0;margin-right: 10px;}
+            span.avtr {display: inline-block;width: 30px;}
+            span.avtr figure {background-color: #ccc;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 50%;display: block;margin: 0;padding-bottom: 100%;}
+            
+            @-webkit-keyframes appear {
+                0% {opacity: 0;-webkit-transform: scale(0);transform: scale(0);}
+                100% {opacity: 1;-webkit-transform: scale(1);transform: scale(1);}
+            }
+            @-ms-keyframes appear {
+                0% {opacity: 0;-ms-transform: scale(0);transform: scale(0);}
+                100% {opacity: 1;-ms-transform: scale(1);transform: scale(1);}
+            }
+            @keyframes appear {
+                0% {opacity: 0;-webkit-transform: scale(0);transform: scale(0);}
+                100% {opacity: 1;-webkit-transform: scale(1);transform: scale(1);}
+            }
+            @-webkit-keyframes slidein {
+                0% {opacity: 0;-webkit-transform: translateX(10px);transform: translateX(10px);}
+                100% {opacity: 1;-webkit-transform: translateX(0);transform: translateX(0);}
+            }
+            @-ms-keyframes slidein {
+                0% {opacity: 0;-ms-transform: translateX(10px);transform: translateX(10px);}
+                100% {opacity: 1;-ms-transform: translateX(0);transform: translateX(0);}
+            }
+            @keyframes slidein {
+                0% {opacity: 0;-webkit-transform: translateX(10px);transform: translateX(10px);}
+                100% {opacity: 1;-webkit-transform: translateX(0);transform: translateX(0);}
+            }
+            
+            @media only screen and (max-width: 412px) {
+                .botIcon .Layout-open {width: 250px;}
+            }
+    
+            .single-logo img {
+            max-height: 100px; /* Adjust the maximum height as needed */
+        }
+    
+        #preloader .preloader-icon {
+            height: 40px; /* Adjust the height as needed */
+        }
+            </style>
+        
+        <style>
+            
+            .hidden-paragraph {
+                display: none;
+                padding: 10px;
+                background: #fff;
+                border-top: 1px solid #ddd;
+            }
+            .pay-now-button {
+                display: block;
+                margin: 10px;
+                color: #fff;
+                text-decoration: none;
+                background: #cea665;
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                
+                
+               
+            }
+            /* .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #fff;
+            background-color: #cea665; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        } */
+            .blog-thumb.open .hidden-paragraph {
+                display: block;
+            }
+        </style>
+       
+        
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'assets/js/modernizr.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/stacktable.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/scripts.min.js' %}"></script>
+    <script src="{% static 'assets/js/messenger.js' %}"></script>
+
+            <script>
+                jQuery(document).ready(function($) {
+        		"use strict";
+        		
+		        $('#customers-testimonials').owlCarousel({
+		            loop: true,
+		            center: true,
+		            items: 3,
+		            margin: 0,
+		            autoplay: true,
+		            dots:true,
+		            autoplayTimeout: 2500,
+		            smartSpeed: 450,
+		            responsive: {
+		              0: {
+		                items: 1
+		              },
+		              768: {
+		                items: 2
+		              },
+		              1170: {
+		                items: 3
+		              }
+                      
+		            }
+		        });
+        	});
+            </script>
+            <!-- <script>
+                 jQuery(document).ready(function($) {
+        		"use strict";
+        		
+		        $('#customers-testimonials').owlCarousel({
+		            loop: true,
+		            center: true,
+		            items: 3,
+		            margin: 0,
+		            autoplay: true,
+		            dots:true,
+		            autoplayTimeout: 8500,
+		            smartSpeed: 450,
+                    responsive: {
+		              0: {
+		                items: 1
+		              },
+		              768: {
+		                items: 2
+		              },
+		              1170: {
+		                items: 3
+		              }
+		            }
+                    });
+                });
+                </script> -->
+
+
+    <script>
+        function toggleParagraph(element) {
+            const img = element.querySelector('img');
+            const paragraph = element.querySelector('.hidden-paragraph');
+        
+            if (img.style.display !== 'none') {
+                img.style.display = 'none';
+                paragraph.style.display = 'block';
+            } else {
+                img.style.display = 'block';
+                paragraph.style.display = 'none';
+            }
+        }
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                var formData = $(this).serialize(); // Serialize the form data
+    
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "index" %}', // Ensure this matches your Django URL pattern
+                    data: formData,
+                    success: function(response) {
+                        // Show the success message above the form
+                        $('#success-message').text('Form submitted successfully...!').show();
+    
+                        // Clear the form fields
+                        $('form')[0].reset();
+    
+                        // Hide the success message after 5 seconds and refresh the page
+                        setTimeout(function() {
+                            $('#success-message').fadeOut('slow', function() {
+                                location.reload();
+                            });
+                        }, 5000);
+                    },
+                    error: function(response) {
+                        // Handle error
+                        alert('An error occurred: ' + response.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        function toggleParagraph(element) {
+            const img = element.querySelector('img');
+            const paragraph = element.querySelector('.hidden-paragraph');
+        
+            if (img.style.display !== 'none') {
+                img.style.display = 'none';
+                paragraph.style.display = 'block';
+            } else {
+                img.style.display = 'block';
+                paragraph.style.display = 'none';
+            }
+        }
+    </script>
+    
+    
+</body>
+   
+</html>
