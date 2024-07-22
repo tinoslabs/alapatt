@@ -30,41 +30,35 @@ urlpatterns = [
     path('chatbot_message_view',views.chatbot_message_view,name='chatbot_message_view'),
     path('delete_message/<int:id>/',views.delete_message,name='delete_message'),
   
+    path('create_collections/', views.create_collections, name='create_collections'),
+    path('view_collections/', views.view_collections, name='view_collections'),
+    path('update_collection/<int:id>/', views.update_collection, name='update_collection'),
+    path('delete_collection/<int:id>/', views.delete_collection, name='delete_collection'),
+    
+    path('create_sub_collections',views.create_sub_collections,name='create_sub_collections'),
+    path('view_sub_collections', views.view_sub_collections, name='view_sub_collections'),
+    path('update_sub_collection/<int:id>/', views.update_sub_collection, name='update_sub_collection'),
+    path('delete_sub_collection/<int:id>/', views.delete_sub_collection, name='delete_sub_collection'),
 
+    path('create_collection_products',views.create_collection_products,name='create_collection_products'),
+    path('load_sub_collections', views.load_sub_collections, name='load_sub_collections'),
+    path('view_collection_products',views.view_collection_products,name='view_collection_products'),
+    path('update_collection_product/<int:id>/', views.update_collection_product, name='update_collection_product'),
+    path('delete_collection_product/<int:id>/', views.delete_collection_product, name='delete_collection_product'),
+    
+    path('load-sub-collections/', views.load_sub_collections, name='load_sub_collections'),
+    path('collections/<str:collection_type>/<str:sub_collection_type>/', views.collection_products, name='collection_products'),
+
+    path('create_about_video',views.create_about_video,name='create_about_video'),
+    path('view_about_video',views.view_about_video,name='view_about_video'),
+    path('update/<int:id>/', views.update_about_video, name='update_about_video'),
+    path('delete/<int:id>/', views.delete_about_video, name='delete_about_video'),
+    
 
     path('contact/', views.contact, name='contact'),
     path('view_enquiry',views.view_enquiry, name='view_enquiry'),
     path('delete_enquiry/<int:id>', views.delete_enquiry, name='delete_enquiry'),
 
-    path('diamond_anklet', views.diamond_anklet, name='diamond_anklet'),
-    path('diamond_bangles', views.diamond_bangles, name='diamond_bangles'),
-    path('diamond_bracelet', views.diamond_bracelet, name='diamond_bracelet'),
-    path('diamond_chain', views.diamond_chain, name='diamond_chain'),
-    path('diamond_earrings', views.diamond_earrings, name='diamond_earrings'),
-    path('diamond_necklace', views.diamond_necklace, name='diamond_necklace'),
-    path('diamond_pendants', views.diamond_pendants, name='diamond_pendants'),
-    path('diamond_ring', views.diamond_ring, name='diamond_ring'),
-
-    path('gold_anklet', views.gold_anklet, name='gold_anklet'),
-    path('gold_bangles', views.gold_bangles, name='gold_bangles'),
-    path('gold_bracelet', views.gold_bracelet, name='gold_bracelet'),
-    path('gold_chain', views.gold_chain, name='gold_chain'),
-    path('gold_earrings', views.gold_earrings, name='gold_earrings'),
-    path('gold_necklace', views.gold_necklace, name='gold_necklace'),
-    path('gold_pendants', views.gold_pendants, name='gold_pendants'),
-    path('gold_ring', views.gold_ring, name='gold_ring'),
-
-    path('stone_anklet', views.stone_anklet, name='stone_anklet'),
-    path('stone_bangles', views.stone_bangles, name='stone_bangles'),
-    path('stone_bracelet', views.stone_bracelet, name='stone_bracelet'),
-    path('stone_chain', views.stone_chain, name='stone_chain'),
-    path('stone_earrings', views.stone_earrings, name='stone_earrings'),
-    path('stone_necklace', views.stone_necklace, name='stone_necklace'),
-    path('stone_pendants', views.stone_pendants, name='stone_pendants'),
-    path('stone_ring', views.stone_ring, name='stone_ring'),
-    
-    path('category_list', views.category_list, name='category_list'),
-    
 
     path('add_product_category', views.add_product_category, name='add_product_category'),
     path('view_product_category', views.view_product_category, name='view_product_category'),

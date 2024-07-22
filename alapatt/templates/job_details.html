@@ -26,7 +26,7 @@
     
 </head>
 
-<body class="product-details-page">
+<body class="product-details-page" oncontextmenu="return false;">
     <!--Header: Begin-->
     <header class="container-fluid clear">
         <div class="row">
@@ -34,213 +34,93 @@
             <div id="header-top" class="clear">
                 <!--Header Logo: Begin-->
                 <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo" height="250px;"></a>
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo"></a>
                     <h1 class="hidden-heading">Jewelry</h1>
                 </div>
                 <!--Header Logo: End-->
                 <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 12px;">
+                <nav id="main-menu" class="col-sm-pull-4 col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
                     <ul>
-                        <li>
-                            <span><a href="{% url 'index' %}">home</a></span>
-                        </li>
-                        
+                        <li><span><a href="{% url 'index' %}">Home</a></span></li>
+    
                         <li class="has-sub">
-                            <span><a href="{% url 'gold_ring' %}">Connections</a></span>
+                            <span><a href="#">Collections</a></span>
                             <ul class="sub-menu double-column">
-                                <li>
-                                    <h4>Gold</h4>
+                                {% for collection in collections %}
+                                    <li>
+                                        <h4>{{ collection.get_collection_type_display }}</h4>
+                                        <ul>
+                                            {% for sub_collection in sub_collections %}
+                                                {% if sub_collection.collection == collection %}
+                                                <li>
+                                                    <a href="{% url 'collection_products' collection.collection_type sub_collection.sub_collection_type %}">
+                                                        {{ sub_collection.sub_collection_type }}
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+    
+                        <li class="has-sub">
+                            <span><a href="#">Purchase Plan</a></span>
+                            <ul class="sub-menu single-column">
+                                <li><h4>Pay Now</h4>
                                     <ul>
-                                        <li><a href="{% url 'gold_ring' %}">Rings</a></li>
-                                        <li><a href="{% url 'gold_pendants' %}">Pendants</a></li>
-                                        <li><a href="{% url 'gold_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'gold_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'gold_bangles' %}">Bangles</a></li>
-                                        <li><a href="{% url 'gold_earrings' %}">Earrings</a></li>
-                                        <li><a href="{% url 'gold_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'gold_necklace' %}">Necklace</a></li>
-                                        
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Diamond</h4>
-                                    <ul>
-                                        <li><a href="{% url 'diamond_ring' %}">Rings</a></li>
-                                        <li><a href="{% url 'diamond_pendants' %}">Pendants</a></li>
-                                        <li><a href="{% url 'diamond_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'diamond_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'diamond_bangles' %}">Bangles</a></li>
-                                        <li><a href="{% url 'diamond_earrings' %}">Earrings</a></li>
-                                        <li><a href="{% url 'diamond_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'diamond_necklace' %}">Necklace</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Precious Stone</h4>
-                                    <ul>
-                                        <li><a href="{% url 'stone_ring' %}">Rings</a></li>
-                                        <li><a href="{% url 'stone_pendants' %}">Pendants</a></li>
-                                        <li><a href="{% url 'stone_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'stone_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'stone_bangles' %}">Bangles</a></li>
-                                        <li><a href="{% url 'stone_earrings' %}">Earrings</a></li>
-                                        <li><a href="{% url 'stone_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'stone_necklace' %}">Necklace</a></li>
+                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Swarna Sayoojya</a></li>
+                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Kanaka Soubhagya</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        
-                        <li>
-                            <span><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Purchase Plan</a></span>
-                        </li>
-                        <li>
-                            <span><a href="{% url 'about' %}">About Us</a></span>
-                        </li>
-                        <li>
-                            <span><a href="{% url 'careers' %}">Careers</a></span>
-                        </li>
-                        <li>
-                            <span><a href="{% url 'contact' %}">contact</a></span>
-                        </li>
+    
+                        <li><span><a href="{% url 'about' %}">About Us</a></span></li>
+                        <li><span><a href="{% url 'careers' %}">Careers</a></span></li>
+                        <li><span><a href="{% url 'contact' %}">Contact</a></span></li>
                     </ul>
-                    <span class="mbmenu-icon">
-                        <i class="icon-menu-1"></i>
-                    </span>
+                    <span class="mbmenu-icon"><i class="icon-menu-1"></i></span>
                     <div id="mb-main-menu" class="main-menu">
                         <div class="mb-menu-title">
                             <h3>Navigation</h3>
-                            <span id="close-mb-menu">
-                                <i class="icon-cancel-circled"></i>
-                            </span>
+                            <span id="close-mb-menu"><i class="icon-cancel-circled"></i></span>
                         </div>
                         <ul class="sub-cate-list">
-                            <li class="level0">
-                                <a href="{% url 'index' %}">
-                                    <span>Home</span>
-                                </a>
-                            </li>
+                            <li class="level0"><a href="{% url 'index' %}"><span>Home</span></a></li>
+                            {% for collection in collections %}
                             <li class="level0 parent">
                                 <a href="#">
-                                    <span>Gold</span>
+                                    <span>{{ collection.get_collection_type_display }}</span>
                                     <i class="icon-down-open"></i><i class="icon-right-open"></i>
                                 </a>
                                 <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'gold_anklet' %}" title="Gold Rings"> Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_bangles' %}" title="White Gold Rings">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_bracelet' %}" title="Gemstone Rings">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_chain' %}" title="Silver Rings">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_earrings' %}" title="Silver Rings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_necklace' %}" title="Silver Rings">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_pendants' %}" title="Silver Rings">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_ring' %}" title="Silver Rings">Rings</a>
-                                    </li>
+                                    {% for sub_collection in sub_collections %}
+                                        {% if sub_collection.collection == collection %}
+                                        <li class="level1">
+                                            <a href="{% url 'collection_products' collection.collection_type sub_collection.sub_collection_type %}">
+                                                {{ sub_collection.sub_collection_type }}
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Diamond</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_anklet' %}" title="Diamond Anklet">Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_bangles' %}" title="Diamond Bangles">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_bracelet' %}" title="Diamond Bracelet">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_chain' %}" title="Diamond Chain">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_earrings' %}" title="Diamond Earrings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_necklace' %}" title="Diamond Necklace">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_pendants' %}" title="Diamond Pendants">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_ring' %}" title="Diamond Rings">Rings</a>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Precious Stone</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'stone_anklet' %}" title="Precious Stone Anklet">Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_bangles' %}" title="Precious Stone Bangles">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_bracelet' %}" title="Precious Stone Bracelet">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_chain' %}" title="Precious Stone Chain">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_earrings' %}" title="Precious Stone Earrings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_necklace' %}" title="Precious Stone Necklace">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_pendants' %}" title="Precious Stone Pendants">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_ring' %}" title="Precious Stone Rings">Rings</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            {% endfor %}
                             <li class="level0 parent">
                                 <a href="#">
                                     <span>Purchase Plan</span>
                                     <i class="icon-down-open"></i><i class="icon-right-open"></i>
                                 </a>
                                 <ul class="level0">
-                                    <li class="level1">
-                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Anklet">Swarna Sayoojya</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Bangles">Kanaka Soubhagya</a>
-                                    </li>
+                                    <li class="level1"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Swarna Sayoojya</a></li>
+                                    <li class="level1"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Kanaka Soubhagya</a></li>
                                 </ul>
                             </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'careers' %}" title="Gemstone Rings">Careers</a>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
-                            </li>
-                           
+                            <li class="level0 parent"><a href="{% url 'about' %}"><span>About Us</span></a></li>
+                            <li class="level0 parent"><a href="{% url 'careers' %}"><span>Careers</span></a></li>
+                            <li class="level0 parent"><a href="{% url 'contact' %}"><span>Contact</span></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -251,21 +131,21 @@
                         <div class="search-input">
                             <div class="input-group">
                                 {% for gold_rate in rate %}
-                                <input type="text" class="form-control" value="{{ gold_rate.gold_rate }}-INR/gram">
+                                <input type="text" class="form-control" id="gold-rate-input" value="{{ gold_rate.gold_rate }}-INR/gram">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
-                                 </span>
-                                 {% endfor %}
+                                    <button class="btn btn-default" type="button" id="refresh-btn" onclick="fetchGoldRate()" style="color: white;">Gold</button>
+                                </span>
+                                {% endfor %}
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-                <!--Search and Cart: Begin-->
+                <!--Search and Cart: End-->
             </div>
             <!--Header Top: End-->
         </div>
     </header>
+    
 
     
 
@@ -679,6 +559,7 @@
     <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
     <script src="{% static 'assets/js/scripts.min.js' %}"></script>
     <script src="{% static 'assets/js/messenger.js' %}"></script>
+    <script src="{% static 'assets/js/hide-inspection.js' %}"></script>
 
 </body>
 

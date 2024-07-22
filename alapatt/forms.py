@@ -1,5 +1,5 @@
 from django import forms
-from .models import product_category, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel,Featured_Category,Featured_Products,Career_Model, Job_Application
+from .models import product_category, EnquiryModel, ClientReview, GoldRate, ContactModel, New_Category,Product_Details,ContactModel,Featured_Category,Featured_Products,Career_Model, Job_Application, CollectionModel, Sub_Collections, CollectionProducts, AboutVideo
 
 class productForm(forms.ModelForm):
     class Meta:
@@ -56,4 +56,26 @@ class CareerForm(forms.ModelForm):
 class Job_Application_Form(forms.ModelForm):
     class Meta:
         model = Job_Application
+        fields = '__all__'
+
+
+class CollectionForm(forms.ModelForm):
+    class Meta:
+        model = CollectionModel
+        fields = '__all__'
+    
+
+class SubCollectionForm(forms.ModelForm):
+    class Meta:
+        model = Sub_Collections
+        fields = '__all__'
+
+class CollectionProductsForm(forms.ModelForm):
+    class Meta:
+        model = CollectionProducts
+        fields = '__all__'
+
+class AboutVideoForm(forms.ModelForm):
+    class Meta:
+        model = AboutVideo
         fields = '__all__'

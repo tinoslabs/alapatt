@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from .models import ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Products, Career_Model, Job_Application
-from .forms import  ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product_Form, CareerForm, Job_Application_Form
+from .models import ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Products, Career_Model, Job_Application, CollectionModel ,Sub_Collections, CollectionProducts, AboutVideo
+from .forms import  ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product_Form, CareerForm, Job_Application_Form, CollectionForm, SubCollectionForm, CollectionProductsForm, AboutVideoForm
 from .models import ChatMessage
 from django.core.mail import send_mail
 from .forms import ContactForm
@@ -51,11 +51,15 @@ def logout_user(request):
     return redirect('index')
 
 def index(request):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
+    collection_products = CollectionProducts.objects.all()
     client_review = ClientReview.objects.all()
     rate = GoldRate.objects.all()
     product_category = New_Category.objects.all()
     product_details = Product_Details.objects.all()
     Featured_Products = Featured_Category.objects.all()
+    video_links = AboutVideo.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -63,7 +67,20 @@ def index(request):
             return HttpResponse('added')
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'client_review': client_review, 'form': form, 'rate':rate, 'product_details':product_details, 'product_category':product_category, 'Featured_Products':Featured_Products})
+    context = {
+        'collections': collections,
+        'sub_collections': sub_collections,
+        'collection_products': collection_products,
+        'client_review': client_review,
+        'form': form,
+        'rate': rate,
+        'product_details': product_details,
+        'product_category': product_category,
+        'Featured_Products': Featured_Products,
+        'video_links': video_links,
+    }
+    return render(request, 'index.html', context)
+
 
 @login_required(login_url='user_login')
 def add_product_category(request):
@@ -346,6 +363,192 @@ def delete_job_application(request, id):
     candidate.delete()
     return redirect('view_job_application')
 
+
+@login_required(login_url='user_login')
+def create_collections(request):
+    
+    if request.method == 'POST':
+        form = CollectionForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('create_sub_collections')  # Replace 'view_course' with your actual view name for viewing all courses
+        else:
+            print(form.errors)  # Print form errors for debugging
+    else:
+        form = CollectionForm()  # Ensure you pass the correct form here
+    
+    return render(request, 'admin_pages/create_collections.html', {'form': form})
+
+@login_required(login_url='user_login')
+def view_collections(request):
+    collections = CollectionModel.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_collections.html', {'collections': collections})
+
+@login_required(login_url='user_login')
+def update_collection(request, id):
+    collection = get_object_or_404(CollectionModel, id=id)
+    if request.method == 'POST':
+        form = CollectionForm(request.POST, instance=collection)
+        if form.is_valid():
+            form.save()
+            return redirect('view_collections')
+    else:
+        form = CollectionForm(instance=collection)
+    return render(request, 'admin_pages/update_collection.html', {'form': form})
+
+@login_required(login_url='user_login')
+def delete_collection(request, id):
+    collection = get_object_or_404(CollectionModel, id=id)   
+    collection.delete()
+    return redirect('view_collections')
+    
+@login_required(login_url='user_login')
+def create_sub_collections(request):
+    collections = CollectionModel.objects.all()
+    if request.method == 'POST':
+        form = SubCollectionForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('create_collection_products')  # Replace 'view_course' with your actual view name for viewing all courses
+        else:
+            print(form.errors)  # Print form errors for debugging
+    else:
+        form = SubCollectionForm()  # Ensure you pass the correct form here
+    
+    return render(request, 'admin_pages/create_sub_collections.html', {'form': form,'collections':collections})
+
+@login_required(login_url='user_login')
+def view_sub_collections(request):
+    sub_collections = Sub_Collections.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_sub_collections.html', {'sub_collections': sub_collections})
+
+
+@login_required(login_url='user_login')
+def update_sub_collection(request, id):
+    sub_collection = get_object_or_404(Sub_Collections, id=id)
+    if request.method == 'POST':
+        form = SubCollectionForm(request.POST, request.FILES, instance=sub_collection)
+        if form.is_valid():
+            form.save()
+            return redirect('view_sub_collections')  # Replace with the name of your view for viewing all sub-collections
+        else:
+            print(form.errors)  # Print form errors for debugging
+    else:
+        form = SubCollectionForm(instance=sub_collection)
+    
+    return render(request, 'admin_pages/update_sub_collection.html', {'form': form})
+
+
+@login_required(login_url='user_login')
+def delete_sub_collection(request, id):
+    sub_collection = get_object_or_404(Sub_Collections, id=id)
+    sub_collection.delete()
+    return redirect('view_sub_collections')  # Replace with the name of your view for viewing all sub-collections
+    
+@login_required(login_url='user_login')
+def create_collection_products(request):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
+    
+    if request.method == 'POST':
+        form = CollectionProductsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_collection_products')  # Redirect after successful form submission
+        else:
+            print(form.errors)  # Print form errors for debugging
+    else:
+        form = CollectionProductsForm()  # Initialize the form
+
+    return render(request, 'admin_pages/create_collection_products.html', {
+        'form': form,
+        'collections': collections,
+        'sub_collections': sub_collections
+    })
+
+@login_required(login_url='user_login')
+def load_sub_collections(request):
+    collection_id = request.GET.get('collection_id')
+    sub_collections = Sub_Collections.objects.filter(collection_id=collection_id).values('id', 'sub_collection_type')
+    return JsonResponse(list(sub_collections), safe=False)
+
+@login_required(login_url='user_login')
+def view_collection_products(request):
+    products = CollectionProducts.objects.all().order_by('-id')
+    return render(request, 'admin_pages/view_collection_products.html', {'products': products})
+
+@login_required(login_url='user_login')
+def update_collection_product(request, id):
+    product = get_object_or_404(CollectionProducts, id=id)
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.filter(collection=product.collections)
+    
+    if request.method == 'POST':
+        form = CollectionProductsForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('view_collection_products')
+    else:
+        form = CollectionProductsForm(instance=product)
+    
+    return render(request, 'admin_pages/update_collection_product.html', {
+        'form': form,
+        'collections': collections,
+        'sub_collections': sub_collections,
+    })
+
+@login_required(login_url='user_login')
+def load_sub_collections(request):
+    collection_id = request.GET.get('collection_id')
+    sub_collections = Sub_Collections.objects.filter(collection_id=collection_id)
+    data = list(sub_collections.values('id', 'sub_collection_type'))
+    return JsonResponse(data, safe=False)
+
+@login_required(login_url='user_login')
+def delete_collection_product(request, id):
+    product = get_object_or_404(CollectionProducts, id=id)
+    product.delete()
+    return redirect('view_collection_products')
+
+
+@login_required(login_url='user_login')
+def create_about_video(request):
+    if request.method == 'POST':
+        form = AboutVideoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_about_video') 
+    else:
+        form = AboutVideoForm()
+
+    return render(request, 'admin_pages/create_about_video.html', {'form': form})
+    
+
+def view_about_video(request):
+    links = AboutVideo.objects.all()
+    return render(request,'admin_pages/view_about_video.html',{'links':links})
+    
+
+@login_required(login_url='user_login')
+def update_about_video(request, id):
+    video = get_object_or_404(AboutVideo, id=id)
+
+    if request.method == 'POST':
+        form = AboutVideoForm(request.POST, instance=video)
+        if form.is_valid():
+            form.save()
+            return redirect('view_about_video')
+    else:
+        form = AboutVideoForm(instance=video)
+
+    return render(request, 'admin_pages/update_about_video.html', {'form': form})
+
+@login_required(login_url='user_login')
+def delete_about_video(request, id):
+    video = get_object_or_404(AboutVideo, id=id)
+    video.delete()
+    return redirect('view_about_video')
+
 # Chatbot Section
 from django.http import JsonResponse
 from .models import ChatMessage
@@ -410,6 +613,36 @@ def featured_products(request,category_name):
 
 
 
+
+def collection_products(request, collection_type, sub_collection_type):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
+    collection = get_object_or_404(CollectionModel, collection_type=collection_type)
+    sub_collection = get_object_or_404(Sub_Collections, sub_collection_type=sub_collection_type, collection=collection)
+    details = CollectionProducts.objects.filter(
+        collections=collection, 
+        sub_collection=sub_collection
+    )
+    # Debugging
+    print(f'Collection: {collection}')
+    print(f'Sub-Collection: {sub_collection}')
+    print(f'Products Count: {details.count()}')
+    
+    for product in details:
+        print(f'Product Name: {product.product_name or "No Name"}, Image: {product.image.url if product.image else "No Image"}')
+
+    # Prepare the context
+    context = {
+        'collection': collection,
+        'sub_collection': sub_collection,
+        'details': details,
+        'collections':collections,
+        'sub_collections':sub_collections
+    }
+    return render(request, 'collection_products.html', context)
+
+
+
 def job_application(request):
     # job_positions = Career_Model.objects.all()
     job_positions = Career_Model.objects.filter(end_date__gte=timezone.now())
@@ -434,6 +667,8 @@ def generate_certificate_url(id):
 
 
 def contact(request):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -441,105 +676,33 @@ def contact(request):
             return redirect('contact')
     else:
         form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form,'collections':collections,'sub_collections':sub_collections})
 
 
 def about(request):
     data = ClientReview.objects.all()
-    return render(request,'about.html',{'data':data})
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
+    video_links = AboutVideo.objects.all()
+    return render(request,'about.html',{'data':data,'video_links':video_links,'collections':collections,'sub_collections':sub_collections})
 
 def contact_new(request):
     return render(request,'contact-new.html')
 
 
 def careers(request):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
     jobs = Career_Model.objects.filter(end_date__gte=timezone.now())
-    return render(request, 'career.html', {'jobs': jobs})
+    return render(request, 'career.html', {'jobs': jobs,'collections':collections,'sub_collections':sub_collections})
 
 def job_details(request,job_position):
+    collections = CollectionModel.objects.all()
+    sub_collections = Sub_Collections.objects.all()
     job_details = get_object_or_404(Career_Model, job_position=job_position)
-    return render(request,'job_details.html',{'job_details':job_details})
+    return render(request,'job_details.html',{'job_details':job_details,'collections':collections,'sub_collections':sub_collections})
 
-    
+   
 def application(request):
     return render(request,'application.html')
 
-def diamond_anklet(request):
-    return render(request, 'diamond/anklet.html')
-
-def diamond_bangles(request):
-    return render(request, 'diamond/bangles.html')
-
-def diamond_bracelet(request):
-    return render(request, 'diamond/bracelet.html')
-
-def diamond_chain(request):
-    return render(request, 'diamond/chain.html')
-
-def diamond_earrings(request):
-    return render(request, 'diamond/earrings.html')
-
-def diamond_necklace(request):
-    return render(request, 'diamond/necklace.html')
-
-def diamond_pendants(request):
-    return render(request, 'diamond/pendants.html')
-
-def diamond_ring(request):
-    return render(request, 'diamond/ring.html')
-
-
-# gold section start #
-
-def gold_anklet(request):
-    return render(request, 'gold/anklet.html')
-
-def gold_bangles(request):
-    return render(request, 'gold/bangles.html')
-
-def gold_bracelet(request):
-    return render(request, 'gold/bracelet.html')
-
-def gold_chain(request):
-    return render(request, 'gold/chain.html')
-
-def gold_earrings(request):
-    return render(request, 'gold/earrings.html')
-
-def gold_necklace(request):
-    return render(request, 'gold/necklace.html')
-
-def gold_pendants(request):
-    return render(request, 'gold/pendants.html')
-
-def gold_ring(request):
-    return render(request, 'gold/ring.html')
-
-# loram ipsum dolor section start #
-
-def stone_anklet(request):
-    return render(request, 'precious_stone/anklet.html')
-
-def stone_bangles(request):
-    return render(request, 'precious_stone/bangles.html')
-
-def stone_bracelet(request):
-    return render(request, 'precious_stone/bracelet.html')
-
-def stone_chain(request):
-    return render(request, 'precious_stone/chain.html')
-
-def stone_earrings(request):
-    return render(request, 'precious_stone/earrings.html')
-
-def stone_necklace(request):
-    return render(request, 'precious_stone/necklace.html')
-
-def stone_pendants(request):
-    return render(request, 'precious_stone/pendants.html')
-
-def stone_ring(request):
-    return render(request, 'precious_stone/ring.html')
-
-def category_list(request):
-    return render(request, 'category-list.html')

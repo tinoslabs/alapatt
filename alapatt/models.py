@@ -120,3 +120,53 @@ class Job_Application(models.Model):
     
     def _str_(self):
         return self.first_name
+
+
+class CollectionModel(models.Model):
+    class CollectionTypes(models.TextChoices):
+        GOLD = 'Gold', 'Gold'
+        DIAMOND = 'Diamond', 'Diamond'
+        PRECIOUS_STONE = 'Precious Stone', 'Precious Stone'
+
+    collection_type = models.CharField(
+        max_length=50,
+        choices=CollectionTypes.choices,
+        default=CollectionTypes.GOLD,
+    )
+    def __str__(self):
+        return self.collection_type
+
+class Sub_Collections(models.Model):
+    class SubCollection(models.TextChoices):
+        RING = 'ring', 'Ring'
+        NECKLACE = 'necklace', 'Necklace'
+        ANKLET = 'anklet', 'Anklet'
+        BANGLES = 'bangles', 'Bangles'
+        BRACELET = 'bracelet', 'Bracelet'
+        CHAIN = 'chain', 'Chain'
+        EARRINGS = 'earrings', 'Earrings'
+        PENDANTS = 'pendants', 'Pendants'
+
+    sub_collection_type = models.CharField(
+        max_length=50,
+        choices=SubCollection.choices,
+        default=SubCollection.RING,
+    )
+    collection = models.ForeignKey(CollectionModel, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.sub_collection_type
+
+class CollectionProducts(models.Model):
+    product_name = models.CharField(max_length=100, null=True, blank=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    collections = models.ForeignKey(CollectionModel, on_delete=models.CASCADE)
+    sub_collection = models.ForeignKey(Sub_Collections, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.product_name or 'Unnamed Product'
+
+    
+class AboutVideo(models.Model):
+    video_link = models.URLField(max_length=200, unique=True, null=True, blank=True)
+ 
