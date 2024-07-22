@@ -1,0 +1,98 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Update Collection Product</h4>
+                    <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{% url 'create_collection_products' %}">
+                        {% csrf_token %}
+
+                        <!-- Collection Dropdown -->
+                        <div class="form-group">
+                            <label for="id_collections">Collection</label>
+                            <select class="form-control" id="id_collections" name="collections">
+                                <option value="">Select Collection</option>
+                                {% for collection in collections %}
+                                    <option value="{{ collection.id }}" {% if collection.id == form.instance.collections.id %}selected{% endif %}>
+                                        {{ collection.collection_type }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Sub Collection Dropdown -->
+                        <div class="form-group">
+                            <label for="id_sub_collection">Sub Collection</label>
+                            <select class="form-control" id="id_sub_collection" name="sub_collection">
+                                <option value="">Select Sub Collection</option>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <!-- Product Name -->
+                        <div class="form-group">
+                            <label for="id_product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name">
+                        </div>
+
+                        <!-- Image Upload -->
+                        <div class="form-group">
+                            <label for="id_image">Image</label>
+                            <input type="file" class="form-control" id="id_image" name="image">
+                            <!-- {% if form.instance.image %}
+                                <img src="{{ form.instance.image.url }}" alt="Current Image" style="max-width: 150px; margin-top: 10px;">
+                            {% endif %} -->
+                        </div>
+
+                        <button type="submit" class="btn btn-primary me-2">Update Product</button>
+                        <a href="{% url 'view_collection_products' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        function loadSubCollections(collectionId) {
+            $.ajax({
+                url: '{% url "load_sub_collections" %}',  // URL to fetch sub-collections
+                data: {
+                    'collection_id': collectionId
+                },
+                success: function(data) {
+                    var options = '<option value="">Select Sub Collection</option>';
+                    data.forEach(function(sub) {
+                        options += '<option value="' + sub.id + '">' + sub.sub_collection_type + '</option>';
+                    });
+                    $('#id_sub_collection').html(options);
+
+                    // Set the previously selected sub-collection if any
+                    var selectedSubCollection = "{{ form.instance.sub_collection.id }}";
+                    if (selectedSubCollection) {
+                        $('#id_sub_collection').val(selectedSubCollection);
+                    }
+                }
+            });
+        }
+
+        // Load sub-collections if a collection is selected when the page loads
+        var selectedCollection = $('#id_collections').val();
+        if (selectedCollection) {
+            loadSubCollections(selectedCollection);
+        }
+
+        // Update sub-collection dropdown on collection change
+        $('#id_collections').change(function() {
+            var collectionId = $(this).val();
+            loadSubCollections(collectionId);
+        });
+    });
+</script>
+{% endblock %}

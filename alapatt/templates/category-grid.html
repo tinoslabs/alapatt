@@ -132,29 +132,7 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    <!-- <ul class="cate_list">
-                        {% for category in categories %}
-                            <li class="level0 parent">
-                                <a href="#" onclick="toggleSubcategories('subcategory-{{ category.id }}')">
-                                    <span>{{ category.name }}</span>
-                                    <i class="icon-minus"></i><i class="icon-plus"></i>
-                                </a>
-                                <ul class="level0" id="subcategory-{{ category.id }}" style="display: none;">
-                                    {% for sub in subcategories %}
-                                        {% if sub.category.id == category.id %}
-                                            <li class="level1 nav-1-{{ forloop.counter }} item">
-                                                <a href="{% url 'product_list_by_subcategory' category.id sub.id %}">
-                                                    <span>{{ sub.product_name }}</span>
-                                                    <span class="count-item">(22)</span>
-                                                </a>
-                                            </li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                     -->
+                    
                 </aside>
                 <!-- Product Sidebar: End -->
                 <!--Category product grid : Begin -->

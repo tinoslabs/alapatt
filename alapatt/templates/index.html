@@ -313,265 +313,127 @@
 
    </head>    
 
-<body class="home-page">
+<body class="home-page" oncontextmenu="return false;">
     <!--Header: Begin-->
     <!-- <header class="container-fluid clear" style="position: fixed;"> -->
-    <header class="container-fluid clear">
-        <div class="row">
-            <!--Header Top: Begin-->
-            <div id="header-top" class="clear">
-                <!--Header Logo: Begin-->
-                <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
-                    <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo"></a>
-                    <h1 class="hidden-heading">Jewelry</h1>
-                </div>
-                <!--Header Logo: End-->
-                <!--Main Navigation: Begin-->
-                <nav id="main-menu" class="col-sm-pull-4  col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
-                    <ul>
-                        <li>
-                            <span><a href="{% url 'index' %}">home</a></span>
-                        </li>
-                        
-                        <li class="has-sub">
-                            <span><a href="{% url 'gold_ring' %}">Collections</a></span>
-                            <ul class="sub-menu double-column">
-                                <li>
-                                    <h4>Gold</h4>
-                                    <ul>
-                                        <li><a href="{% url 'gold_ring' %}">Ring</a></li>
-                                        <li><a href="{% url 'gold_necklace' %}">Necklace</a></li>
-                                        <li><a href="{% url 'gold_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'gold_bangles' %}">Bangles</a></li>
-                                        <li><a href="{% url 'gold_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'gold_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'gold_earrings' %}">Earrings</a></li>
-                                        
-                                        <li><a href="{% url 'gold_pendants' %}">Pendants</a></li>
-                                        
-                                        
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Diamond</h4>
-                                    <ul>
-                                        <li><a href="{% url 'diamond_necklace' %}">Necklace</a></li>
-                                        <li><a href="{% url 'diamond_ring' %}">Rings</a></li>
-                                        <li><a href="{% url 'diamond_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'diamond_bangles' %}">Bangles</a></li>
-                                        <li><a href="{% url 'diamond_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'diamond_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'diamond_earrings' %}">Earrings</a></li>
-                                        
-                                        <li><a href="{% url 'diamond_pendants' %}">Pendants</a></li>
-                                        
-                                        <!-- <li><a href="{% url 'diamond_ring' %}">Ring</a></li> -->
-                                    </ul>
-                                </li>
-                                <li>
-                                    <h4>Precious Stone</h4>
-                                    <ul>
-                                        <li><a href="{% url 'stone_necklace' %}">Necklace</a></li>
-                                        <li><a href="{% url 'stone_ring' %}">Rings</a></li>
-                                        <li><a href="{% url 'stone_earrings' %}">Earrings</a></li>
-                                        <li><a href="{% url 'stone_anklet' %}">Anklet</a></li>
-                                        <li><a href="{% url 'stone_chain' %}">Chain</a></li>
-                                        <li><a href="{% url 'stone_bracelet' %}">Bracelet</a></li>
-                                        <li><a href="{% url 'stone_bangles' %}">Bangles</a></li>  
-                                    </ul>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <span><a href="#">Purchase Plan</a></span>
-                            <ul class="sub-menu single-column">
-                                <li>
-                                    <h4>Pay Now</h4>
-                                    <ul>
-                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">SWARNA SAYOOJYA</a></li>
-                                        <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">KANAKA SOUBHAGYA</a></li>
-                                        <!-- <li><a href="blog-details.html">blog details</a></li> -->
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li>
-                            <span><a href="{% url 'about' %}">About Us</a></span>
-                        </li>
-                        <li>
-                            <span><a href="{% url 'careers' %}">Careers</a></span>
-                        </li>
-                        <li>
-                            <span><a href="{% url 'contact' %}">contact</a></span>
-                        </li>
-                    </ul>
-                    <span class="mbmenu-icon">
-                        <i class="icon-menu-1"></i>
-                    </span>
-                    <div id="mb-main-menu" class="main-menu">
-                        <div class="mb-menu-title">
-                            <h3>Navigation</h3>
-                            <span id="close-mb-menu">
-                                <i class="icon-cancel-circled"></i>
-                            </span>
-                        </div>
-                        <ul class="sub-cate-list">
-                            <li class="level0">
-                                <a href="{% url 'index' %}">
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Gold</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'gold_anklet' %}" title="Gold Rings"> Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_bangles' %}" title="White Gold Rings">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_bracelet' %}" title="Gemstone Rings">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_chain' %}" title="Silver Rings">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_earrings' %}" title="Silver Rings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_necklace' %}" title="Silver Rings">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_pendants' %}" title="Silver Rings">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'gold_ring' %}" title="Silver Rings">Rings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Diamond</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_anklet' %}" title="Diamond Anklet">Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_bangles' %}" title="Diamond Bangles">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_bracelet' %}" title="Diamond Bracelet">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_chain' %}" title="Diamond Chain">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_earrings' %}" title="Diamond Earrings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_necklace' %}" title="Diamond Necklace">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_pendants' %}" title="Diamond Pendants">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'diamond_ring' %}" title="Diamond Rings">Rings</a>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Precious Stone</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="{% url 'stone_anklet' %}" title="Precious Stone Anklet">Anklet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_bangles' %}" title="Precious Stone Bangles">Bangles</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_bracelet' %}" title="Precious Stone Bracelet">Bracelet</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_chain' %}" title="Precious Stone Chain">Chain</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_earrings' %}" title="Precious Stone Earrings">Earrings</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_necklace' %}" title="Precious Stone Necklace">Necklace</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_pendants' %}" title="Precious Stone Pendants">Pendants</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="{% url 'stone_ring' %}" title="Precious Stone Rings">Rings</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="#">
-                                    <span>Purchase Plan</span>
-                                    <i class="icon-down-open"></i><i class="icon-right-open"></i>
-                                </a>
-                                <ul class="level0">
-                                    <li class="level1">
-                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Anklet">Swarna Sayoojya</a>
-                                    </li>
-                                    <li class="level1">
-                                        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283" title="Precious Stone Bangles">Kanaka Soubhagya</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'about' %}" title="Gemstone Rings">About Us</a>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'careers' %}" title="Gemstone Rings">Careers</a>
-                            </li>
-                            <li class="level0 parent">
-                                <a href="{% url 'contact' %}" title="Gemstone Rings">Contact</a>
-                            </li>
-                           
-                        </ul>
+        <header class="container-fluid clear">
+            <div class="row">
+                <!--Header Top: Begin-->
+                <div id="header-top" class="clear">
+                    <!--Header Logo: Begin-->
+                    <div id="header-logo" class="col-sm-push-4 col-md-push-4 col-lg-push-5">
+                        <a href="{% url 'index' %}"><img src="{% static 'assets/img/Alapatt-Logo-Latest.png' %}" alt="main logo"></a>
+                        <h1 class="hidden-heading">Jewelry</h1>
                     </div>
-                </nav>
-                <!--Main Navigation: End-->
-                <!--Search and Cart: Begin-->
-                <div class="header-right-wrap">
-                    <div class="header-right">
-                        
-                        <div class="search-input">
-                            <div class="input-group">
-                                {% for gold_rate in rate %}
-                                <input type="text" class="form-control" id="gold-rate-input" value="{{ gold_rate.gold_rate }}-INR/gram">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" id="refresh-btn" onclick="fetchGoldRate()" style="color: white;">Gold</button>
-                                </span>
+                    <!--Header Logo: End-->
+                    <!--Main Navigation: Begin-->
+                    <nav id="main-menu" class="col-sm-pull-4 col-md-pull-4 col-lg-pull-2" style="font-size: 13px;">
+                        <ul>
+                            <li><span><a href="{% url 'index' %}">Home</a></span></li>
+        
+                            <li class="has-sub">
+                                <span><a href="#">Collections</a></span>
+                                <ul class="sub-menu double-column">
+                                    {% for collection in collections %}
+                                        <li>
+                                            <h4>{{ collection.get_collection_type_display }}</h4>
+                                            <ul>
+                                                {% for sub_collection in sub_collections %}
+                                                    {% if sub_collection.collection == collection %}
+                                                    <li>
+                                                        <a href="{% url 'collection_products' collection.collection_type sub_collection.sub_collection_type %}">
+                                                            {{ sub_collection.sub_collection_type }}
+                                                        </a>
+                                                    </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+        
+                            <li class="has-sub">
+                                <span><a href="#">Purchase Plan</a></span>
+                                <ul class="sub-menu single-column">
+                                    <li><h4>Pay Now</h4>
+                                        <ul>
+                                            <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Swarna Sayoojya</a></li>
+                                            <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Kanaka Soubhagya</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+        
+                            <li><span><a href="{% url 'about' %}">About Us</a></span></li>
+                            <li><span><a href="{% url 'careers' %}">Careers</a></span></li>
+                            <li><span><a href="{% url 'contact' %}">Contact</a></span></li>
+                        </ul>
+                        <span class="mbmenu-icon"><i class="icon-menu-1"></i></span>
+                        <div id="mb-main-menu" class="main-menu">
+                            <div class="mb-menu-title">
+                                <h3>Navigation</h3>
+                                <span id="close-mb-menu"><i class="icon-cancel-circled"></i></span>
+                            </div>
+                            <ul class="sub-cate-list">
+                                <li class="level0"><a href="{% url 'index' %}"><span>Home</span></a></li>
+                                {% for collection in collections %}
+                                <li class="level0 parent">
+                                    <a href="#">
+                                        <span>{{ collection.get_collection_type_display }}</span>
+                                        <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                    </a>
+                                    <ul class="level0">
+                                        {% for sub_collection in sub_collections %}
+                                            {% if sub_collection.collection == collection %}
+                                            <li class="level1">
+                                                <a href="{% url 'collection_products' collection.collection_type sub_collection.sub_collection_type %}">
+                                                    {{ sub_collection.sub_collection_type }}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
                                 {% endfor %}
+                                <li class="level0 parent">
+                                    <a href="#">
+                                        <span>Purchase Plan</span>
+                                        <i class="icon-down-open"></i><i class="icon-right-open"></i>
+                                    </a>
+                                    <ul class="level0">
+                                        <li class="level1"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Swarna Sayoojya</a></li>
+                                        <li class="level1"><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=112283">Kanaka Soubhagya</a></li>
+                                    </ul>
+                                </li>
+                                <li class="level0 parent"><a href="{% url 'about' %}"><span>About Us</span></a></li>
+                                <li class="level0 parent"><a href="{% url 'careers' %}"><span>Careers</span></a></li>
+                                <li class="level0 parent"><a href="{% url 'contact' %}"><span>Contact</span></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!--Main Navigation: End-->
+                    <!--Search and Cart: Begin-->
+                    <div class="header-right-wrap">
+                        <div class="header-right">
+                            <div class="search-input">
+                                <div class="input-group">
+                                    {% for gold_rate in rate %}
+                                    <input type="text" class="form-control" id="gold-rate-input" value="{{ gold_rate.gold_rate }}-INR/gram">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" id="refresh-btn" onclick="fetchGoldRate()" style="color: white;">Gold</button>
+                                    </span>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    
-                        
                     </div>
+                    <!--Search and Cart: End-->
                 </div>
-                <!--Search and Cart: Begin-->
+                <!--Header Top: End-->
             </div>
-            <!--Header Top: End-->
-        </div>
-    </header>
+        </header>
+        
     <!--Header: End-->
     <!-- Main: Begin -->
     <main>
@@ -588,7 +450,7 @@
                             <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-370" data-y="340" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                                 <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="right" data-hoffset="-400" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="right" data-hoffset="-400" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color: white;">
                                 Crafted with exceptional precision and the highest standards,<br/> each piece of jewellery embodies the essence of purity,<br>celebrating the timeless beauty and unmatched quality that <br>defines every creation. 
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="right" data-hoffset="-430" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -607,7 +469,7 @@
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                                 <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="left" data-hoffset="500" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color" data-x="left" data-hoffset="500" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color: white;">
                                 Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="500" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -624,7 +486,7 @@
                             <div class="tp-caption skewfromrightshort fadeout" data-x="700" data-y="350" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                                 <img src="{% static 'assets/img/slider/alapatt.png' %}" alt="">
                             </div>
-                            <div class="tp-caption skewfromrightshort fadeout slide-color-2" data-x="700" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            <div class="tp-caption skewfromrightshort fadeout slide-color-2" data-x="700" data-y="550" data-speed="500" data-start="1200" data-easing="Power4.easeOut" style="color: white;">
                                 Created to honor the rich potential in every woman, Tiffany Keys <br/> are a vibrant symbol of all that is possible.
                             </div>
                             <div class="tp-caption skewfromrightshort fadeout" data-x="left" data-hoffset="870" data-y="650" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -639,9 +501,7 @@
         <!--Main Slider: End-->
         <!-- New Product: Begin  -->
         
-         
-       
-
+        
         
         <section class="blog-posts-home container">
             <div class="section-header">
@@ -733,7 +593,7 @@
                 </div>
                 <div class="thumb">
                     <a href="{% url 'about' %}">
-                        <img src="{% static 'assets/img/category/335A6501.jpg' %}" alt="New featured Product" style="width: 400px;">
+                        <img src="{% static 'assets/img/335A6501.jpg' %}" alt="New featured Product" style="width: 400px;">
                     </a>
                 </div>
             </div>
@@ -849,13 +709,27 @@
                     
         <!-- Team Member: End -->
         <!-- Grayscale Collection: Begin -->
-        <section class="grayscale-collection-wrap">
+        <!-- <section class="grayscale-collection-wrap">
             <div class="collection-header">
               <div class="video-background">
                 <iframe src="https://www.youtube.com/embed/YRpIRwX7hKU?autoplay=1&mute=1&loop=1&playlist=YRpIRwX7hKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
-          </section>
+        </section> -->
+        <section class="grayscale-collection-wrap">
+            <div class="collection-header">
+                {% for video in video_links %}
+                    <div class="video-background">
+                        <iframe src="https://www.youtube.com/embed/{{ video.video_link|slice:'-11:' }}?autoplay=1&mute=1&loop=1&playlist={{ video.video_link|slice:'-11:' }}" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                {% empty %}
+                    <p>No videos available.</p>
+                {% endfor %}
+            </div>
+        </section>
           
           <style>
             /* CSS Styles */
@@ -909,29 +783,6 @@
                 <!-- Contact: Begin -->
                 <div class="contact">
                     <h3>Contact us</h3>
-                    <!-- <form method="POST" action="{% url 'index' %}" >
-                        {% csrf_token %}
-                    
-                        
-                        <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
-                    
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Your name*">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Your email*">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="phone" placeholder="Your phone" >
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="comment" placeholder="Comments*" rows="10"></textarea>
-                        </div>
-                        <button type="submit" class="jw-button">Send Message</button>
-                    </form> -->
                     <form id="contact-form" method="POST" action="{% url 'index' %}">
                         {% csrf_token %}
                         <div id="success-message" class="form-group" style="display: none; color: green; font-weight: bold;"></div>
@@ -1005,22 +856,8 @@
                     <div class="Messages">
                         <div class="Messages_list"></div>
                     </div>
-                    <!-- <form id="messenger">
-                        {% csrf_token %}
-                        <div class="Input Input-blank">
-   
-                            <input style="max-width: 100%; width:220px;overflow-wrap:break-word;white-space: pre-wrap;" name="msg" class="Input_field" placeholder="Send a message...">
-                            <button type="submit" class="Input_button Input_button-send">
-                                <div class="Icon">
-                                    <svg viewBox="1496 193 57 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <g id="Group-9-Copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1523.000000, 220.000000) rotate(-270.000000) translate(-1523.000000, -220.000000) translate(1499.000000, 193.000000)">
-                                            <path d="M5.42994667,44.5306122 L16.5955554,44.5306122 L21.049938,20.423658 C21.6518463,17.1661523 26.3121212,17.1441362 26.9447801,20.3958097 L31.6405465,44.5306122 L42.5313185,44.5306122 L23.9806326,7.0871633 L5.42994667,44.5306122 Z M22.0420732,48.0757124 C21.779222,49.4982538 20.5386331,50.5306122 19.0920112,50.5306122 L1.59009899,50.5306122 C-1.20169244,50.5306122 -2.87079654,47.7697069 -1.64625638,45.2980459 L20.8461928,-0.101616237 C22.1967178,-2.8275701 25.7710778,-2.81438868 27.1150723,-0.101616237 L49.6075215,45.2980459 C5.08414042,47.7885641 49.1422456,50.5306122 46.3613062,50.5306122 L29.1679835,50.5306122 C27.7320366,50.5306122 26.4974445,49.5130766 26.2232033,48.1035608 L24.0760553,37.0678766 L22.0420732,48.0757124 Z" id="sendicon" fill="#96AAB4" fill-rule="nonzero"></path>
-                                        </g>
-                                    </svg>
-                                </div>
-                            </button>
-                        </div>
-                    </form> -->
+                    
+                    
                     <form id="messenger">
                         {% csrf_token %}
                         <div class="Input Input-blank">
@@ -1235,15 +1072,6 @@
         <!-- Footer bottom: End -->
     </footer>
     
-    <style>
-
-       
-            </style>
-        
-        <style>
-            
-            
-        </style>
        
         
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
@@ -1258,6 +1086,7 @@
     <script src="{% static 'assets/js/jquery.fancybox.pack.js?v=2.1.5' %}" type="text/javascript"></script>
     <script src="{% static 'assets/js/scripts.min.js' %}"></script>
     <script src="{% static 'assets/js/messenger.js' %}"></script>
+    <script src="{% static 'assets/js/hide-inspection.js' %}"></script>
 
             <script>
                 jQuery(document).ready(function($) {
@@ -1287,55 +1116,6 @@
         	});
             </script>
             
-
-
-    <!-- <script>
-        function toggleParagraph(element) {
-            const img = element.querySelector('img');
-            const paragraph = element.querySelector('.hidden-paragraph');
-        
-            if (img.style.display !== 'none') {
-                img.style.display = 'none';
-                paragraph.style.display = 'block';
-            } else {
-                img.style.display = 'block';
-                paragraph.style.display = 'none';
-            }
-        }
-    </script>
-    
-    <script>
-        $(document).ready(function() {
-            $('form').on('submit', function(event) {
-                event.preventDefault(); 
-                var formData = $(this).serialize(); 
-    
-                $.ajax({
-                    type: 'POST',
-                    url: '{% url "index" %}', 
-                    data: formData,
-                    success: function(response) {
-                        
-                        $('#success-message').text('Form submitted successfully...!').show();
-    
-                        
-                        $('form')[0].reset();
-    
-                        
-                        setTimeout(function() {
-                            $('#success-message').fadeOut('slow', function() {
-                                location.reload();
-                            });
-                        }, 5000);
-                    },
-                    error: function(response) {
-                       
-                        alert('An error occurred: ' + response.responseText);
-                    }
-                });
-            });
-        });
-    </script> -->
     <script>
         $(document).ready(function() {
             $('#contact-form').on('submit', function(event) {
