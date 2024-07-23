@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
