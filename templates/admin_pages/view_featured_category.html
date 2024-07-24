@@ -20,6 +20,7 @@
                           <th>
                             Image
                           </th>
+
                           <th>
                             description
                           </th>
@@ -27,6 +28,7 @@
                           <th>
                             Update
                           </th>
+
                           <th>
                             Delete
                           </th>
@@ -40,7 +42,7 @@
                             {{ products.category_name }}
                           </td>
                           {% else %}
-                            <p>No data available</p>
+                            <td>No data available</td>
                           {% endif %}
                           
                           <td style="width: 150px; ">
@@ -49,18 +51,19 @@
                             <br>
                             <!-- <input type="checkbox" name="remove_image"> Remove Current Image -->
                         {% else %}
-                            <p>No image available</p>
+                            <td>No image available</td>
                         {% endif %}
                           </td>
                           
                           {% if products.description %}
                           <td style="width: 150px;">
                             {{ products.description }}
-                          </td>
+                         </td>
                           {% else %}
-                            <p>No data available</p>
+                            <td>No data available</td>
                           {% endif %}
-                          </td>
+                        </td>
+                          
                           
                           <td style="width: 150px; ">
                             <a href="{% url 'update_featured_category' products.id  %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i> </button></a>
