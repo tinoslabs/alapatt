@@ -3,9 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
-from .models import ChatMessage, ClientReview, GoldRate , ContactModel, New_Category,Product_Details, Featured_Category, Featured_Products, Career_Model, Job_Application, CollectionModel ,Sub_Collections, CollectionProducts, AboutVideo
+from .models import Enquiry_Model, Contact_Model, ProductCategory,Client_Review,Gold_Rate,NewCategory,ProductDetails,FeaturedCategory,FeaturedProducts,CareerModel,JobApplication,Collection_Model,SubCollections,Collection_Products,About_Video,Chat_Message
 from .forms import  ClientForm, GoldForm, ContactForm,Product_Form,ProductDtailsForm, Featured_Form, Featured_Product_Form, CareerForm, Job_Application_Form, CollectionForm, SubCollectionForm, CollectionProductsForm, AboutVideoForm
-from .models import ChatMessage
+from .models import Chat_Message
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.http import JsonResponse
@@ -51,15 +51,15 @@ def logout_user(request):
     return redirect('index')
 
 def index(request):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
-    collection_products = CollectionProducts.objects.all()
-    client_review = ClientReview.objects.all()
-    rate = GoldRate.objects.all()
-    product_category = New_Category.objects.all()
-    product_details = Product_Details.objects.all()
-    Featured_Products = Featured_Category.objects.all()
-    video_links = AboutVideo.objects.all()
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
+    collection_products = Collection_Products.objects.all()
+    client_review = Client_Review.objects.all()
+    rate = Gold_Rate.objects.all()
+    product_category = NewCategory.objects.all()
+    product_details = ProductDetails.objects.all()
+    Featured_Products = FeaturedCategory.objects.all()
+    video_links = About_Video.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -97,13 +97,13 @@ def add_product_category(request):
 
 @login_required(login_url='user_login')
 def view_product_category(request):
-    product = New_Category.objects.all().order_by('-id')
+    product = NewCategory.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_product_category.html', {'product': product})
 
 
 @login_required(login_url='user_login')
 def update_product_category(request, id):
-    product = get_object_or_404(New_Category, id=id)
+    product = get_object_or_404(NewCategory, id=id)
     if request.method == 'POST':
         form = Product_Form(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -115,14 +115,14 @@ def update_product_category(request, id):
 
 @login_required(login_url='user_login')
 def delete_product_category(request,id):
-    product = New_Category.objects.get(id=id)
+    product = NewCategory.objects.get(id=id)
     product.delete()
     return redirect('view_product_category')
 
 
 @login_required(login_url='user_login')
 def admin_add_product_details(request):
-    categories = New_Category.objects.all() 
+    categories = NewCategory.objects.all() 
     if request.method == 'POST':
         product_details = ProductDtailsForm(request.POST, request.FILES)
         if product_details.is_valid():
@@ -136,13 +136,13 @@ def admin_add_product_details(request):
 
 @login_required(login_url='user_login')
 def admin_view_product_details(request):
-    products = Product_Details.objects.all().order_by('-id')
+    products = ProductDetails.objects.all().order_by('-id')
     return render(request,'admin_pages/admin_view_product_details.html',{'products':products})
 
 @login_required(login_url='user_login')
 def admin_update_product_details(request, id):
-    products = get_object_or_404(Product_Details, id=id)
-    categories = New_Category.objects.all()  
+    products = get_object_or_404(ProductDetails, id=id)
+    categories = NewCategory.objects.all()  
 
     if request.method == 'POST':
         form = ProductDtailsForm(request.POST, request.FILES, instance=products)
@@ -156,7 +156,7 @@ def admin_update_product_details(request, id):
 
 @login_required(login_url='user_login')
 def admin_delete_product_details(request,id):
-    products = Product_Details.objects.get(id=id)
+    products = ProductDetails.objects.get(id=id)
     products.delete()
     return redirect('admin_view_product_details')
 
@@ -174,12 +174,12 @@ def add_featured_product_category(request):
 
 @login_required(login_url='user_login')
 def view_featured_category(request):
-    product = Featured_Category.objects.all().order_by('-id')
+    product = FeaturedCategory.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_featured_category.html', {'product': product})
 
 @login_required(login_url='user_login')
 def update_featured_category(request, id):
-    product = get_object_or_404(Featured_Category, id=id)
+    product = get_object_or_404(FeaturedCategory, id=id)
     if request.method == 'POST':
         form = Featured_Form(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -191,13 +191,13 @@ def update_featured_category(request, id):
 
 @login_required(login_url='user_login')
 def delete_featured_category(request,id):
-    products = Featured_Category.objects.get(id=id)
+    products = FeaturedCategory.objects.get(id=id)
     products.delete()
     return redirect('view_featured_category')
 
 @login_required(login_url='user_login')
 def add_featured_details(request):
-    categories = Featured_Category.objects.all()
+    categories = FeaturedCategory.objects.all()
     if request.method == 'POST':
         details = Featured_Product_Form(request.POST, request.FILES)
         if details.is_valid():
@@ -210,13 +210,13 @@ def add_featured_details(request):
 
 @login_required(login_url='user_login')
 def view_featured_details(request):
-    products = Featured_Products.objects.all().order_by('-id')
+    products = FeaturedProducts.objects.all().order_by('-id')
     return render(request,'admin_pages/view_featured_details.html',{'products':products})
 
 @login_required(login_url='user_login')
 def update_featured_details(request, id):
-    products = get_object_or_404(Featured_Products, id=id)
-    categories = Featured_Category.objects.all()  
+    products = get_object_or_404(FeaturedProducts, id=id)
+    categories = FeaturedCategory.objects.all()  
 
     if request.method == 'POST':
         form = Featured_Product_Form(request.POST, request.FILES, instance=products)
@@ -230,18 +230,18 @@ def update_featured_details(request, id):
 
 @login_required(login_url='user_login')
 def delete_featured_details(request,id):
-    products = Featured_Products.objects.get(id=id)
+    products = FeaturedProducts.objects.get(id=id)
     products.delete()
     return redirect('view_featured_details')
 
 @login_required(login_url='user_login')
 def view_enquiry(request):
-    enquiry = ContactModel.objects.all().order_by('-id')
+    enquiry = Contact_Model.objects.all().order_by('-id')
     return render(request,'admin_pages/view_enquiry.html',{'enquiry':enquiry})
 
 @login_required(login_url='user_login')
 def delete_enquiry(request,id):
-    enquiry = ContactModel.objects.get(id=id)
+    enquiry = Contact_Model.objects.get(id=id)
     enquiry.delete()
     return redirect('view_enquiry')
 
@@ -260,12 +260,12 @@ def add_client_reviews(request):
 
 @login_required(login_url='user_login')
 def view_client_reviews(request):
-    client_reviews = ClientReview.objects.all().order_by('-id')
+    client_reviews = Client_Review.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_client_reviews.html', {'client_reviews': client_reviews})
 
 @login_required(login_url='user_login')
 def update_client_reviews(request, id):
-    client_reviews = get_object_or_404(ClientReview, id=id)
+    client_reviews = get_object_or_404(Client_Review, id=id)
     if request.method == 'POST':
         form = ClientForm(request.POST, request.FILES, instance=client_reviews)
         if form.is_valid():
@@ -278,7 +278,7 @@ def update_client_reviews(request, id):
 
 @login_required(login_url='user_login')
 def delete_client_review(request,id):
-    client_reviews = ClientReview.objects.get(id=id)
+    client_reviews = Client_Review.objects.get(id=id)
     client_reviews.delete()
     return redirect('view_client_reviews')
 
@@ -295,12 +295,12 @@ def add_gold_rate(request):
 
 @login_required(login_url='user_login')
 def view_gold_rate(request):
-    gold_rate = GoldRate.objects.all().order_by('-id')
+    gold_rate = Gold_Rate.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_gold_rate.html', {'gold_rate': gold_rate})
 
 @login_required(login_url='user_login')
 def update_gold_rate(request, id):
-    gold_rate = get_object_or_404(GoldRate, id=id)
+    gold_rate = get_object_or_404(Gold_Rate, id=id)
     if request.method == 'POST':
         form = GoldForm(request.POST, request.FILES, instance=gold_rate)
         if form.is_valid():
@@ -312,7 +312,7 @@ def update_gold_rate(request, id):
 
 @login_required(login_url='user_login')
 def delete_gold_rate(request,id):
-    gold_rate = GoldRate.objects.get(id=id)
+    gold_rate = Gold_Rate.objects.get(id=id)
     gold_rate.delete()
     return redirect('view_gold_rate')
 
@@ -330,12 +330,12 @@ def add_job_details(request):
 
 @login_required(login_url='user_login')
 def view_job_details(request):
-    job_details = Career_Model.objects.all().order_by('-id')
+    job_details = CareerModel.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_job_details.html', {'job_details': job_details})
 
 @login_required(login_url='user_login')
 def update_job_details(request, id):
-    job_details = get_object_or_404(Career_Model, id=id)
+    job_details = get_object_or_404(CareerModel, id=id)
     if request.method == 'POST':
         form = CareerForm(request.POST, request.FILES, instance=job_details)
         if form.is_valid():
@@ -348,18 +348,18 @@ def update_job_details(request, id):
 
 @login_required(login_url='user_login')
 def delete_job_details(request,id):
-    job_details = Career_Model.objects.get(id=id)
+    job_details = CareerModel.objects.get(id=id)
     job_details.delete()
     return redirect('view_job_details')
 
 @login_required(login_url='user_login')
 def view_job_application(request):
-    applications = Job_Application.objects.all().order_by('-id')
+    applications = JobApplication.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_job_application.html', {'applications': applications})
 
 @login_required(login_url='user_login')
 def delete_job_application(request, id):
-    candidate = get_object_or_404(Job_Application, id=id)
+    candidate = get_object_or_404(JobApplication, id=id)
     candidate.delete()
     return redirect('view_job_application')
 
@@ -381,12 +381,12 @@ def create_collections(request):
 
 @login_required(login_url='user_login')
 def view_collections(request):
-    collections = CollectionModel.objects.all().order_by('-id')
+    collections = Collection_Model.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_collections.html', {'collections': collections})
 
 @login_required(login_url='user_login')
 def update_collection(request, id):
-    collection = get_object_or_404(CollectionModel, id=id)
+    collection = get_object_or_404(Collection_Model, id=id)
     if request.method == 'POST':
         form = CollectionForm(request.POST, instance=collection)
         if form.is_valid():
@@ -398,13 +398,13 @@ def update_collection(request, id):
 
 @login_required(login_url='user_login')
 def delete_collection(request, id):
-    collection = get_object_or_404(CollectionModel, id=id)   
+    collection = get_object_or_404(Collection_Model, id=id)   
     collection.delete()
     return redirect('view_collections')
     
 @login_required(login_url='user_login')
 def create_sub_collections(request):
-    collections = CollectionModel.objects.all()
+    collections = Collection_Model.objects.all()
     if request.method == 'POST':
         form = SubCollectionForm(request.POST,request.FILES)
         if form.is_valid():
@@ -419,13 +419,13 @@ def create_sub_collections(request):
 
 @login_required(login_url='user_login')
 def view_sub_collections(request):
-    sub_collections = Sub_Collections.objects.all().order_by('-id')
+    sub_collections = SubCollections.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_sub_collections.html', {'sub_collections': sub_collections})
 
 
 @login_required(login_url='user_login')
 def update_sub_collection(request, id):
-    sub_collection = get_object_or_404(Sub_Collections, id=id)
+    sub_collection = get_object_or_404(SubCollections, id=id)
     if request.method == 'POST':
         form = SubCollectionForm(request.POST, request.FILES, instance=sub_collection)
         if form.is_valid():
@@ -441,14 +441,14 @@ def update_sub_collection(request, id):
 
 @login_required(login_url='user_login')
 def delete_sub_collection(request, id):
-    sub_collection = get_object_or_404(Sub_Collections, id=id)
+    sub_collection = get_object_or_404(SubCollections, id=id)
     sub_collection.delete()
     return redirect('view_sub_collections')  # Replace with the name of your view for viewing all sub-collections
     
 @login_required(login_url='user_login')
 def create_collection_products(request):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
     
     if request.method == 'POST':
         form = CollectionProductsForm(request.POST, request.FILES)
@@ -469,19 +469,19 @@ def create_collection_products(request):
 @login_required(login_url='user_login')
 def load_sub_collections(request):
     collection_id = request.GET.get('collection_id')
-    sub_collections = Sub_Collections.objects.filter(collection_id=collection_id).values('id', 'sub_collection_type')
+    sub_collections = SubCollections.objects.filter(collection_id=collection_id).values('id', 'sub_collection_type')
     return JsonResponse(list(sub_collections), safe=False)
 
 @login_required(login_url='user_login')
 def view_collection_products(request):
-    products = CollectionProducts.objects.all().order_by('-id')
+    products = Collection_Products.objects.all().order_by('-id')
     return render(request, 'admin_pages/view_collection_products.html', {'products': products})
 
 @login_required(login_url='user_login')
 def update_collection_product(request, id):
-    product = get_object_or_404(CollectionProducts, id=id)
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.filter(collection=product.collections)
+    product = get_object_or_404(Collection_Products, id=id)
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.filter(collection=product.collections)
     
     if request.method == 'POST':
         form = CollectionProductsForm(request.POST, request.FILES, instance=product)
@@ -500,13 +500,13 @@ def update_collection_product(request, id):
 @login_required(login_url='user_login')
 def load_sub_collections(request):
     collection_id = request.GET.get('collection_id')
-    sub_collections = Sub_Collections.objects.filter(collection_id=collection_id)
+    sub_collections = SubCollections.objects.filter(collection_id=collection_id)
     data = list(sub_collections.values('id', 'sub_collection_type'))
     return JsonResponse(data, safe=False)
 
 @login_required(login_url='user_login')
 def delete_collection_product(request, id):
-    product = get_object_or_404(CollectionProducts, id=id)
+    product = get_object_or_404(Collection_Products, id=id)
     product.delete()
     return redirect('view_collection_products')
 
@@ -525,13 +525,13 @@ def create_about_video(request):
     
 
 def view_about_video(request):
-    links = AboutVideo.objects.all()
+    links = About_Video.objects.all()
     return render(request,'admin_pages/view_about_video.html',{'links':links})
     
 
 @login_required(login_url='user_login')
 def update_about_video(request, id):
-    video = get_object_or_404(AboutVideo, id=id)
+    video = get_object_or_404(About_Video, id=id)
 
     if request.method == 'POST':
         form = AboutVideoForm(request.POST, instance=video)
@@ -545,22 +545,22 @@ def update_about_video(request, id):
 
 @login_required(login_url='user_login')
 def delete_about_video(request, id):
-    video = get_object_or_404(AboutVideo, id=id)
+    video = get_object_or_404(About_Video, id=id)
     video.delete()
     return redirect('view_about_video')
 
 # Chatbot Section
 from django.http import JsonResponse
-from .models import ChatMessage
+from .models import Chat_Message
 
 @login_required(login_url='user_login')
 def chatbot_message_view(request):
-    chatbot = ChatMessage.objects.all().order_by('-id')
+    chatbot = Chat_Message.objects.all().order_by('-id')
     return render(request,'admin_pages/chatbot_message_view.html',{'chatbot':chatbot})
 
 @login_required(login_url='user_login')
 def delete_message(request,id):
-    chatbot = ChatMessage.objects.get(id=id)
+    chatbot = Chat_Message.objects.get(id=id)
     chatbot.delete()
     return redirect('chatbot_message_view')
     
@@ -576,7 +576,7 @@ def submit_query(request):
         
         if name and phone_number and email and message:
             # Save the data to the ChatMessage model
-            ChatMessage.objects.create(
+            Chat_Message.objects.create(
                 name=name,
                 phone_number=phone_number,
                 email=email,
@@ -589,10 +589,10 @@ def submit_query(request):
 
 
 def Product_details(request,category_name):
-    category = New_Category.objects.all()
-    if(New_Category.objects.filter(category_name=category_name, status=0)):
-        product_details = Product_Details.objects.filter(category__category_name=category_name)
-        category_name = New_Category.objects.filter(category_name=category_name).first()
+    category = NewCategory.objects.all()
+    if(NewCategory.objects.filter(category_name=category_name, status=0)):
+        product_details = ProductDetails.objects.filter(category__category_name=category_name)
+        category_name = NewCategory.objects.filter(category_name=category_name).first()
         context = {'product_details': product_details,'category_name':category_name,'category':category}
         return render(request,"Product_details.html",context)
     else:
@@ -601,10 +601,10 @@ def Product_details(request,category_name):
 
 
 def featured_products(request,category_name):
-    category = Featured_Category.objects.all()
-    if(Featured_Category.objects.filter(category_name=category_name, status=0)):
-        product_details = Featured_Products.objects.filter(category__category_name=category_name)
-        category_name = Featured_Category.objects.filter(category_name=category_name).first()
+    category = FeaturedCategory.objects.all()
+    if(FeaturedCategory.objects.filter(category_name=category_name, status=0)):
+        product_details = FeaturedProducts.objects.filter(category__category_name=category_name)
+        category_name = FeaturedCategory.objects.filter(category_name=category_name).first()
         context = {'product_details': product_details,'category_name':category_name,'category':category}
         return render(request,"Featured_Product_details.html",context)
     else:
@@ -615,11 +615,11 @@ def featured_products(request,category_name):
 
 
 def collection_products(request, collection_type, sub_collection_type):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
-    collection = get_object_or_404(CollectionModel, collection_type=collection_type)
-    sub_collection = get_object_or_404(Sub_Collections, sub_collection_type=sub_collection_type, collection=collection)
-    details = CollectionProducts.objects.filter(
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
+    collection = get_object_or_404(Collection_Model, collection_type=collection_type)
+    sub_collection = get_object_or_404(SubCollections, sub_collection_type=sub_collection_type, collection=collection)
+    details = Collection_Products.objects.filter(
         collections=collection, 
         sub_collection=sub_collection
     )
@@ -645,7 +645,7 @@ def collection_products(request, collection_type, sub_collection_type):
 
 def job_application(request):
     # job_positions = Career_Model.objects.all()
-    job_positions = Career_Model.objects.filter(end_date__gte=timezone.now())
+    job_positions = CareerModel.objects.filter(end_date__gte=timezone.now())
     if request.method == 'POST':
         form = Job_Application_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -660,15 +660,15 @@ def job_application(request):
 
 def generate_certificate_url(id):
     try:
-        certificate = Job_Application.objects.get(id1=id)
+        certificate = JobApplication.objects.get(id1=id)
         return f'{settings.MEDIA_URL}{certificate.pdf_file}'
-    except Job_Application.DoesNotExist:
+    except JobApplication.DoesNotExist:
         return None
 
 
 def contact(request):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -680,10 +680,10 @@ def contact(request):
 
 
 def about(request):
-    data = ClientReview.objects.all()
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
-    video_links = AboutVideo.objects.all()
+    data = Client_Review.objects.all()
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
+    video_links = About_Video.objects.all()
     return render(request,'about.html',{'data':data,'video_links':video_links,'collections':collections,'sub_collections':sub_collections})
 
 def contact_new(request):
@@ -691,15 +691,15 @@ def contact_new(request):
 
 
 def careers(request):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
-    jobs = Career_Model.objects.filter(end_date__gte=timezone.now())
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
+    jobs = CareerModel.objects.filter(end_date__gte=timezone.now())
     return render(request, 'career.html', {'jobs': jobs,'collections':collections,'sub_collections':sub_collections})
 
 def job_details(request,job_position):
-    collections = CollectionModel.objects.all()
-    sub_collections = Sub_Collections.objects.all()
-    job_details = get_object_or_404(Career_Model, job_position=job_position)
+    collections = Collection_Model.objects.all()
+    sub_collections = SubCollections.objects.all()
+    job_details = get_object_or_404(CareerModel, job_position=job_position)
     return render(request,'job_details.html',{'job_details':job_details,'collections':collections,'sub_collections':sub_collections})
 
    

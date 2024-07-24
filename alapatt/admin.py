@@ -3,5 +3,3 @@ from .models import *
 # Register your models here.
 
 # admin.site.register(ProductDetails)
-admin.site.register(ContactModel)
-admin.site.register(CollectionProducts)
