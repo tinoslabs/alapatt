@@ -3,7 +3,7 @@ from ckeditor.fields import RichTextField
 from django.utils import timezone
 # Create your models here.
 
-class EnquiryModel(models.Model):
+class Enquiry_Model(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=10)
@@ -14,7 +14,7 @@ class EnquiryModel(models.Model):
         return self.name
 
 
-class ContactModel(models.Model):
+class Contact_Model(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
@@ -25,7 +25,7 @@ class ContactModel(models.Model):
         return self.name
     
 
-class product_category(models.Model):
+class ProductCategory(models.Model):
     name = models.CharField(max_length=100)
     status = models.BooleanField(default=False,help_text="0-default,1-Hidden")
 
@@ -33,7 +33,7 @@ class product_category(models.Model):
         return self.name
 
 
-class ChatMessage(models.Model):
+class Chat_Message(models.Model):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15)
     email = models.EmailField()
@@ -44,7 +44,7 @@ class ChatMessage(models.Model):
         return f"Message from {self.name}"
     
     
-class ClientReview(models.Model):
+class Client_Review(models.Model):
     client_name = models.CharField(max_length=100, null=True, blank=True)
     client_image = models.ImageField(upload_to='client_images/', null=True, blank=True)
     review = models.TextField(null=True, blank=True)
@@ -53,11 +53,11 @@ class ClientReview(models.Model):
         return self.client_name
 
 
-class GoldRate(models.Model):
+class Gold_Rate(models.Model):
     gold_rate = models.DecimalField(max_digits=8, decimal_places=2)
     
 
-class New_Category(models.Model):
+class NewCategory(models.Model):
     category_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/', null=True,blank=True)
     description = models.CharField(max_length=500, null=True,blank=True)
@@ -66,8 +66,8 @@ class New_Category(models.Model):
     def __str__(self):
         return self.category_name
     
-class Product_Details(models.Model):
-     category = models.ForeignKey(New_Category, on_delete=models.CASCADE)
+class ProductDetails(models.Model):
+     category = models.ForeignKey(NewCategory, on_delete=models.CASCADE)
      product_name = models.CharField(max_length=100,null=True,blank=True)
      product_price = models.DecimalField(max_digits=8, decimal_places=2,null=True,blank=True)
      product_image = models.ImageField(upload_to='images/')
@@ -75,7 +75,7 @@ class Product_Details(models.Model):
      def __str__(self):
         return self.product_name or "Unnamed Product"
      
-class Featured_Category(models.Model):
+class FeaturedCategory(models.Model):
     category_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/', null=True,blank=True)
     description = models.CharField(max_length=500, null=True,blank=True)
@@ -84,8 +84,8 @@ class Featured_Category(models.Model):
         return self.category_name
 
 
-class Featured_Products(models.Model):
-     category = models.ForeignKey(Featured_Category, on_delete=models.CASCADE)
+class FeaturedProducts(models.Model):
+     category = models.ForeignKey(FeaturedCategory, on_delete=models.CASCADE)
      product_name = models.CharField(max_length=100,null=True,blank=True)
      product_price = models.DecimalField(max_digits=8, decimal_places=2,null=True,blank=True)
      product_image = models.ImageField(upload_to='images/')
@@ -94,7 +94,7 @@ class Featured_Products(models.Model):
         return self.product_name or "Unnamed Product"
      
      
-class Career_Model(models.Model):    
+class CareerModel(models.Model):    
     job_position = models.CharField(max_length=100)
     job_type = models.CharField(max_length=100)
     company_name = models.CharField(max_length=100)
@@ -109,20 +109,20 @@ class Career_Model(models.Model):
     
 
 
-class Job_Application(models.Model):
+class JobApplication(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     address = models.CharField(max_length=500)
     email = models.EmailField(max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
     pdf_file = models.FileField(upload_to='pdfs/')
-    job_position = models.ForeignKey(Career_Model, on_delete=models.CASCADE, related_name='candidates', null=True)
+    job_position = models.ForeignKey(CareerModel, on_delete=models.CASCADE, related_name='candidates', null=True)
     
     def _str_(self):
         return self.first_name
 
 
-class CollectionModel(models.Model):
+class Collection_Model(models.Model):
     class CollectionTypes(models.TextChoices):
         GOLD = 'Gold', 'Gold'
         DIAMOND = 'Diamond', 'Diamond'
@@ -136,7 +136,7 @@ class CollectionModel(models.Model):
     def __str__(self):
         return self.collection_type
 
-class Sub_Collections(models.Model):
+class SubCollections(models.Model):
     class SubCollection(models.TextChoices):
         RING = 'ring', 'Ring'
         NECKLACE = 'necklace', 'Necklace'
@@ -152,21 +152,25 @@ class Sub_Collections(models.Model):
         choices=SubCollection.choices,
         default=SubCollection.RING,
     )
-    collection = models.ForeignKey(CollectionModel, on_delete=models.CASCADE)
+    collection = models.ForeignKey(Collection_Model, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.sub_collection_type
 
-class CollectionProducts(models.Model):
+class Collection_Products(models.Model):
     product_name = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    collections = models.ForeignKey(CollectionModel, on_delete=models.CASCADE)
-    sub_collection = models.ForeignKey(Sub_Collections, on_delete=models.CASCADE)
+    collections = models.ForeignKey(Collection_Model, on_delete=models.CASCADE)
+    sub_collection = models.ForeignKey(SubCollections, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.product_name or 'Unnamed Product'
 
     
-class AboutVideo(models.Model):
+class About_Video(models.Model):
     video_link = models.URLField(max_length=200, unique=True, null=True, blank=True)
+
+    
+
+ 
  
