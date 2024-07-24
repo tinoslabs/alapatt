@@ -100,7 +100,7 @@ class Career_Model(models.Model):
     company_name = models.CharField(max_length=100)
     place = models.CharField(max_length=100)
     salary = models.IntegerField()
-    job_details = RichTextField(max_length=20000)
+    job_details = models.TextField()
     posted_date = models.DateField()
     end_date = models.DateTimeField()
     
